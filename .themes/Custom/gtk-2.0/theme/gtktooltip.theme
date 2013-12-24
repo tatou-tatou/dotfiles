@@ -1,0 +1,6 @@
+style"gtktooltip"
+{
+xthickness=2
+ythickness=2
+}
+widget"gtk-tooltip*"style"gtktooltip"

@@ -1,0 +1,7 @@
+style"gtkentry"
+{
+xthickness=1
+ythickness=1
+GtkEntry::inner-border={2,2,1,1}
+}
+class"GtkEntry"style"gtkentry"

@@ -1,0 +1,9 @@
+style"gtkscrolledwindow"
+{
+xthickness=1
+ythickness=1
+GtkScrolledWindow::scrollbar-spacing=5
+GtkScrolledWindow::scrollbars-within-bevel=0
+GtkScrolledWindow::shadow-type=GTK_SHADOW_IN
+}
+widget_class"*GtkScrolledWindow*"style"gtkscrolledwindow"

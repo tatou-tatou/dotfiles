@@ -1,0 +1,26 @@
+## GÉNÉRAL ##
+always-display-description true
+auto-reload yes
+browser "firefox-nightly %u > /dev/null 2>&1 &"
+html-renderer "internal"
+keep-articles-days 30
+articlelist-format "%4i %f %D %?T?;%-17T; ?%t"
+feedlist-format " %2n %11u %t"
+datetime-format "%b %d"
+refresh-on-startup yes
+reload-time 60
+show-read-feeds no
+
+## NOTFICATIONS ##
+#notify-program "/usr/bin/notify-send"
+#notify-beep no
+
+## COULEURS ##
+color background cyan default bold
+color info color16 green
+color listnormal white default
+color listfocus white magenta
+color listnormal_unread red default
+color listfocus_unread default magenta
+color article default default
+

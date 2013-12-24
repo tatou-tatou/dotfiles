@@ -1,0 +1,92 @@
+style "xfcepanel"
+{
+xthickness=0
+ythickness=0
+GtkButton::inner-border={2,2,1,1}
+GtkButton::default-border={8,8,8,8}
+GtkButton::default-outside-border={8,8,8,8}
+GtkButton::image-spacing=5
+fg[NORMAL]="#fff"
+fg[PRELIGHT]="#fff"
+fg[SELECTED]="#fff"
+fg[ACTIVE]="#fff"
+fg[INSENSITIVE]="#888"
+bg[NORMAL]="#292929"
+bg[PRELIGHT]="#277599"
+bg[SELECTED]="#e07713"
+bg[ACTIVE]="#e04613"
+bg[INSENSITIVE]="#292929"
+base[NORMAL]="#292929"
+base[PRELIGHT]="#292929"
+base[ACTIVE]="#292929"
+base[SELECTED]="#292929"
+base[INSENSITIVE]="#292929"
+text[NORMAL]="#ff00ff"
+text[PRELIGHT]="#ff00ff"
+text[ACTIVE]="#ff00ff"
+text[SELECTED]="#ff00ff"
+text[INSENSITIVE]="#888"
+engine"pixmap"
+{
+image
+{
+function=SHADOW
+file="../images/panelbg-bottom.gif"
+stretch=TRUE
+border={0,0,1,0}
+}
+}
+}
+widget_class "XfcePanelWindow*" style "xfcepanel"
+widget_class "XfceTasklist*" style "xfcepanel"
+widget_class "*Xfce*ActionsPlugin*" style "xfcepanel"
+widget_class "*Xfce*SystrayPlugin*" style "xfcepanel"
+widget_class "*Xfce*BrightnessButton*" style "xfcepanel"
+
+style "xfcepanelsystraytogglebutton"
+{
+xthickness=0
+ythickness=0
+GtkButton::inner-border = {1,1,1,1}
+fg[NORMAL]="#fff"
+fg[PRELIGHT]="#fff"
+fg[SELECTED]="#fff"
+fg[ACTIVE]="#fff"
+fg[INSENSITIVE]="#888"
+bg[NORMAL]="#292929"
+bg[PRELIGHT]="#292929"
+bg[SELECTED]="#292929"
+bg[ACTIVE]="#292929"
+bg[INSENSITIVE]="#292929"
+base[NORMAL]="#292929"
+base[PRELIGHT]="#292929"
+base[SELECTED]="#292929"
+base[ACTIVE]="#292929"
+base[INSENSITIVE]="#292929"
+}
+widget_class "*Xfce*SystrayPlugin*Button*" style "xfcepanelsystraytogglebutton"
+
+style "xfcepanelclock"
+{
+xthickness=5
+ythickness=5
+engine"mist"
+{}}
+widget_class "*XfcePanelWindow*ClockPlugin*" style "xfcepanelclock"
+
+style "xfcepanellabelimage"
+{
+fg[NORMAL]="#fff"
+fg[PRELIGHT]="#fff"
+fg[SELECTED]="#fff"
+fg[ACTIVE]="#fff"
+fg[INSENSITIVE]="#888"
+engine"mist"
+{}}
+widget_class "*XfcePanelWindow*Image*" style "xfcepanellabelimage"
+widget_class "*Xfce*ActionsPlugin*Image*" style "xfcepanellabelimage"
+widget_class "*Xfce*SystrayPlugin*Image*" style "xfcepanellabelimage"
+widget_class "*XfcePanelWindow*GtkLabel*" style "xfcepanellabelimage"
+widget_class "*Xfce*ActionsPlugin*GtkLabel*" style "xfcepanellabelimage"
+widget_class "*Xfce*SystrayPlugin*GtkLabel*" style "xfcepanellabelimage"
+widget_class "*Xfce*Plugin*GtkLabel*" style "xfcepanellabelimage"

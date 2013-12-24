@@ -1,0 +1,11 @@
+style"chromium"
+{
+ChromeGtkFrame::frame-color="#292929"
+ChromeGtkFrame::inactive-frame-color="#292929"
+ChromeGtkFrame::frame-gradient-size=0
+ChromeGtkFrame::frame-gradient-color="#292929"
+ChromeGtkFrame::scrollbar-trough-color="#fafafa"
+ChromeGtkFrame::scrollbar-slider-prelight-color="#A7341B"
+ChromeGtkFrame::scrollbar-slider-normal-color="#A7341B"
+}
+class"ChromeGtkFrame"style"chromium"

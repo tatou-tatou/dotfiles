@@ -1,0 +1,50 @@
+search ncmp
+rename config_backup
+cd .bin
+rename coverart-meh-NEW
+shell ./cov
+rename gtk-3.0
+q
+rename not-butter.vim
+rename not-butter-graawr.vim
+cd .vim
+shell chmod +x not-butter-graawr.vim
+open_with zathura
+mkdir Perso
+bioc
+rename Biochimie-fin.pdf
+mkdir MB 1
+mkdir MB 4
+mkdir MB 5
+mkdir MB2
+rename MB 2
+shell fusionpd
+rename MB1.pdf
+rename MB2.pdf
+rename MB4.pdf
+rename MB3.pdf
+search unb
+rename YumeNikki (6)-niveaux changés.png
+mkdir Scrot
+mkdir Configfiles
+open_with sxiv
+open_with 2
+shell makepkg -i
+search nouk
+rename archey
+search qu
+mkdir test
+delete 
+open_with firefox-nightly
+open_with llpc
+open_with llpp
+search termi
+
+open_with mpv
+open_with 
+cd .
+open_with vim
+open_with 1
+delete
+shell makepkg
+shell makepkg 

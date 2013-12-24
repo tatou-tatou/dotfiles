@@ -1,0 +1,17 @@
+style"gtkexpander"
+{
+GtkExpander::expander-size=8
+GtkExpander::expander-spacing=2
+GtkExpander::expander-spacing=2
+fg[NORMAL]="#555"
+fg[PRELIGHT]="#555"
+fg[SELECTED]="#555"
+fg[ACTIVE]="#555"
+fg[INSENSITIVE]="#dadada"
+text[NORMAL]="#555"
+text[PRELIGHT]="#555"
+text[ACTIVE]="#555"
+text[SELECTED]="#555"
+text[INSENSITIVE]="#dadada"
+}
+class"GtkExpander"style"gtkexpander"

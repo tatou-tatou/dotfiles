@@ -1,0 +1,8 @@
+style"gtkiconview"
+{
+bg[SELECTED]="#292929"
+text[SELECTED]="#fff"
+GtkIconView::selection-box-alpha=20
+GtkIconView::selection-box-color="#292929"
+}
+widget_class"*GtkIconView*"style"gtkiconview"

@@ -1,0 +1,25 @@
+style"gtktoolbarhandle"
+{
+engine"pixmap"
+{
+image
+{
+function=HANDLE
+file="../images/fafafa.gif"
+stretch=TRUE
+overlay_file="../images/hhandle.gif"
+overlay_stretch=FALSE
+orientation=HORIZONTAL
+}
+image
+{
+function=HANDLE
+file="../images/fafafa.gif"
+stretch=TRUE
+overlay_file="../images/vhandle.gif"
+overlay_stretch	=FALSE
+orientation=VERTICAL
+}
+}
+}
+widget_class"*GtkHandleBox*"style"gtktoolbarhandle"
