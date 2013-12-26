@@ -1,0 +1,88 @@
+body {
+background-color: #60687F;
+text-align: center;
+font-family: ProFont;
+font-size: 12px;
+color: #606060;
+}
+
+#titre {
+font-family: PreCursive;
+font-size: 48px;
+/*font-weight: bold;*/
+/*letter-spacing: -2px;*/
+color: #702512;
+margin: 10% 0 0 0;
+/*text-shadow:
+    -1px -1px 0 #3F3E3D,
+    1px -1px 0 #3F3E3D,
+    -1px 1px 0 #3F3E3D,
+    1px 1px 0 #3F3E3D;*/
+}
+
+#sous-titre {
+color: #30343F;
+}
+
+#rectangleblanc {
+display: table;
+background-color: #FAFAFA;
+width: 100%;
+
+border-style: solid;
+border-color: #DADADA;
+border-width: 1px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+    }
+
+strong {
+	color:#A7341B;
+}
+hr {
+width: 30%;
+/*margin-top:10px;*/
+margin-bottom:10px;
+}
+#retour a:link, #retour a:visited {
+/*color:#A7341B;*/
+}
+#container {
+margin: 2.5% 2.5% 2.5% 2.5%;
+}
+
+#image {
+margin: 0px 0px 5px 0px;
+}
+
+.liens {
+margin: 0px 0px 0px 0px;
+}
+
+#recherche {
+margin: 5px 0px 0px 0px;
+}
+input{
+font-family: ProFont;
+font-size:12px;
+}
+
+a:link {
+	color: #606060;
+	text-decoration: none;
+}
+a:visited {
+	color: #606060;
+	text-decoration: none;
+}
+a:hover {
+	color: #808080;
+	text-decoration: none;
+}
+a:active {
+	color: #606060;
+	text-decoration: none;
+}

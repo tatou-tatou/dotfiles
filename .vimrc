@@ -33,7 +33,8 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
-set guifont=DejaVu\ Sans\ Mono\ 8
+"set guifont=DejaVu\ Sans\ Mono\ 8
+set guifont=MonteCarlo\ 11
 
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:block-Cursor

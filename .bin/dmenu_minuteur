@@ -1,0 +1,26 @@
+#!/bin/bash
+
+i="0"
+
+chrono=$(echo "" | dmenu -p "Temps :" -x 415 -y 330 -w 450 -h 20 -l 1 -fn MonteCarlo-8 -nb '#0D0706' -nf '#ECECEE' -sb '#740000' -sf '#ECECEE')
+
+while [ $i -lt $chrono ]
+do
+	m=$[$chrono-$i]
+	dzen-notify "^fg(#A7341B)$m^fg() secondes" 200 2&
+	i=$[i+1]
+	sleep 1
+done
+
+	dzen-notify "C'est l'^fg(#A7341B)heure^fg() !" 200 10& dzenpid=$!
+
+mpc pause
+#mpv "/home/tatou/Music/Tokyo Active NEETs/東方爆音ジャズ/05 弾幕注意報.mp3" & reimupid=$!
+mpv "/home/tatou/Music/Electro Planet/[C83] BPM FxxKER/03-Clean tears-none the wiser.mp3" & reimupid=$!
+
+
+	echo "" | dmenu -b -p "'ENTRÉE pour arrêter la musique." -fn MonteCarlo-8 -h 20 -w 205 -x 535 -sb '#740000'
+	#yad --image="sakuyaicon70" --text="<span color='#740000'>C'est l'heure \!</span>\n\nCliquez pour arrêter la musique." --center --on-top
+
+kill $reimupid
+kill $dzenpid

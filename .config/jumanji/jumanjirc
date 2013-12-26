@@ -39,7 +39,7 @@ set user-stylesheet-uri file:///home/tatou/.config/jumanji/style.css
 set enable-java-applet false
 
 # Page d'accueil
-set homepage file:///home/tatou/Documents/Rice/Start%20pages/startpage/startpage.html
+set homepage file:///home/tatou/Documents/Rice/Startpage/startpage.html
 
 # Moteurs de recherche
 searchengine ddg https://duckduckgo.com/?q=%s

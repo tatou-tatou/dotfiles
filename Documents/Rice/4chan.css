@@ -1,0 +1,204 @@
+body {
+background: url('/image/fade-blue.png') repeat-x scroll center top #110908;
+    background-color: #8C92AC;
+    background-image: url('/image/fade-blue.png');
+    background-repeat: repeat-x;
+    background-attachment: scroll;
+    background-position: center top;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+    font-family: sans-serif;
+}
+#navtopright {
+display: none;
+}
+div.boardBanner {
+color: #A7341B;
+}
+IMG.title{
+/*opacity: 0.3;*/
+}
+.boardList {
+display: none;
+}
+.postingMode {
+display: none;
+}
+.navLinks:not(.navLinksBot) {
+display: none;
+}
+.topad.center {
+display:none;
+}
+.abovePostForm {
+display: none;
+}
+hr {
+display: none;
+}
+.ad-plea {
+display: none;
+}
+#postForm {
+display: none;
+}
+#absbot {
+display:none;
+}
+
+.middlead.center {
+display: none;
+}
+
+#globalMessage {
+color: #A7341B;
+margin: 2%;
+}
+a {
+color: #60687F;
+text-decoration: none;
+}
+
+
+.board{
+margin: 2.5% 5% 2.5% 5%;
+  margin-top: 2.5%px;
+  margin-right-value: 5%;
+  margin-bottom: 2.5%;
+  margin-left-value: 5%;
+  margin-left-ltr-source: physical;
+  margin-left-rtl-source: physical;
+  margin-right-ltr-source: physical;
+  margin-right-rtl-source: physical;
+}
+.sideArrows {
+display: none;
+}
+
+.post.op {
+display: table; /*Permet de forcer le retour à la ligne après le post d'OP*/
+background-color: #FAFAFA;
+width: 100%;
+border-style: solid;
+border-color: #DADADA;
+border-width: 1px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+padding: 2px;
+
+    padding-top: 2px;
+    padding-right-value: 2px;
+    padding-bottom: 2px;
+    padding-left-value: 2px;
+    padding-left-ltr-source: physical;
+    padding-left-rtl-source: physical;
+    padding-right-ltr-source: physical;
+    padding-right-rtl-source: physical;
+}
+
+.post.reply {
+background-color: #FAFAFA;
+width: 100%;
+border-style: solid !important;
+border-color: #DADADA !important;
+border-width: 1px !important;
+-moz-border-radius: 2px;
+border-radius: 2px;
+}
+
+.name {
+font-weight: normal !important;
+}
+
+.postMessage {
+    margin: 30px 40px;
+        margin-top: 30px;
+        margin-right-value: 40px;
+        margin-bottom: 30px;
+        margin-left-value: 40px;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+.post.reply.preview.inlined {
+display: inline-table;
+}
+.fileInfo {
+    padding: 0px 3px;
+        padding-top: 0px;
+        padding-right-value: 3px;
+        padding-bottom: 0px;
+        padding-left-value: 3px;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px 0px 0px 5px;
+    font-size: 8pt;
+}
+.postInfo {
+    margin: 0px 0px 0px 0px;
+}
+.postInfo input {
+opacity: 1;
+}
+.reply:target, .reply.highlight {
+    background: none repeat scroll 0% 0% #8994B5 !important;
+        background-color: #8994B5;
+        background-image: none;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-position: 0% 0%;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-size: auto auto;
+border-color: #8994B5 !important;
+}
+.newPostsMarker:not(#quote-preview) {
+    box-shadow: 0px 3px #A7341B;
+}
+.bottomad img {
+opacity: 0.3;
+display: none;
+}
+
+/*Réglages en bas*/
+.stylechanger {
+display:none;
+}
+.thread-stats {
+display: none;
+}
+div#boardNavDesktopFoot {
+    font-size: 9pt;
+    color: #89A;
+    clear: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.navLinks.navLinksBot.desktop {
+left:1%;
+bottom: 2%;
+font-size: 8pt;
+color: transparent;
+display: inline;
+float:left;
+}
+.navLinks.navLinksBot.desktop span,.navLinks.navLinksBot.desktop label  {
+color: #A7341B;
+}
+#navbotright {
+right: 1%;
+bottom: 1% !important;
+font-size: 8pt;
+color: transparent;
+float: right;
+}
+.navLinks.navLinksBot.desktop A:hover, #navbotright A:hover {
+color: #A7341B;
+}
+.bottomCtrl.desktop {
+display: none;
+}

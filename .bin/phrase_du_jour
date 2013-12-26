@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Choisir un numéro de ligne au hasard dans le fichier $1
+Nmax=$(cat $1 | wc -l)
+N_i=$((RANDOM%$Nmax+1))
+# Utiliser sed pour afficher la ligne du fichier $1
+sed -n "$N_i"p $1

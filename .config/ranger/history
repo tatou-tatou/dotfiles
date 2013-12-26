@@ -27,7 +27,6 @@ search unb
 rename YumeNikki (6)-niveaux changés.png
 mkdir Scrot
 mkdir Configfiles
-open_with sxiv
 open_with 2
 shell makepkg -i
 search nouk
@@ -48,3 +47,4 @@ open_with 1
 delete
 shell makepkg
 shell makepkg 
+open_with sxiv
