@@ -7,6 +7,9 @@ URxvt*boldFont: xft:MonteCarlo:pixelsize=11:antialias=false, \
             [codeset=JISX0208]xft:Sucharaka Font:antialias=true,\
             [codeset=JISX0208]xft:Kochi Gothic:antialias=false
 
+XTerm*font: -windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252
+XTerm*allowBoldFonts: False
+
 !General settings
 URxvt*scrollBar: False
 URxvt*scrollTtyOutput: False
@@ -27,8 +30,8 @@ Xft.rgba: rgb
 
 ! black
 !URxvt.color0  : #343434
-URxvt.color0  : #332927
-URxvt.color8  : #761f03
+*color0  : #332927
+*color8  : #761f03
 
 ! red
 *color1  : #A7341B
@@ -48,7 +51,7 @@ URxvt.color8  : #761f03
 *color12 : #146693
 
 ! magenta
-*color5  : #7d2d41
+*color5  : #773137
 *color13 : #642337
 
 ! cyan

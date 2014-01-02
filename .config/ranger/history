@@ -1,17 +1,3 @@
-search ncmp
-rename config_backup
-cd .bin
-rename coverart-meh-NEW
-shell ./cov
-rename gtk-3.0
-q
-rename not-butter.vim
-rename not-butter-graawr.vim
-cd .vim
-shell chmod +x not-butter-graawr.vim
-open_with zathura
-mkdir Perso
-bioc
 rename Biochimie-fin.pdf
 mkdir MB 1
 mkdir MB 4
@@ -40,11 +26,25 @@ open_with llpp
 search termi
 
 open_with mpv
-open_with 
 cd .
 open_with vim
-open_with 1
-delete
 shell makepkg
 shell makepkg 
 open_with sxiv
+mkdir 4
+mkdir g
+open_with 1
+cd .themes/
+rename réponse_gabriel.tex
+rename 
+mkdir Mails
+mkdir Gabriel
+shell pdfunite 
+shell pdflatex réponse_gabriel.tex
+open_with 
+shell llpp -p lv2031314 LV203_2par_page.pdf
+rename 1388509251717-France.png
+rename 1388510705519-USA.png
+rename 1388514187213-Sweden.png
+rename 1388514202948-brazil.png
+delete

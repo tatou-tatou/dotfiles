@@ -10,6 +10,9 @@ bspc config gapless_monocle       true
 bspc config focus_follows_pointer  true
 
 
+
+## COULEURS ##
+
 bspc config focused_border_color "#DDBEB3"
 #bspc config active_border_color "#xxx"
 bspc config normal_border_color "#141415"
@@ -28,5 +31,13 @@ bspc config presel_border_color "#A1B137"
 #bspc config focused_frame_opacity "#xxx"
 #bspc config active_frame_opacity "#xxx"
 #bspc config normal_frame_opacity "#xxx"
+
+
+
+## RÈGLES ##
+
+#bspc rule -a wine floating=on
+
+
 
 bspwmpanel &

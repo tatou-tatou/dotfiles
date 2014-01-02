@@ -30,10 +30,6 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 #Prompt
 autoload -U promptinit
 promptinit
-#PROMPT="[%{$fg_no_bold[green]%}%n%{$reset_color%}@%M %~] %{$fg_no_bold[magenta]%}>>>%{$reset_color%}"
-#PROMPT="[%{$fg_no_bold[green]%}%n%{$reset_color%}@%M %~] %{$fg_no_bold[red]%}>>>%{$reset_color%}"
-#PROMPT="%{$bg_no_bold[black]%}%n@%M %{$bg_no_bold[red]%}%{$fg_no_bold[black]%} %~ %{$reset_color%}%{$fg_no_bold[red]%}%{$reset_color%} "
-#PROMPT="%{$bg_no_bold[background]%}%{$bg_no_bold[green]%}%{$fg_no_bold[black]%}%{$fg_no_bold[white]%} %~ %{$reset_color%}%{$fg_no_bold[green]%}%{$reset_color%} "
 PROMPT=" %{$fg_no_bold[red]%}> %{$reset_color%} "
 RPROMPT="%{$fg_no_bold[green]%}%~%{$reset_color%}"
 
@@ -47,7 +43,6 @@ alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias usbcd='ranger /run/media/tatou/'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
-alias camera='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 30'
 #Couleurs
 export GREP_COLOR=31
 alias grep='grep -i --color=auto'

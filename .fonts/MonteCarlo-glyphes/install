@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # create the pcf files
-bdftopcf -o ~/.fonts/MonteCarlo-glyphes/MonteCarloMedium.pcf MonteCarloMedium.bdf
+bdftopcf MonteCarloMedium.bdf > MonteCarloMedium.pcf
 #bdftopcf -o ~/.fonts/MonteCarlo-glyphes/MonteCarloBold.pcf MonteCarloMedium.bdf
 
 # install the fonts

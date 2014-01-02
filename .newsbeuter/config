@@ -17,10 +17,12 @@ show-read-feeds no
 
 ## COULEURS ##
 color background cyan default bold
-color info color16 green
-color listnormal white default
+#color info color16 green
+color info green black
+#color listnormal white default
+color listnormal black default
 color listfocus white magenta
-color listnormal_unread red default
+color listnormal_unread white default
 color listfocus_unread default magenta
 color article default default
 

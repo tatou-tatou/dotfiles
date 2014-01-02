@@ -20,7 +20,7 @@ nitrogen --restore
 
 
 ## DAEMONS ##
-devmon --exec-on-disc "urxvt -e ranger %d" --exec-on-drive "urxvt -e ranger %d" --exec-on-audio "urxvt -e mplayer cdda://" & 
+devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" --exec-on-audio "termite -e mpv cdda://" & 
 mpd &
 
 

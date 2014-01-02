@@ -217,4 +217,4 @@ super + XF86Eject
 # Batterie
 super + XF86MonBrightnessUp
 # dzen-notify "^fg(#A7341B)^fg() $(acpi -b | cut -s -d',' -f3)" 250 5
- dzen-notify "^fg(#A7341B)>^fg() $(acpi -b | cut -s -d',' -f3)" 250 5
+ dzen-notify "^fg(#A7341B)>^fg() $(acpi -b | cut -s -d',' -f3)" 250 1
