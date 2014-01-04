@@ -9,5 +9,5 @@ mkfontdir ~/.fonts/MonteCarlo-glyphes
 mkfontscale ~/.fonts/MonteCarlo-glyphes
 xset +fp ~/.fonts/MonteCarlo-glyphes
 xset fp rehash
-fc-cache
-fc-cache -fv
+fc-cache .
+fc-cache -fv .

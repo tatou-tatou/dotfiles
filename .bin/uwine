@@ -1,2 +1,0 @@
-#!/bin/bash
-termite -e ranger /home/tatou/.wine/drive_c/Program\ Files/

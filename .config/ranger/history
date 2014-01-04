@@ -1,20 +1,7 @@
-rename Biochimie-fin.pdf
-mkdir MB 1
-mkdir MB 4
-mkdir MB 5
-mkdir MB2
-rename MB 2
-shell fusionpd
-rename MB1.pdf
-rename MB2.pdf
-rename MB4.pdf
-rename MB3.pdf
-search unb
 rename YumeNikki (6)-niveaux changés.png
 mkdir Scrot
 mkdir Configfiles
 open_with 2
-shell makepkg -i
 search nouk
 rename archey
 search qu
@@ -30,7 +17,6 @@ cd .
 open_with vim
 shell makepkg
 shell makepkg 
-open_with sxiv
 mkdir 4
 mkdir g
 open_with 1
@@ -47,4 +33,18 @@ rename 1388509251717-France.png
 rename 1388510705519-USA.png
 rename 1388514187213-Sweden.png
 rename 1388514202948-brazil.png
+shell makepkg -i
+mkdir DROP DEAD!! (Minase Shuu)
+mkdir CHIBIKKO KINGDOM (Kekocha)
+search drop
+search chib
+search Saitom
+rename Kabe no Saido (Saitom)
+search snob
+find r
+search mai
+search muchi
+mkdir Maimaimai (Higenamuchi)
+search maimai
+open_with sxiv
 delete

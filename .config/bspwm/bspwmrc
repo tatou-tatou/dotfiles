@@ -1,6 +1,8 @@
 #! /bin/sh
 
 bspc monitor -d web dev vid foo
+#bspc monitor -d    
+#bspc monitor -d    
 
 bspc config border_width          1
 bspc config window_gap            8
