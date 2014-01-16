@@ -1,5 +1,6 @@
 body {
-background-color: #60687F;
+/*background-color: #60687F;*/
+background-color: #3D444E;
 text-align: center;
 font-family: ProFont;
 font-size: 12px;
@@ -11,7 +12,7 @@ font-family: PreCursive;
 font-size: 48px;
 /*font-weight: bold;*/
 /*letter-spacing: -2px;*/
-color: #702512;
+color: #642118;
 margin: 10% 0 0 0;
 /*text-shadow:
     -1px -1px 0 #3F3E3D,
@@ -21,7 +22,8 @@ margin: 10% 0 0 0;
 }
 
 #sous-titre {
-color: #30343F;
+/*color: #30343F;*/
+color: #21242B;
 }
 
 #rectangleblanc {

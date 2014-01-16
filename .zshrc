@@ -24,14 +24,20 @@ compinit
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
+#Fish-like autocompletion
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 #Correction de commandes
 #setopt correctall
 
 #Prompt
 autoload -U promptinit
 promptinit
-PROMPT=" %{$fg_no_bold[red]%}> %{$reset_color%} "
-RPROMPT="%{$fg_no_bold[green]%}%~%{$reset_color%}"
+#PROMPT=" %{$fg_no_bold[red]%}> %{$reset_color%} "
+#RPROMPT="%{$fg_no_bold[green]%}%~%{$reset_color%}"
+PROMPT=" %{$fg[black]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
+#PROMPT=" %{$fg[cyan]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
+RPROMPT="%{$fg_no_bold[white]%}%~%{$reset_color%}"
 
 #Path
 export PATH=/home/tatou/.bin:$PATH
@@ -41,6 +47,8 @@ alias azerty='setxkbmap -model macintosh -layout fr'
 alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias usbcd='ranger /run/media/tatou/'
+alias mutt='mutt ; mailbox_to_fifo'
+alias getmail='mutt ; mailbox_to_fifo'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 #Couleurs
@@ -48,7 +56,7 @@ export GREP_COLOR=31
 alias grep='grep -i --color=auto'
 alias ls='ls --color=auto'
 alias rt='tmux attach -t rt'
-alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou9999 --rcfile vicentefree'
+alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[0;31m") \

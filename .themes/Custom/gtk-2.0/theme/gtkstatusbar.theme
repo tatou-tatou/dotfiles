@@ -7,7 +7,7 @@ image
 {
 function=RESIZE_GRIP
 detail="statusbar"
-overlay_file="../images/resizegrip.gif"
+/*overlay_file="../images/resizegrip.gif"*/
 overlay_stretch=TRUE
 overlay_border={0,12,0,12}
 }

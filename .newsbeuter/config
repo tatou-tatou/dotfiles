@@ -22,7 +22,7 @@ color background cyan default bold
 color info green black
 #color listnormal white default
 color listnormal black default
-color listfocus white magenta bold
+color listfocus default magenta bold
 color listnormal_unread white default
 color listfocus_unread default magenta
 color article default default

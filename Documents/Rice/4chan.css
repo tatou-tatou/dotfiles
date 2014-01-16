@@ -1,6 +1,6 @@
 body {
 background: url('/image/fade-blue.png') repeat-x scroll center top #110908;
-    background-color: #8C92AC;
+    background-color: #3D444E;
     background-image: url('/image/fade-blue.png');
     background-repeat: repeat-x;
     background-attachment: scroll;
@@ -14,7 +14,7 @@ background: url('/image/fade-blue.png') repeat-x scroll center top #110908;
 display: none;
 }
 div.boardBanner {
-color: #A7341B;
+color: #6E2A1B;
 }
 IMG.title{
 /*opacity: 0.3;*/
@@ -29,7 +29,7 @@ display: none;
 display: none;
 }
 .topad.center {
-display:none;
+visibility:hidden; /* PUB */
 }
 .abovePostForm {
 display: none;
@@ -38,25 +38,35 @@ hr {
 display: none;
 }
 .ad-plea {
-display: none;
+display: none; /* PUB de 4chan */
 }
 #postForm {
 display: none;
 }
+
+.postblock {
+background-color: #292929;
+color: #FAFAFA;
+border-style: solid;
+border-color: #9B392C;
+border-width: 0px 0px 3px 0px;
+}
+
 #absbot {
 display:none;
 }
 
-.middlead.center {
-display: none;
+.middlead.center img {
+display: none; /* PUB */
 }
 
 #globalMessage {
-color: #A7341B;
+color: #6E2A1B;
 margin: 2%;
+margin-top: -150px;
 }
 a {
-color: #60687F;
+color: #21242B;
 text-decoration: none;
 }
 
@@ -125,7 +135,7 @@ font-weight: normal !important;
 .post.reply.preview.inlined {
 display: inline-table;
 }
-.fileInfo {
+.fileText {
     padding: 0px 3px;
         padding-top: 0px;
         padding-right-value: 3px;
@@ -135,14 +145,21 @@ display: inline-table;
         padding-left-rtl-source: physical;
         padding-right-ltr-source: physical;
         padding-right-rtl-source: physical;
-    margin: 0px 0px 0px 5px;
+    margin: -4px 0px -2px 20px;
     font-size: 8pt;
+    opacity: 0.6;
 }
-.postInfo {
-    margin: 0px 0px 0px 0px;
+.postInfo.desktop {
+    display: block !important;
+    margin: 6px 0px 0px 15px;
+    margin-top: 6px;
+    margin-right: 0px;
+    margin-bottom: 6px;
+    margin-left: 15px;
+
 }
 .postInfo input {
-opacity: 1;
+display: none;
 }
 .reply:target, .reply.highlight {
     background: none repeat scroll 0% 0% #8994B5 !important;
@@ -159,11 +176,21 @@ border-color: #8994B5 !important;
 .newPostsMarker:not(#quote-preview) {
     box-shadow: 0px 3px #A7341B;
 }
+
 .bottomad img {
-opacity: 0.3;
-display: none;
+display: none; /* PUB */
 }
 
+#quickReply.extPanel.reply {
+background-color: #5C5748 !important;
+}
+#qrFile {
+color: #555555;
+}
+#qrForm {
+background-color: #fafafa;
+border-width: 1px 1px 1px 1px;
+}
 /*Réglages en bas*/
 .stylechanger {
 display:none;
@@ -173,10 +200,13 @@ display: none;
 }
 div#boardNavDesktopFoot {
     font-size: 9pt;
-    color: #89A;
+    color: #21242B;
     clear: none;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+div#boardNavDesktopFoot a {
+    color: #21242B;
 }
 .navLinks.navLinksBot.desktop {
 left:1%;
@@ -187,7 +217,10 @@ display: inline;
 float:left;
 }
 .navLinks.navLinksBot.desktop span,.navLinks.navLinksBot.desktop label  {
-color: #A7341B;
+color: #21242B;
+}
+.navLinks.navLinksBot.desktop a:visited {
+color: #21242B;
 }
 #navbotright {
 right: 1%;
@@ -197,8 +230,14 @@ color: transparent;
 float: right;
 }
 .navLinks.navLinksBot.desktop A:hover, #navbotright A:hover {
-color: #A7341B;
+color: #6E2A1B;
+}
+.navLinks.navLinksBot.desktop input {
+display: none;
 }
 .bottomCtrl.desktop {
 display: none;
+}
+.bottomad {
+margin-top: -60px;
 }
