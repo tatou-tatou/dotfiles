@@ -2,7 +2,7 @@
 always-display-description true
 auto-reload yes
 #browser "firefox-nightly %u > /dev/null 2>&1 &"
-browser "dwb %u > /dev/null 2>&1 &"
+browser "luakit %u > /dev/null 2>&1 &"
 html-renderer "internal"
 keep-articles-days 30
 articlelist-format "%4i %f %D %?T?;%-17T; ?%t"

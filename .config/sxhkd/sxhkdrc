@@ -107,7 +107,7 @@ super + ugrave
 
 # Dmenu
 super + p
-    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'MonteCarlo-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#773137' -sf '#eddec9'
+    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#773137' -sf '#eddec9'
 #    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'MonteCarlo-8' -nb '#0b0908' -nf '#fafafa' -sb '#740000' -sf '#fafafa'
 
 # Menu
@@ -116,6 +116,7 @@ super + dead_grave
 
 # Scrot
 XF86LaunchB
+# scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
  scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
 
 #
@@ -124,11 +125,13 @@ XF86LaunchB
 
 #Mute
 XF86AudioMute
+# amixer set Master toggle ; notify-send -r 10 "<span color='#A7341B'>></span>  <span color='#878438'>$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')</span>Muted" -t 1000
  amixer set Master toggle ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#878438)$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')^fg()Muted" 200 1
 
 #Volume
 XF86AudioRaiseVolume
  amixer set PCM 1dB+ ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)$(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')^fg()Volume^fg(#878438) $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
+# amixer set PCM 1dB+ ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)$(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')^fg()Volume^fg(#878438) $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
 
  
 XF86AudioLowerVolume
@@ -193,7 +196,7 @@ XF86KbdBrightnessDown
 ## Lancements de programmes
 #
 super + XF86LaunchA
- firefox-nightly & dzen-notify "^fg(#A7341B)>^fg()  firefox-nightly" 200 1
+ firefox & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
 
 XF86LaunchA
  luakit & dzen-notify "^fg(#A7341B)>^fg()  luakit" 200 1

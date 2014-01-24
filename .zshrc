@@ -35,9 +35,9 @@ autoload -U promptinit
 promptinit
 #PROMPT=" %{$fg_no_bold[red]%}> %{$reset_color%} "
 #RPROMPT="%{$fg_no_bold[green]%}%~%{$reset_color%}"
-PROMPT=" %{$fg[black]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
-#PROMPT=" %{$fg[cyan]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
-RPROMPT="%{$fg_no_bold[white]%}%~%{$reset_color%}"
+#PROMPT=" %{$fg[black]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
+PROMPT=" %{$fg[black]%}%{$reset_color%} "
+RPROMPT="%{$fg_bold[black]%}%~%{$reset_color%}"
 
 #Path
 export PATH=/home/tatou/.bin:$PATH
@@ -48,7 +48,6 @@ alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias usbcd='ranger /run/media/tatou/'
 alias mutt='mutt ; mailbox_to_fifo'
-alias getmail='mutt ; mailbox_to_fifo'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 #Couleurs

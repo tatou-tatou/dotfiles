@@ -10,7 +10,10 @@ fi
 
 ## RÉGLAGES ##
 setxkbmap -model macintosh -layout fr &
+xsetroot -cursor_name left_ptr &
 nvidia-settings -l &
+/etc/profile.d/infinality-settings.sh &
+
 
 ## WM ##
 nitrogen --restore &

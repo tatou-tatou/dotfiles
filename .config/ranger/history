@@ -1,14 +1,3 @@
-mkdir g
-open_with 1
-cd .themes/
-rename réponse_gabriel.tex
-rename 
-mkdir Mails
-mkdir Gabriel
-shell pdfunite 
-shell pdflatex réponse_gabriel.tex
-open_with 
-shell llpp -p lv2031314 LV203_2par_page.pdf
 rename 1388509251717-France.png
 rename 1388510705519-USA.png
 rename 1388514187213-Sweden.png
@@ -25,7 +14,6 @@ search mai
 search muchi
 mkdir Maimaimai (Higenamuchi)
 search maimai
-open_with sxiv
 search imo
 search pixiv
 open_with gimp
@@ -34,7 +22,6 @@ shell pdflatex FRANCAIS.tex
 mkdir fonts
 mkdir Infinality
 search profile
-rename 0
 rename er4hh.jpg
 search Mono
 shell sudo vim 20-aliases-default-linux.conf 
@@ -46,5 +33,18 @@ search lua
 search the
 open_with luakit
 mkdir dzen
-delete
 shell makepkg -i
+mkdir Fluorescent Microscopy
+mkdir 
+rename 0
+rename Videos
+rename H Manga authors
+rename Eromanga authors
+rename H Manga
+delete
+cd .fonts/
+open_with sxhkd
+open_with sxiv
+mkdir LM
+rename LM.tex
+shell vim LM.tex
