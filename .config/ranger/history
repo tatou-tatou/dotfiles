@@ -1,23 +1,9 @@
-rename 1388509251717-France.png
-rename 1388510705519-USA.png
-rename 1388514187213-Sweden.png
-rename 1388514202948-brazil.png
-mkdir DROP DEAD!! (Minase Shuu)
-mkdir CHIBIKKO KINGDOM (Kekocha)
-search drop
-search chib
-search Saitom
-rename Kabe no Saido (Saitom)
-search snob
-find r
-search mai
 search muchi
 mkdir Maimaimai (Higenamuchi)
 search maimai
 search imo
 search pixiv
 open_with gimp
-
 shell pdflatex FRANCAIS.tex
 mkdir fonts
 mkdir Infinality
@@ -36,15 +22,29 @@ mkdir dzen
 shell makepkg -i
 mkdir Fluorescent Microscopy
 mkdir 
-rename 0
 rename Videos
 rename H Manga authors
 rename Eromanga authors
 rename H Manga
-delete
 cd .fonts/
 open_with sxhkd
-open_with sxiv
 mkdir LM
 rename LM.tex
 shell vim LM.tex
+mkdir 4
+mkdir scrot
+mkdir g
+mkdir desktop
+mkdir c
+rename 0
+reload_cwd 
+
+open_with 
+open_with sxiv
+search niseko
+search nobun
+delete
+search range
+search renge
+search mura
+mkdir Murata Renji

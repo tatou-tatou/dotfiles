@@ -25,29 +25,28 @@ Xft.rgba: rgb
 
 
 !Colors
-*foreground: #ECECEE
-*background: #110908
+*foreground: #eddec9
+*background: #161616
 
 ! black
 !URxvt.color0  : #343434
-*color0  : #332927
-*color8  : #761f03
+*color0  : #302e26
+*color8  : #5c5748
 
 ! red
-*color1  : #A7341B
-*color9  : #761f03
+*color1  : #A7341b
+*color9  : #7e2a27
 
 ! green
-*color2  : #A1B137
-!*color2  : #6b853d
-*color10 : #7AB81D
+*color2  : #878438
+*color10 : #7eb033
 
 ! yellow
 *color3  : #ddb62b
 *color11 : #b27d12
 
 ! blue
-*color4  : #2F7496
+*color4  : #28617d
 *color12 : #146693
 
 ! magenta
@@ -59,5 +58,5 @@ Xft.rgba: rgb
 *color14 : #324466
 
 ! white
-URxvt.color7  : #766E68
-URxvt.color15 : #ECECEE
+URxvt.color7  : #eddec9
+URxvt.color15 : #fafafa

@@ -21,7 +21,7 @@ sxhkd &
 bspwm & wmpid=$!
 
 ## DAEMONS ##
-devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
+#devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
 mpd &
 compton &
 #redshift -l 48.5:2.2 -t 6000:5500 -m vidmode &

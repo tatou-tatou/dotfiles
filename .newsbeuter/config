@@ -2,7 +2,7 @@
 always-display-description true
 auto-reload yes
 #browser "firefox-nightly %u > /dev/null 2>&1 &"
-browser "luakit %u > /dev/null 2>&1 &"
+browser "luakit -n %u > /dev/null 2>&1 &"
 html-renderer "internal"
 keep-articles-days 30
 articlelist-format "%4i %f %D %?T?;%-17T; ?%t"
@@ -12,7 +12,7 @@ refresh-on-startup yes
 reload-time 60
 show-read-feeds no
 
-## NOTFICATIONS ##
+## NOTIFICATIONS ##
 #notify-program "/usr/bin/notify-send"
 #notify-beep no
 
@@ -20,10 +20,9 @@ show-read-feeds no
 color background cyan default bold
 #color info color16 green
 color info green black
-#color listnormal white default
 color listnormal black default
 color listfocus default magenta bold
-color listnormal_unread white default
+color listnormal_unread black default bold
 color listfocus_unread default magenta
 color article default default
 

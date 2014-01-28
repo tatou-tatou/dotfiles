@@ -100,10 +100,10 @@ super + Escape
 #
 
 super + Return
-    termite
+    urxvt
 
 super + ugrave
-    termite -e ranger
+    urxvt -e ranger
 
 # Dmenu
 super + p
@@ -154,7 +154,7 @@ XF86AudioPlay
 
 # Ouvrir ncmpcpp
 super + XF86AudioPlay
- termite -e ncmpcpp
+ urxvt -e ncmpcpp
 
 # Coverart-meh
 mod5 + XF86AudioPlay
