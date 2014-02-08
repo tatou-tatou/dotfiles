@@ -1,0 +1,306 @@
+body {
+background: url('/image/fade-blue.png') repeat-x scroll center top #110908 !important;
+    background-color: #3D444E !important;
+    background-image: url('/image/fade-blue.png') !important;
+    background-repeat: repeat-x !important;
+    background-attachment: scroll !important;
+    background-position: center top !important;
+    background-clip: border-box !important;
+    background-origin: padding-box !important;
+    background-size: auto auto !important;
+    font-family: sans-serif !important;
+}
+#navtopright {
+display: none !important;
+}
+div.boardBanner {
+color: #6E2A1B !important;
+}
+IMG.title{
+/*opacity: 0.3 !important;*/
+}
+
+.boardList {
+	display:none !important;
+}
+#boardNavDesktop {
+	display: none !important;
+position: fixed;
+font-family: MonteCarlo;
+font-size: 11px !important;
+background-color: #161616;
+width: 100%;
+height 15px; 
+top:0;
+right:0;
+left:0;
+padding: 2px 0px 2px 0px;
+-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.8);
+color: #292929 !important;
+}
+#boardNavDesktop a {
+    color: #eddec9 !important;
+}
+
+.postingMode {
+display: none !important;
+}
+.navLinks:not(.navLinksBot) {
+display: none !important;
+}
+.topad.center {
+visibility:hidden !important; /* PUB */
+}
+.abovePostForm {
+display: none !important;
+}
+hr {
+display: none !important;
+}
+.ad-plea {
+display: none !important; /* PUB de 4chan */
+}
+#postForm {
+display: none !important;
+}
+
+.postblock {
+background-color: #292929 !important;
+color: #FAFAFA !important;
+border-style: solid !important;
+border-color: #9B392C !important;
+border-width: 0px 0px 3px 0px !important;
+}
+
+#absbot {
+display:none !important;
+}
+
+.middlead.center img {
+display: none !important; /* PUB */
+}
+
+#globalMessage {
+color: #6E2A1B !important;
+margin: 2% !important;
+margin-top: -150px !important;
+}
+a {
+color: #21242B !important;
+text-decoration: none !important;
+}
+
+
+.board{
+margin: 2.5% 5% 2.5% 5% !important;
+  margin-top: 2.5%px !important;
+  margin-right-value: 5% !important;
+  margin-bottom: 2.5% !important;
+  margin-left-value: 5% !important;
+  margin-left-ltr-source: physical !important;
+  margin-left-rtl-source: physical !important;
+  margin-right-ltr-source: physical !important;
+  margin-right-rtl-source: physical !important;
+}
+.sideArrows {
+display: none !important;
+}
+
+.post.op {
+display: table !important; /*Permet de forcer le retour à la ligne après le post d'OP*/
+background-color: #FAFAFA !important;
+width: 100% !important;
+border-style: solid !important;
+border-color: #DADADA !important;
+border-width: 1px !important;
+-moz-border-radius: 2px !important;
+border-radius: 2px !important;
+padding: 2px !important;
+
+    padding-top: 2px !important;
+    padding-right-value: 2px !important;
+    padding-bottom: 2px !important;
+    padding-left-value: 2px !important;
+    padding-left-ltr-source: physical !important;
+    padding-left-rtl-source: physical !important;
+    padding-right-ltr-source: physical !important;
+    padding-right-rtl-source: physical !important;
+}
+
+.post.reply {
+background-color: #FAFAFA !important;
+width: 100% !important;
+border-style: solid !important;
+border-color: #DADADA !important;
+border-width: 1px !important;
+-moz-border-radius: 2px !important;
+border-radius: 2px !important;
+
+/*-moz-box-shadow:    0px 0px 3px rgba(0,0,0,.6) !important;
+-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.6) !important;
+box-shadow:         0px 0px 3px rgba(0,0,0,.6) !important;*/
+}
+
+.name {
+font-weight: bold !important;
+}
+
+span.postertrip {
+}
+/*span.postertrip:after {
+content: " (I suck dicks) " !important;
+color: #A7341B !important;
+}*/
+
+.postMessage {
+    margin: 30px 40px !important;
+        margin-top: 30px !important;
+        margin-right-value: 40px !important;
+        margin-bottom: 30px !important;
+        margin-left-value: 40px !important;
+        margin-left-ltr-source: physical !important;
+        margin-left-rtl-source: physical !important;
+        margin-right-ltr-source: physical !important;
+        margin-right-rtl-source: physical !important;
+}
+.post.reply.preview.inlined {
+display: inline-table !important;
+}
+.fileText {
+    padding: 0px 3px !important;
+        padding-top: 0px !important;
+        padding-right-value: 3px !important;
+        padding-bottom: 0px !important;
+        padding-left-value: 3px !important;
+        padding-left-ltr-source: physical !important;
+        padding-left-rtl-source: physical !important;
+        padding-right-ltr-source: physical !important;
+        padding-right-rtl-source: physical !important;
+    margin: -4px 0px -2px 20px !important;
+    font-size: 8pt !important;
+    opacity: 0.6 !important;
+}
+.postInfo.desktop {
+    display: block !important;
+    margin: 6px 0px 0px 15px !important;
+    margin-top: 6px !important;
+    margin-right: 0px !important;
+    margin-bottom: 6px !important;
+    margin-left: 15px !important;
+
+}
+
+.prettyprint {
+	background-color: #ffffff !important;
+	border-style: solid !important;
+	border-color: #dadada !important;
+	border-width: 1px 1px 1px 1px !important;
+}
+
+.quotelink {
+	color: #3D444E !important;
+}
+
+.backlink {
+	visibility: hidden !important;
+	letter-spacing: -999px !important;
+}
+.backlink .quotelink:after {
+	content: "o " !important;
+	font-family: Cheeky Rabbit !important;
+	font-size: 15pt !important;
+	color: #773137 !important;
+	visibility: visible !important;
+	letter-spacing: normal !important;
+}
+
+.postInfo input {
+display: none !important;
+}
+.reply:target, .reply.highlight {
+    background: none repeat scroll 0% 0% #8994B5 !important;
+        background-color: #8994B5 !important;
+        background-image: none !important;
+        background-repeat: repeat !important;
+        background-attachment: scroll !important;
+        background-position: 0% 0% !important;
+        background-clip: border-box !important;
+        background-origin: padding-box !important;
+        background-size: auto auto !important;
+border-color: #8994B5 !important;
+}
+.newPostsMarker:not(#quote-preview) {
+    box-shadow: 0px 3px #A7341B !important;
+}
+
+.bottomad img {
+display: none !important; /* PUB */
+}
+
+#quickReply.extPanel.reply {
+background-color: #5C5748 !important;
+}
+#qrFile {
+color: #555555 !important;
+}
+#qrForm {
+background-color: #fafafa !important;
+border-width: 1px 1px 1px 1px !important;
+}
+
+
+/*Réglages en bas*/
+.stylechanger {
+display:none !important;
+}
+.thread-stats {
+display: none !important;
+}
+#boardNavDesktopFoot {
+    font-size: 9pt !important;
+    color: #21242B !important;
+    clear: none !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+#boardNavDesktopFoot a {
+    color: #21242B !important;
+}
+
+#boardNavDesktopFoot.desktop span.boardList {
+	border-style: solid;
+	display: none !important;
+}
+.navLinks.navLinksBot.desktop {
+left:1% !important;
+bottom: 2% !important;
+font-size: 8pt !important;
+color: transparent !important;
+display: inline !important;
+float:left !important;
+}
+.navLinks.navLinksBot.desktop span,.navLinks.navLinksBot.desktop label  {
+color: #21242B !important;
+}
+.navLinks.navLinksBot.desktop a:visited {
+color: #21242B !important;
+}
+#navbotright {
+right: 1% !important;
+bottom: 1% !important;
+font-size: 8pt !important;
+color: transparent !important;
+float: right !important;
+}
+.navLinks.navLinksBot.desktop A:hover, #navbotright A:hover {
+color: #6E2A1B !important;
+}
+.navLinks.navLinksBot.desktop input {
+display: none !important;
+}
+.bottomCtrl.desktop {
+display: none !important;
+}
+.bottomad {
+margin-top: -60px !important;
+}

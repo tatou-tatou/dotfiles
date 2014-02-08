@@ -35,27 +35,29 @@ Xft.rgba: rgb
 
 ! red
 *color1  : #A7341b
-*color9  : #7e2a27
+*color9  : #7D2714
 
 ! green
 *color2  : #878438
-*color10 : #7eb033
+*color10 : #62712C
 
 ! yellow
 *color3  : #ddb62b
-*color11 : #b27d12
+*color11 : #B3921E
 
 ! blue
 *color4  : #28617d
-*color12 : #146693
+*color12 : #204D63
 
 ! magenta
 *color5  : #773137
-*color13 : #642337
+*color13 : #522226
 
 ! cyan
-*color6  : #60687f
-*color14 : #324466
+!*color6  : #60687f
+!*color14 : #324466
+*color6  : #302E26
+*color14 : #5C5748
 
 ! white
 URxvt.color7  : #eddec9

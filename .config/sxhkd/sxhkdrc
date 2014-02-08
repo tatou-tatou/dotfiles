@@ -107,7 +107,7 @@ super + ugrave
 
 # Dmenu
 super + p
-    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#773137' -sf '#eddec9'
+    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#802828' -sf '#eddec9'
 #    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'MonteCarlo-8' -nb '#0b0908' -nf '#fafafa' -sb '#740000' -sf '#fafafa'
 
 # Menu

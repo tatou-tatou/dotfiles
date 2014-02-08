@@ -1,4 +1,3 @@
-search muchi
 mkdir Maimaimai (Higenamuchi)
 search maimai
 search imo
@@ -43,8 +42,9 @@ open_with
 open_with sxiv
 search niseko
 search nobun
-delete
 search range
 search renge
 search mura
 mkdir Murata Renji
+open_with ao
+delete

@@ -16,10 +16,10 @@ bspc config focus_follows_pointer  true
 ## COULEURS ##
 
 #bspc config focused_border_color "#DDBEB3"
-bspc config focused_border_color "#5C5748"
+bspc config focused_border_color "#5c5748"
 #bspc config active_border_color "#xxx"
 bspc config normal_border_color "#141415"
-bspc config presel_border_color "#A1B137"
+bspc config presel_border_color "#878438"
 #bspc config focused_locked_border_color "#xxx"
 #bspc config active_locked_border_color "#xxx"
 #bspc config normal_locked_border_color "#xxx"

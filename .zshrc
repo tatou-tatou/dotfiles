@@ -53,6 +53,8 @@ mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 #Couleurs
 export GREP_COLOR=31
 alias grep='grep -i --color=auto'
+alias toilettes='toilet -f mono12 --gay'
+alias center="sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
 alias ls='ls --color=auto'
 alias rt='tmux attach -t rt'
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'

@@ -20,15 +20,15 @@
 //#define BACKGROUND 0x0B0908
 #define BACKGROUND 0x161616
 #define COLOR0 0x110908 //Chocolat
-#define COLOR1 0xA7341B //Rouge
+#define COLOR1 0x802828 //Rouge
 #define COLOR2 0x878438 //Vert
 //#define COLOR3 0x332A25 //Marron clair
-#define COLOR3 0x574D48 //Marron clair
+#define COLOR3 0x574D48 //Gris clair
 #define COLOR4 0x2F7496 //Bleu clair
 //#define COLOR5 0x773137 //Magenta (fond)
 #define COLOR5 0x773137 //Magenta (fond)
-#define COLOR6 0x60687F //Gris-cyan
-#define COLOR7 0x332D23 //Grisé
+#define COLOR6 0x302E26 //Gris foncé
+#define COLOR7 0x302E26 //Grisé
 //#define COLOR8 0x606060 //Gris
 #define COLOR8 0x5C5748 //Gris
 #define COLOR9 0xeddec9 //Blanc
