@@ -19,7 +19,7 @@
 /* Color palette */
 //#define BACKGROUND 0x0B0908
 #define BACKGROUND 0x161616
-#define COLOR0 0x110908 //Chocolat
+#define COLOR0 0x262626 //Foncé
 #define COLOR1 0x802828 //Rouge
 #define COLOR2 0x878438 //Vert
 //#define COLOR3 0x332A25 //Marron clair
