@@ -17,20 +17,17 @@
 /* Define the opacity of the bar (requires a compositor such as compton) */
 #define BAR_OPACITY 1.0 /* 0 is invisible, 1 is opaque */
 /* Color palette */
-//#define BACKGROUND 0x0B0908
-#define BACKGROUND 0x161616
-#define COLOR0 0x262626 //Foncé
-#define COLOR1 0x802828 //Rouge
-#define COLOR2 0x878438 //Vert
-//#define COLOR3 0x332A25 //Marron clair
-#define COLOR3 0x574D48 //Gris clair
-#define COLOR4 0x2F7496 //Bleu clair
-//#define COLOR5 0x773137 //Magenta (fond)
+#define BACKGROUND 0x1A1917
+//#define BACKGROUND 0x161616
+#define COLOR0 0x201f1d //Foncé              // UTILISÉE
+//#define COLOR1 0x802828 //Rouge              // UTILISÉE
+#define COLOR1 0xA7402a //Rouge              // UTILISÉE
+#define COLOR2 0x878438 //Vert               // UTILISÉE
+#define COLOR3 0x3C382D //Gris clair         // UTILISÉE
+#define COLOR4 0xeddec9 //Rose clair
 #define COLOR5 0x773137 //Magenta (fond)
-#define COLOR6 0x302E26 //Gris foncé
-#define COLOR7 0x302E26 //Grisé
-//#define COLOR8 0x606060 //Gris
-#define COLOR8 0x5C5748 //Gris
-#define COLOR9 0xeddec9 //Blanc
-//#define FOREGROUND 0xD0C297
-#define FOREGROUND 0xeddec9
+#define COLOR6 0x302E26 //
+#define COLOR7 0x302E26 //
+#define COLOR8 0x5C5748 //
+#define COLOR9 0xeddec9 //Blanc              // UTILISÉE
+#define FOREGROUND 0xd4c6B4                  // UTILISÉE

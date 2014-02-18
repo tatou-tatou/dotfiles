@@ -10,25 +10,27 @@
 }*/
 
 body {
-/*background-color: #3D444E;*/
-background-color: #2D2D2D;
+/*background-color: #403939;*/
+background-image: url(images/washi_recolor.png);
+background-repeat: repeat;
 text-align: center;
-font-family: MonteCarlo;
-font-size: 11px;
+font-family: Moon Flower;
+font-size: 18px;
 color: #606060;
 }
 
 #titre {
-font-family: Antipasto;
-font-size: 48px;
+font-family: Cheeky Rabbit;
+/*font-family: Antipasto;*/
+font-size: 60px;
 /*font-weight: bold;*/
 /*letter-spacing: -2px;*/
-color: #802828;
+color: #A7341B;
 margin: 10% 0 0 0;
 text-shadow:
-    -1px -1px 0 rgba(0,0,0,0.1),
+/*    -1px -1px 0 rgba(0,0,0,0.1),*/
     1px -1px 0 rgba(0,0,0,0.1),
-    -1px 1px 0 rgba(0,0,0,0.1),
+/*    -1px 1px 0 rgba(0,0,0,0.1),*/
     1px 1px 0 rgba(0,0,0,0.1);
 }
 
@@ -39,12 +41,21 @@ text-shadow:
 
 #sous-titre {
 /*color: #30343F;*/
-color: #606060;
+color: #1A1917;
+font-family: Moon Flower;
+font-size: 1.5em;
+text-shadow:
+/*    -1px -1px 0 rgba(0,0,0,0.1),*/
+    1px -1px 0 rgba(0,0,0,0.2),
+/*    -1px 1px 0 rgba(0,0,0,0.1),*/
+    1px 1px 0 rgba(0,0,0,0.2);
 }
 
 #rectangleblanc {
 display: table;
-background-color: #FAFAFA;
+/*background-color: #FAFAFA;*/
+background-image: url(images/ricepaper_v3.png);
+background-repeat: repeat;
 width: 100%;
 
 border-style: solid;
@@ -94,18 +105,18 @@ color: #555555;
 }
 
 a:link {
-	color: #606060;
+	color: #3D3E3F;
 	text-decoration: none;
 }
 a:visited {
-	color: #606060;
+	color: #3D3E3F;
 	text-decoration: none;
 }
 a:hover {
-	color: #808080;
+	color: #3D3E3F;
 	text-decoration: none;
 }
 a:active {
-	color: #606060;
+	color: #3D3E3F;
 	text-decoration: none;
 }

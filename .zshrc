@@ -6,7 +6,7 @@
 #(_)____|____/|_| |_|_| \_\\____|
 #
 
-#Historique
+# Historique
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -16,48 +16,49 @@ zstyle :compinstall filename '/home/tatou/.zshrc'
 
 autoload -U colors && colors
 
-#Activation de l'auto-complétion
+# Activation de l'auto-complétion
 autoload -U compinit
 compinit
 
-#Apparence de l'auto-complétion
+# Apparence de l'auto-complétion
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
-#Fish-like autocompletion
+# Fish-like autocompletion
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#Correction de commandes
+## Correction de commandes
 #setopt correctall
 
-#Prompt
+# Prompt
 autoload -U promptinit
 promptinit
-#PROMPT=" %{$fg_no_bold[red]%}> %{$reset_color%} "
-#RPROMPT="%{$fg_no_bold[green]%}%~%{$reset_color%}"
-#PROMPT=" %{$fg[black]%} %{$fg[black]%} %{$fg[magenta]%} %{$reset_color%} "
 PROMPT=" %{$fg[black]%}%{$reset_color%} "
+#PROMPT=" %{$fg[black]%}▪%{$reset_color%} "
+#PROMPT=" %{$bg[black]%}%{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%~%{$reset_color%}"
 
-#Path
+# Path
 export PATH=/home/tatou/.bin:$PATH
 
-#Alias
+# Alias
 alias azerty='setxkbmap -model macintosh -layout fr'
 alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
-alias usbcd='ranger /run/media/tatou/'
 alias mutt='mutt ; mailbox_to_fifo'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
-mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
-#Couleurs
-export GREP_COLOR=31
-alias grep='grep -i --color=auto'
-alias toilettes='toilet -f mono12 --gay'
-alias center="sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
-alias ls='ls --color=auto'
 alias rt='tmux attach -t rt'
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'
+
+# Inutiles
+alias toilettes='toilet -f mono12 --gay'
+alias center="sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
+mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
+
+# Couleurs
+export GREP_COLOR=31
+alias grep='grep -i --color=auto'
+alias ls='ls --color=auto'
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[0;31m") \
@@ -70,15 +71,15 @@ man() {
 		man "$@"
 }
 
-#Éditeur
+# Éditeur
 export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/firefox-nightly"
-export TERMCMD="/usr/bin/termite"
+export BROWSER="/usr/bin/firefox"
+export TERMCMD="/usr/bin/urxvt"
 
-#Raccourcis type vi
+# Raccourcis type vi
 bindkey -v
 
-#Autocomplétion killall
+# Autocomplétion killall
 zstyle ':completion:*:processes' command 'ps -ax'
 zstyle ':completion:*:processes-names' command 'ps -aeo comm='
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
@@ -86,7 +87,7 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:killall:*:processes-names' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:killall:*' menu yes select
 
-#Couleurs de la console
+## Couleurs de la console
 #if [ "$TERM" = "linux" ]; then
 #    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
 #    for i in $(sed -n "$_SEDCMD" $HOME/.Xdefaults | \

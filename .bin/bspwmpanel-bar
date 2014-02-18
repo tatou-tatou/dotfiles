@@ -1,0 +1,85 @@
+#! /bin/sh
+while read -r line ; do
+    case $line in
+        S*)
+            # clock output
+            horloge="\\br\\fr${line#?}\\fr"
+            ;;
+	m*)
+	    # Musique
+            musique="\br\fr${line#?}\\fr"
+            ;;
+	M*)
+	    # Mails
+            mails="\br\fr${line#?}\\fr"
+            ;;
+        T*)
+            # xtitle output
+            title="\\br\\f9${line#?}\\fr"
+            ;;
+        W*)
+            # bspwm internal state
+            wm_infos=""
+            IFS=':'
+            set -- ${line#?}
+            while [ $# -gt 0 ] ; do
+                item=$1
+                name=${item#?}
+                case $item in
+                    O*)
+                        # focused occupied desktop
+                        #wm_infos="$wm_infos \\u1\\br\\fr${name}\\ur"
+                        #wm_infos="$wm_infos \\u1\\f3\\ur"
+                        #wm_infos="$wm_infos\\b1\\u1\\fr  \\ur\\br"
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    F*)
+                        # focused free desktop
+                        #wm_infos="$wm_infos \\u6\\br\\f7${name}\\ur"
+                        #wm_infos="$wm_infos \\u1\\f0\\ur"
+                        #wm_infos="$wm_infos\\b1\\u1\\fr  \\ur\br"
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    U*)
+                        # focused urgent desktop
+                        #wm_infos="$wm_infos \\u9\\br\\fr${name}\\ur"
+                        #wm_infos="$wm_infos \\u1\\f3\\ur"
+                        #wm_infos="$wm_infos\\b1\\u1\\fr  \\ur\\br"
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    o*)
+                        # occupied desktop
+                        #wm_infos="$wm_infos \\br\\fr${name}"
+                        #wm_infos="$wm_infos \\f3\\ur"
+                        #wm_infos="$wm_infos \\f3 "
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    f*)
+                        # free desktop
+                        #wm_infos="$wm_infos \\br\\f7${name}"
+                        #wm_infos="$wm_infos \\f0"
+                        #wm_infos="$wm_infos \\f0 "
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    u*)
+                        # urgent desktop
+                        #wm_infos="$wm_infos \\b1\\fr${name}"
+                        #wm_infos="$wm_infos \\b1\\u1\\fr\\ur"
+                        #wm_infos="$wm_infos\\u0\\f3  \\u1"
+                        wm_infos="$wm_infos \\f9 "
+                        ;;
+                    L*)
+                        # layout
+			layout=$(printf "%s" "$(echo ${name} |sed 's/tiled/\\fr/g' |sed 's/monocle/\\fr\\b0\\u1 \\u1M\\u1 \\br\\ur/g')")
+			#layout=$(printf "%s" "$(echo ${name} |sed 's/tiled/\\fr/g' |sed 's/monocle/\\f1/g')")
+                        #wm_infos="\\b1\\u1 $wm_infos \\fr\\br\\ur \\br$layout\\fr"
+                        wm_infos="\\b1\\u1 $wm_infos \\fr\\br\\ur"
+                        ;;
+                esac
+                shift
+            done
+            ;;
+    esac
+    #printf "%s\n" "\\l $wm_infos \\c $title \\r $mails$horloge "
+    printf "%s\n" "\\l$wm_infos$musique   $layout \\r $mails$horloge"
+done

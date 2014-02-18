@@ -1,0 +1,2 @@
+#/bin/bash
+echo " $1 " | dzen2 -fn "MonteCarlo:pixelsize=11" -p $3 -x $((1260-$2)) -y 20 -w $2 -h 30 -bg "#1A1917" -fg "#eddec9" -e 'button1=exit'

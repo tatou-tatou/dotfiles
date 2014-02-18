@@ -107,8 +107,8 @@ super + ugrave
 
 # Dmenu
 super + p
-    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#802828' -sf '#eddec9'
-#    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'MonteCarlo-8' -nb '#0b0908' -nf '#fafafa' -sb '#740000' -sf '#fafafa'
+    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
+#    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#802828' -sf '#eddec9'
 
 # Menu
 super + dead_grave
@@ -150,6 +150,7 @@ super + XF86AudioLowerVolume
 
 #Toggle
 XF86AudioPlay
+# mpc toggle ; dzen-notify "$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/^fg(#A7341B)^fg()  Pause/g' | sed 's/playing/^fg(#878438)^fg()  Play/g')" 200 1
  mpc toggle ; dzen-notify "$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/^fg(#A7341B)^fg()  Pause/g' | sed 's/playing/^fg(#878438)^fg()  Play/g')" 200 1
 
 # Ouvrir ncmpcpp
@@ -158,7 +159,7 @@ super + XF86AudioPlay
 
 # Coverart-meh
 mod5 + XF86AudioPlay
- coverart-meh
+ coverart
 
 # Suivant
 XF86AudioNext

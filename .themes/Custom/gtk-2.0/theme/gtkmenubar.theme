@@ -6,8 +6,8 @@ GtkMenuBar::shadow-type=GTK_SHADOW_NONE
 GtkMenuBar::internal-padding=4
 /*bg[NORMAL]="#292929"*/
 /*bg[NORMAL]="#161616"*/
-bg[NORMAL]="#292929"
-bg[PRELIGHT]="#9B392C"
+bg[NORMAL]="#201F1D"
+bg[PRELIGHT]="#A73D26"
 engine"pixmap"
 {
 image
@@ -27,6 +27,6 @@ GtkMenuBar::shadow-type=GTK_SHADOW_NONE
 GtkMenuBar::internal-padding=3
 fg[PRELIGHT]="#fff"
 /*fg[NORMAL]="#ECECEE"*/
-fg[NORMAL]="#FAFAFA"
+fg[NORMAL]="#eddec9"
 engine"mist"{}}
 widget_class"*.<GtkMenuBar>*<GtkLabel>*"style"gtkmenubarfont"

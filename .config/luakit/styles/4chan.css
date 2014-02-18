@@ -6,13 +6,14 @@ body:before {
 	right: 0;
 	width: 100%;
 	height: 10px;
-	-webkit-box-shadow: 0px 0px 1px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0px 0px 1px rgba(0,0,0,.1);
 	z-index: 100; /* Ombre en haut  */
 }
 
 body {
 background: url('/image/fade-blue.png') repeat-x scroll center top #110908 !important;
-    background-color: #3D444E !important;
+    /*background-color: #E7E7E7 !important;*/
+    background-color: #E8E3DF !important;
     background-image: url('/image/fade-blue.png') !important;
     background-repeat: repeat-x !important;
     background-attachment: scroll !important;
@@ -25,11 +26,41 @@ background: url('/image/fade-blue.png') repeat-x scroll center top #110908 !impo
 #navtopright {
 display: none !important;
 }
-div.boardBanner {
-color: #6E2A1B !important;
+.boardTitle {
+font-family: Cheeky Rabbit !important;
+font-size: 40pt !important;
+letter-spacing: 0px !important;
+color: #A7341B !important;
+text-shadow:
+    1px -1px 0 rgba(0,0,0,0.1),
+    1px 1px 0 rgba(0,0,0,0.1);
 }
-IMG.title{
+.boardSubtitle {
+font-family: Cheeky Rabbit !important;
+font-size: 14pt !important;
+color: #A7341B !important;
+text-shadow:
+    1px -1px 0 rgba(0,0,0,0.1),
+    1px 1px 0 rgba(0,0,0,0.1);
+}
+div.boardBanner > img {
 /*opacity: 0.3 !important;*/
+border: 1px solid #DADADA !important;
+border-top-color: #DADADA !important;
+border-top-style: solid;
+border-top-width: 1px;
+border-right-color: #DADADA !important;
+border-right-style: solid;
+border-right-width: 1px;
+border-bottom-color: #DADADA !important;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: #DADADA !important;
+border-left-style: solid;
+border-left-width: 1px;
+/*-moz-box-shadow:    0px 0px 3px rgba(0,0,0,.6) !important;
+-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.6) !important;
+box-shadow:         0px 0px 3px rgba(0,0,0,.6) !important;*/
 }
 
 .boardList {
@@ -93,9 +124,13 @@ display: none !important; /* PUB */
 }
 
 #globalMessage {
-color: #6E2A1B !important;
+color: #A7341B !important;
 margin: 2% !important;
 margin-top: -150px !important;
+text-shadow:
+    1px -1px 0 rgba(0,0,0,0.1),
+    1px 1px 0 rgba(0,0,0,0.1);
+
 }
 a {
 color: #21242B !important;
@@ -139,6 +174,9 @@ padding: 2px !important;
     padding-right-rtl-source: physical !important;
 }
 
+.post.op .fileText {
+padding-top: 5px !important;
+}
 .post.reply {
 background-color: #FAFAFA !important;
 width: 100% !important;
@@ -190,16 +228,35 @@ display: inline-table !important;
         padding-right-rtl-source: physical !important;
     margin: -4px 0px -2px 20px !important;
     font-size: 8pt !important;
-    opacity: 0.6 !important;
+    color: #a9a9a9 !important;
 }
+.fileText a {
+	color: #a9a9a9 !important;
+}
+
 .postInfo.desktop {
+    color: #a9a9a9 !important;
     display: block !important;
-    margin: 6px 0px 0px 15px !important;
+    margin: 6px 15px 6px 15px !important;
     margin-top: 6px !important;
-    margin-right: 0px !important;
+    margin-right: 15px !important;
     margin-bottom: 6px !important;
     margin-left: 15px !important;
 
+}
+
+div.post div.postInfo span.nameBlock span.name {
+	color: #555555 !important;
+	font-weight: normal !important;
+}
+
+div.post div.postInfo span.nameBlock span.postertrip {
+	color: #555555 !important;
+	font-style: italic !important;
+}
+
+div.post div.postInfo span.postNum a {
+	color: #a9a9a9 !important;
 }
 
 .prettyprint {
@@ -220,10 +277,15 @@ display: inline-table !important;
 .backlink .quotelink:after {
 	content: "o " !important;
 	font-family: Cheeky Rabbit !important;
-	font-size: 15pt !important;
+	font-size: 17px !important;
 	color: #773137 !important;
 	visibility: visible !important;
 	letter-spacing: normal !important;
+}
+
+
+.extButton {
+	opacity: 0.5 !important;
 }
 
 .postInfo input {
@@ -270,13 +332,13 @@ display: none !important;
 }
 #boardNavDesktopFoot {
     font-size: 9pt !important;
-    color: #21242B !important;
+    color: #a9a9a9 !important;
     clear: none !important;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
 }
 #boardNavDesktopFoot a {
-    color: #21242B !important;
+    color: #a9a9a9 !important;
 }
 
 #boardNavDesktopFoot.desktop span.boardList {
@@ -292,10 +354,10 @@ display: inline !important;
 float:left !important;
 }
 .navLinks.navLinksBot.desktop span,.navLinks.navLinksBot.desktop label  {
-color: #21242B !important;
+color: #a9a9a9 !important;
 }
-.navLinks.navLinksBot.desktop a:visited {
-color: #21242B !important;
+.navLinks.navLinksBot.desktop a:visited,.navLinks.navLinksBot.desktop a {
+color: #a9a9a9 !important;
 }
 #navbotright {
 right: 1% !important;

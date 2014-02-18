@@ -1,10 +1,8 @@
 !Fonts
 
 URxvt*font: xft:MonteCarlo:pixelsize=11:antialias=false, \
-            [codeset=JISX0208]xft:Sucharaka Font:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic:antialias=false
 URxvt*boldFont: xft:MonteCarlo:pixelsize=11:antialias=false, \
-            [codeset=JISX0208]xft:Sucharaka Font:antialias=true,\
             [codeset=JISX0208]xft:Kochi Gothic:antialias=false
 
 XTerm*font: -windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252
@@ -25,16 +23,16 @@ Xft.rgba: rgb
 
 
 !Colors
-*foreground: #eddec9
-*background: #161616
+*foreground: #d4c6b4
+*background: #201F1D
 
 ! black
 !URxvt.color0  : #343434
-*color0  : #302e26
-*color8  : #5c5748
+*color0  : #302E26
+*color8  : #5C5748
 
 ! red
-*color1  : #A7341b
+*color1  : #A7341B
 *color9  : #7D2714
 
 ! green
@@ -62,3 +60,7 @@ Xft.rgba: rgb
 ! white
 URxvt.color7  : #eddec9
 URxvt.color15 : #fafafa
+
+! misc
+URxvt.cursorColor : #eddec9
+URxvt.highlightColor : #201F1D

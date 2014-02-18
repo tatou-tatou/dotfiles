@@ -474,7 +474,8 @@ window.methods = {
         else
             loaded:show()
             local pbar = {" "," "," "," "," "," "," "," "," "," "}
-            for i=1,math.floor((p*10)) do pbar[i] ="" end
+            --for i=1,math.floor((p*10)) do pbar[i] ="" end
+            for i=1,math.floor((p*10)) do pbar[i] ="▀" end
             local text = string.format("%s (%d%%)", table.concat(pbar,""), p * 100)
             if loaded.text ~= text then loaded.text = text end
 
@@ -501,11 +502,13 @@ window.methods = {
             ssl:show()
         elseif trusted == true then
             ssl.fg = theme.trust_fg
-            ssl.text = ""
+            --ssl.text = ""
+            ssl.text = "(trusted)"
             ssl:show()
         elseif trusted == false then
             ssl.fg = theme.notrust_fg
-            ssl.text = " (notrust)"
+            --ssl.text = " (notrust)"
+            ssl.text = "(not trusted)"
             ssl:show()
         else
             ssl:hide()
@@ -555,7 +558,8 @@ window.methods = {
         for i, view in ipairs(w.tabs.children) do
             -- Get tab number theme
             local ntheme = nfg
-            local tfmt = (current == i and ' <span foreground="%s">%s</span> %s') or ' <span foreground="%s"></span> %s'
+            --local tfmt = (current == i and ' <span foreground="%s">%s</span> %s') or ' <span foreground="%s"></span> %s'
+            local tfmt = (current == i and ' <span foreground="%s">%s</span> %s') or ' <span foreground="%s">%s</span> %s'
 
             if view:loading() then -- Show loading on all tabs
                 ntheme = lfg
@@ -578,7 +582,8 @@ window.methods = {
             --    bg = (current == i and theme.tab_selected_bg) or bg,
             --}
             tabs[i] = {
-                title = (current == i and string.format(tfmt, ntheme or fg, i, escape(title))) or string.format(tfmt, ntheme or fg, escape(title)),
+                --title = (current == i and string.format(tfmt, ntheme or fg, i, escape(title))) or string.format(tfmt, ntheme or fg, escape(title)),
+                title = (current == i and string.format(tfmt, ntheme or fg, i, escape(title))) or string.format(tfmt, ntheme or fg, i, escape(title)),
                 fg = (current == i and theme.tab_selected_fg) or fg,
                 bg = (current == i and theme.tab_selected_bg) or bg,
             }

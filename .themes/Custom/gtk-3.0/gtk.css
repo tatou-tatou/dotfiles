@@ -39,8 +39,9 @@
 @define-color error_color #cc0000;
 
 /* widget colors */
-@define-color menubar_bg_color #292929;
-@define-color menubar_fg_color #ECECEE;
+@define-color menubar_bg_color #201F1D;
+@define-color menubar_bottom_color #A73D26;
+@define-color menubar_fg_color #eddec9;
 @define-color toolbar_bg_color #FAFAFA;
 @define-color toolbar_fg_color #555555;
 @define-color menu_bg_color #FAFAFA;
