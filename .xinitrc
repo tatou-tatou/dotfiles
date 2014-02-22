@@ -9,6 +9,7 @@ fi
 
 
 ## RÉGLAGES ##
+xrdb -merge ~/.Xresources
 setxkbmap -model macintosh -layout fr &
 xsetroot -cursor_name left_ptr &
 nvidia-settings -l &

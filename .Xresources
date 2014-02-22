@@ -1,4 +1,19 @@
-!Fonts
+!
+! General settings
+!__________________
+
+URxvt*scrollBar: False
+URxvt*scrollTtyOutput: False
+URxvt*scrollTtyKeypress: True
+URxvt*secondaryScroll: True
+URxvt*saveLines: 1000
+URxvt*geometry:84x24
+
+
+
+!
+! Fonts
+!_______
 
 URxvt*font: xft:MonteCarlo:pixelsize=11:antialias=false, \
             [codeset=JISX0208]xft:Kochi Gothic:antialias=false
@@ -8,21 +23,26 @@ URxvt*boldFont: xft:MonteCarlo:pixelsize=11:antialias=false, \
 XTerm*font: -windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252
 XTerm*allowBoldFonts: False
 
-!General settings
-URxvt*scrollBar: False
-URxvt*scrollTtyOutput: False
-URxvt*scrollTtyKeypress: True
-URxvt*secondaryScroll: True
-URxvt*saveLines: 1000
-URxvt*geometry:84x24
 
-!Xft settings
+
+!
+! Xft settings
+!______________
+
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 96
 Xft.hinting: 1
 Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 
-!Colors
+
+!
+! Colors
+!________
+
 *foreground: #dec9a0
 *background: #201F1D
 
@@ -51,8 +71,6 @@ Xft.rgba: rgb
 *color13 : #522226
 
 ! cyan
-!*color6  : #60687f
-!*color14 : #324466
 *color6  : #3D444E
 *color14 : #757A80
 
