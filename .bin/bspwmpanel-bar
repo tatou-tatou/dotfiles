@@ -81,5 +81,5 @@ while read -r line ; do
             ;;
     esac
     #printf "%s\n" "\\l $wm_infos \\c $title \\r $mails$horloge "
-    printf "%s\n" "\\l$wm_infos$musique   $layout \\r $mails$horloge"
+    printf "%s\n" "\\l$wm_infos$musique $layout \\r $mails$horloge"
 done

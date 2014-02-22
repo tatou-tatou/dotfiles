@@ -1,16 +1,20 @@
-#
-# bspwm hotkeys
-#
+#######################
+#                     #
+#    bspwm hotkeys    #
+#                     #
+#######################
 
 super + alt + Escape
-    killall bspwmpanel;\
-    bspc quit
+    pkill -x bspwmpanel; bspc quit
 
 super + w
     bspc window -c
 
 super + t
     bspc desktop -l next
+
+super + ctrl + t
+    bspc window -t pseudo_tiled
 
 super + b
     bspc desktop -B
@@ -95,9 +99,11 @@ super + Escape
 
 
 
-#
-# Nécessaires au WM, mais pas liées à bspwm
-#
+###################################
+#                                 #
+#  Keybinds not related to bspwm  #
+#                                 #
+###################################
 
 super + Return
     urxvt
@@ -105,57 +111,57 @@ super + Return
 super + ugrave
     urxvt -e ranger
 
-# Dmenu
 super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
-#    dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#1A1A1A' -nf '#eddec9' -sb '#802828' -sf '#eddec9'
 
-# Menu
 super + dead_grave
     mygtkmenu ~/.config/GTKmenu/MonsterMenu
 
-# Scrot
 XF86LaunchB
-# scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
  scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
 
+
+
 #
-## Volume
+## VOLUME
 #
 
 #Mute
 XF86AudioMute
-# amixer set Master toggle ; notify-send -r 10 "<span color='#A7341B'>></span>  <span color='#878438'>$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')</span>Muted" -t 1000
- amixer set Master toggle ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#878438)$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')^fg()Muted" 200 1
+ amixer set Master toggle ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted "
 
 #Volume
 XF86AudioRaiseVolume
- amixer set PCM 1dB+ ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)$(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')^fg()Volume^fg(#878438) $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
-# amixer set PCM 1dB+ ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)$(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')^fg()Volume^fg(#878438) $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
+ amixer set PCM 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
  
 XF86AudioLowerVolume
- amixer set PCM 1dB- ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)$(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')^fg()Volume^fg(#878438) $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
+ amixer set PCM 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 #Master Volume
 super + XF86AudioRaiseVolume
- amixer set Master 1dB+ ; dzen-notify "^fg(#A7341B)>^fg()  Master ^fg(#A7341b)$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
+ amixer set Master 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 super + XF86AudioLowerVolume
- amixer set Master 1dB- ; dzen-notify "^fg(#A7341B)>^fg()  Master ^fg(#A7341b)$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)" 200 1
+ amixer set Master 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
+
+
 
 #
-## COMMANDES MPD/NCMPCPP
+## MPD/NCMPCPP
 #
 
 #Toggle
 XF86AudioPlay
-# mpc toggle ; dzen-notify "$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/^fg(#A7341B)^fg()  Pause/g' | sed 's/playing/^fg(#878438)^fg()  Play/g')" 200 1
- mpc toggle ; dzen-notify "$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/^fg(#A7341B)^fg()  Pause/g' | sed 's/playing/^fg(#878438)^fg()  Play/g')" 200 1
+ mpc toggle ; notifier "\\b4\\u4\\fr$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/  /g' | sed 's/playing/  /g')\\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
 
 # Ouvrir ncmpcpp
 super + XF86AudioPlay
  urxvt -e ncmpcpp
+
+# Infos musique
+super + XF86AudioNext
+ notifier
 
 # Coverart-meh
 mod5 + XF86AudioPlay
@@ -163,15 +169,18 @@ mod5 + XF86AudioPlay
 
 # Suivant
 XF86AudioNext
- mpc next ; dzen-notify "Next  ^fg(#A7341B)^fg()" 200 1
+# mpc next ; notifier " \\f3\\f5 $(mpc current -f %title%) \\b4\\u4\\fr  "
+ mpc next
 
 # Début
 XF86AudioPrev
- mpc seek 0% ; dzen-notify "^fg(#A7341B)^fg()  Replay" 200 1
+# mpc seek 0% ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
+ mpc seek 0%
 
 # Précédent
 super + XF86AudioPrev
- mpc prev ; dzen-notify "^fg(#A7341B)^fg()  Previous" 200 1
+# mpc prev ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
+ mpc prev ; notifier
 
 
 
@@ -181,17 +190,19 @@ super + XF86AudioPrev
 
 # Écran
 XF86MonBrightnessUp
- sudo mbp_backlight up ; dzen-notify "^fg(#A7341B)>^fg()  Luminosité ^fg(#878438)$(cat /sys/devices/virtual/backlight/apple_backlight/brightness)" 200 1
+ sudo mbp_backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
 XF86MonBrightnessDown
- sudo mbp_backlight down ; dzen-notify "^fg(#A7341B)>^fg()  Luminosité ^fg(#878438)$(cat /sys/devices/virtual/backlight/apple_backlight/brightness)" 200 1
+ sudo mbp_backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
 # Clavier
 XF86KbdBrightnessUp
- sudo keyboard-backlight up ; dzen-notify "^fg(#A7341B)>^fg()  Clavier ^fg(#878438)$(cat /sys/class/leds/smc::kbd_backlight/brightness)" 200 1
+ sudo keyboard-backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
 
 XF86KbdBrightnessDown
- sudo keyboard-backlight down ; dzen-notify "^fg(#A7341B)>^fg()  Clavier ^fg(#878438)$(cat /sys/class/leds/smc::kbd_backlight/brightness)" 200 1
+ sudo keyboard-backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
+
+
 
 #
 ## Lancements de programmes
@@ -205,6 +216,9 @@ XF86LaunchA
 super + XF86LaunchB
  nitrogen
 
+
+
+
 #
 ## Éjections, démonter
 #
@@ -215,11 +229,11 @@ super + XF86Eject
  dmenu_umount
 
 
+
 #
 ## Informations
 #
 
 # Batterie
 super + XF86MonBrightnessUp
-# dzen-notify "^fg(#A7341B)^fg() $(acpi -b | cut -s -d',' -f3)" 250 5
- dzen-notify "^fg(#A7341B)>^fg() $(acpi -b | cut -s -d',' -f3)" 250 1
+ notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 $(acpi -b | cut -s -d',' -f3) "

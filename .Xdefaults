@@ -23,13 +23,12 @@ Xft.rgba: rgb
 
 
 !Colors
-*foreground: #d4c6b4
+*foreground: #dec9a0
 *background: #201F1D
 
 ! black
-!URxvt.color0  : #343434
-*color0  : #302E26
-*color8  : #5C5748
+*color0  : #363126
+*color8  : #5C5541
 
 ! red
 *color1  : #A7341B
@@ -54,8 +53,8 @@ Xft.rgba: rgb
 ! cyan
 !*color6  : #60687f
 !*color14 : #324466
-*color6  : #302E26
-*color14 : #5C5748
+*color6  : #3D444E
+*color14 : #757A80
 
 ! white
 URxvt.color7  : #eddec9
@@ -63,4 +62,4 @@ URxvt.color15 : #fafafa
 
 ! misc
 URxvt.cursorColor : #eddec9
-URxvt.highlightColor : #201F1D
+URxvt.highlightColor : #A7402A

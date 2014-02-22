@@ -11,19 +11,34 @@ bspc config focus_follows_pointer  true
 
 
 
+#
 ## COULEURS ##
+#
 
 bspc config focused_border_color "#5c5748"
 bspc config normal_border_color "#2D2D2D"
 bspc config presel_border_color "#878438"
 
+
+
+#
 ## RÈGLES ##
+#
 
-#bspc rule -a wine floating=on
+# Flotter
+#bspc rule -a wine floating=true
+
+# Centrer les fenêtres flottantes
+bspc rule -a \* center=true
+
+# Faire en sorte que le panel soit toujours par-dessus (pour éviter problèmes d'ombres)
+#bspc rule -a bar-aint-recursive manage=false  ## marche pas
 
 
 
+#
 ## PANEL
+#
 
 bspwmpanel &
 sleep 2

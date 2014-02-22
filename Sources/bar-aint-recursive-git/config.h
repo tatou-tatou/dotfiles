@@ -11,7 +11,8 @@
 /* Default bar position, overwritten by '-b' switch */
 #define BAR_BOTTOM 0
 /* The fonts used for the bar, comma separated. Only the first 2 will be used. */
-#define BAR_FONT       "-windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252", "nu"
+#define BAR_FONT       "-windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252", "-windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252"
+
 /* Some fonts don't set the right width for some chars, pheex it */
 #define BAR_FONT_FALLBACK_WIDTH 6
 /* Define the opacity of the bar (requires a compositor such as compton) */
@@ -19,15 +20,15 @@
 /* Color palette */
 #define BACKGROUND 0x1A1917
 //#define BACKGROUND 0x161616
-#define COLOR0 0x201f1d //Foncé              // UTILISÉE
-//#define COLOR1 0x802828 //Rouge              // UTILISÉE
-#define COLOR1 0xA7402a //Rouge              // UTILISÉE
-#define COLOR2 0x878438 //Vert               // UTILISÉE
-#define COLOR3 0x3C382D //Gris clair         // UTILISÉE
-#define COLOR4 0xeddec9 //Rose clair
-#define COLOR5 0x773137 //Magenta (fond)
-#define COLOR6 0x302E26 //
-#define COLOR7 0x302E26 //
-#define COLOR8 0x5C5748 //
-#define COLOR9 0xeddec9 //Blanc              // UTILISÉE
-#define FOREGROUND 0xd4c6B4                  // UTILISÉE
+#define COLOR0 0x201f1d //Foncé              // UTILISÉE : bg messages
+#define COLOR1 0xA7402a //Rouge              // UTILISÉE : bg tags, bg mails
+#define COLOR2 0x878438 //Vert               // UTILISÉE : fg jour (horloge)
+#define COLOR3 0x5C5541 //Gris clair         // UTILISÉE : petits carrés
+#define COLOR4 0x3D444E //Bleu               // UTILISÉE : bg icônes messages
+#define COLOR5 0xdec9a0                      // UTILISÉE : fg messages, fg horloge
+#define COLOR6 0x302E26
+#define COLOR7 0x302E26
+#define COLOR8 0x5C5748
+#define COLOR9 0xeddec9 //Blanc              // UTILISÉE : fg tags, fg mails
+#define FOREGROUND 0xC9BCAB                  // UTILISÉE : fg icônes messages
+//#define FOREGROUND 0xd4c6B4                  // UTILISÉE

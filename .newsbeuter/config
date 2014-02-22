@@ -13,8 +13,8 @@ reload-time 60
 show-read-feeds no
 
 ## NOTIFICATIONS ##
-#notify-program "/usr/bin/notify-send"
-#notify-beep no
+notify-program "/home/tatou/.bin/download-finished"
+notify-beep no
 
 ## COULEURS ##
 color background cyan default bold

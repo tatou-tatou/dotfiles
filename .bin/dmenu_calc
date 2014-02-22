@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while inp=$(echo -e "$oup" | dmenu -x 490 -y 330 -w 300 -h 20 -l 4 -fn MonteCarlo-8 -nb '#0d0706' -sb '#740000')
+while inp=$(echo -e "$oup" | dmenu -x 490 -y 330 -w 300 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201f1d' -nf '#eddec9' -sb '#8f3724' -sf '#eddec9')
 do
     if oup2=$(echo "$inp" | bc -l); then
         echo -n "$oup2" | xsel -i

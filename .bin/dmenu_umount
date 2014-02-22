@@ -6,7 +6,7 @@ mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/run/media/tatou")
 if [ -z "$mountlist" ]
 then
 	#notify-send -t 0 "Rien n'est monté !"
-	echo "Rien n'est monté !" | dmenu -r -i -x 415 -y 330 -w 450 -l 4 -h 20 -fn MonteCarlo-8 -nb '#0d0706' -sb '#740000' -p 'DÉMONTER'
+	echo "Rien n'est monté !" | dmenu -r -i -x 415 -y 330 -w 450 -l 4 -h 20 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER'
 else
-	udevil umount "$(echo $mountlist | dmenu -r -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn MonteCarlo-8 -nb '#0d0706' -sb '#740000' -p 'DÉMONTER')"
+	udevil umount "$(echo $mountlist | dmenu -r -i -x 415 -y 330 -w 450 -l 4 -h 20 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER')"
 fi

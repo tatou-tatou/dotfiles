@@ -1,0 +1,48 @@
+#!/bin/sh
+
+DEFAULT_COVER="/home/tatou/.mpd/defaultcover"
+PREVCOVER="/home/tatou/.mpd/blackpixel.png"
+MUSICDIR="/home/tatou/Music"
+
+#Pour une pochette par défaut aléatoire
+#Nmax=$(ls -l .mpd/RandomCover | wc -l)
+#N_i=$((RANDOM%$Nmax+1))
+#DEFAULT_COVER="/home/tatou/.mpd/RandomCover/$(ls .mpd/RandomCover | sed -n "$N_i"p)"
+
+while true; do
+
+MFILE=$(mpc current -f %file%)
+MFILE=${MFILE%/*}
+MFILE=${MFILE%/$}
+
+FULLDIR="$MUSICDIR/$MFILE"
+
+[ -n "$FULLDIR" ] && COVERS=`ls "$FULLDIR" | grep "\.jpg\|\.png\|\.gif"`
+
+if [ -z "$COVERS" ]; then
+	COVERS="$DEFAULT_COVER"
+else
+	TRYCOVERS=`echo "$COVERS" | grep -i "cover\|front\|folder\|albumart" | head -n 1`
+
+	if [ -z "$TRYCOVERS" ]; then
+		TRYCOVERS=`echo "$COVERS" | head -n 1`
+		if [ -z "$TRYCOVERS" ]; then
+			TRYCOVERS="$DEFAULT_COVER"
+		else
+			TRYCOVERS="$FULLDIR/$TRYCOVERS"
+		fi
+	else
+		TRYCOVERS="$FULLDIR/$TRYCOVERS"
+	fi
+
+	COVERS="$TRYCOVERS"
+fi
+
+if [ "$COVERS" != "$PREVCOVER" ]; then
+	PREVCOVER=$COVERS
+	echo $COVERS
+fi
+
+sleep 1
+
+done | meh -ctl
