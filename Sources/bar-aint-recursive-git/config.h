@@ -25,10 +25,11 @@
 #define COLOR2 0x878438 //Vert               // UTILISÉE : fg jour (horloge)
 #define COLOR3 0x5C5541 //Gris clair         // UTILISÉE : petits carrés
 #define COLOR4 0x3D444E //Bleu               // UTILISÉE : bg icônes messages
-#define COLOR5 0xdec9a0                      // UTILISÉE : fg messages, fg horloge
+#define COLOR5 0xded0b4                      // UTILISÉE : fg messages, fg horloge
+//#define COLOR5 0xdec9a0                      // UTILISÉE : fg messages, fg horloge
 #define COLOR6 0x302E26
 #define COLOR7 0x302E26
 #define COLOR8 0x5C5748
 #define COLOR9 0xeddec9 //Blanc              // UTILISÉE : fg tags, fg mails
-#define FOREGROUND 0xC9BCAB                  // UTILISÉE : fg icônes messages
-//#define FOREGROUND 0xd4c6B4                  // UTILISÉE
+#define FOREGROUND 0xded0b4                  // UTILISÉE : fg icônes messages
+//#define FOREGROUND 0xC9BCAB                  // UTILISÉE : fg icônes messages

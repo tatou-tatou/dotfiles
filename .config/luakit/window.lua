@@ -474,8 +474,8 @@ window.methods = {
         else
             loaded:show()
             local pbar = {" "," "," "," "," "," "," "," "," "," "}
-            --for i=1,math.floor((p*10)) do pbar[i] ="" end
-            for i=1,math.floor((p*10)) do pbar[i] ="▀" end
+            for i=1,math.floor((p*10)) do pbar[i] ="" end
+            --for i=1,math.floor((p*10)) do pbar[i] ="▀" end
             local text = string.format("%s (%d%%)", table.concat(pbar,""), p * 100)
             if loaded.text ~= text then loaded.text = text end
 

@@ -1,0 +1,65 @@
+#!/bin/sh
+
+bld=$'\e[1m'
+rst=$'\e[0m'
+
+while getopts ":mbBdrvVMh" flags; do
+	case $flags in
+	m)
+		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
+		message="$(mpc current -f %title%)"
+	;;
+	b)
+		icon=""
+		message="Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
+	;;
+	B)
+		icon=""
+		message="Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
+	;;
+	d)
+		icon=""
+		message=$2
+	
+	;;
+	r)
+		icon=""
+		message="$(acpi -b | cut -s -d',' -f3)"
+
+	;;
+	v)
+		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+	;;
+	V)
+		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+	;;
+	M)
+		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		message="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted"
+	;;
+	h) #help
+			echo -e "Usage:"
+			echo -e "  notifier [OPTION] [MESSAGE]"
+			echo ""
+			echo "Display notifications on the top panel with various icons:"
+			echo ""
+			echo -e "Options${rst}:"
+			echo -e "   ${bld}-m${rst}                 Currently played music with a music note or a paused icon."
+			echo -e "   ${bld}-b${rst}                 Screen backlight with a lightbub icon."
+			echo -e "   ${bld}-B${rst}                 Keyboard backlight with a lightbub icon."
+			echo -e "   ${bld}-d${rst}                 To use with a [MESSAGE]. Show up with a down arrow icon."
+			echo -e "   ${bld}-r${rst}                 Remaining battery time."
+
+			echo -e "   ${bld}-v${rst}                 PCM volume value in percent."
+			echo -e "   ${bld}-V${rst}                 Master volume value in percent."
+			echo -e "   ${bld}-M${rst}                 Mute/Not mute."
+			echo -e "   ${bld}-h${rst}                 Display this help."
+
+			exit
+        ;;	
+	esac
+done
+
+echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5 $message \fr\br\ur" > $PANEL_FIFO
