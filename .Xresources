@@ -51,7 +51,8 @@ Xft.rgba: rgb
 *color8  : #5C5541
 
 ! red
-*color1  : #A7341B
+!*color1  : #A7341B
+*color1  : #A6321D
 *color9  : #7D2714
 
 ! green

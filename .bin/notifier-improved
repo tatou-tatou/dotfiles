@@ -7,15 +7,15 @@ while getopts ":mbBdrvVMh" flags; do
 	case $flags in
 	m)
 		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
-		message="$(mpc current -f %title%)"
+		message=" $(mpc current -f %title%)"
 	;;
 	b)
 		icon=""
-		message="Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
+		message=" Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
 	;;
 	B)
 		icon=""
-		message="Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
+		message=" Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
 	;;
 	d)
 		icon=""
@@ -23,17 +23,80 @@ while getopts ":mbBdrvVMh" flags; do
 	
 	;;
 	r)
-		icon=""
+		#icon=""
+		#message="$(acpi -b | cut -s -d',' -f3)"
+
+		percent=$(acpi -b | cut -s -d' ' -f4 | cut -s -d'%' -f1)
 		message="$(acpi -b | cut -s -d',' -f3)"
+
+		if [ ! -z "$message" ]
+		then
+			if [ $(echo "$percent > 89" | bc) == 1 ]
+			then
+				icon=""
+			elif [ $(echo "$percent > 74" | bc) == 1 ]
+			then
+				icon=""
+			elif [ $(echo "$percent > 49" | bc) == 1 ]
+			then
+				icon=""
+			elif [ $(echo "$percent > 24" | bc) == 1 ]
+			then
+				icon=""
+			else
+				icon=""
+			fi
+		else
+			icon=""
+			message=" Chargé"
+		fi
 
 	;;
 	v)
-		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
-		message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		#message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+
+		valeur_volume="$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" -eq "off" ]
+		then
+			icon=" "
+		elif [ $valeur_volume -eq 0 ]
+		then
+			icon=" "
+		elif [ $valeur_volume -eq 100 ]
+		then
+			icon=""
+		elif [ $(echo "$valeur_volume > 49" | bc) == 1 ]
+		then
+			icon=""
+		else
+			icon=""
+		fi
+
+		message=" Volume $valeur_volume"
 	;;
 	V)
-		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
-		message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		#message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+
+		valeur_volume="$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" -eq "off" ]
+		then
+			icon=" "
+		elif [ $valeur_volume -eq 0 ]
+		then
+			icon=" "
+		elif [ $valeur_volume -eq 100 ]
+		then
+			icon=""
+		elif [ $(echo "$valeur_volume > 49" | bc) == 1 ]
+		then
+			icon=""
+		else
+			icon=""
+		fi
+
+		message=" Master $valeur_volume"
 	;;
 	M)
 		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
@@ -62,4 +125,4 @@ while getopts ":mbBdrvVMh" flags; do
 	esac
 done
 
-echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5 $message \fr\br\ur" > $PANEL_FIFO
+echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $PANEL_FIFO

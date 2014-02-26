@@ -6,8 +6,6 @@ fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-flavor=${1:-bar-aint-recursive}
-
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 

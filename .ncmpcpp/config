@@ -56,7 +56,7 @@ mpd_crossfade_time = "5"
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
 #
-visualizer_in_stereo = "yes"
+visualizer_in_stereo = "no"
 #
 visualizer_fifo_path = "/tmp/mpd.fifo"
 #
@@ -87,7 +87,8 @@ visualizer_sync_interval = "30"
 #
 visualizer_type = "spectrum"
 #
-visualizer_look = ""
+#visualizer_look = ""
+visualizer_look = ""
 #
 ##### system encoding #####
 ##
@@ -173,7 +174,7 @@ message_delay_time = "1"
 song_list_format = " {$1%a $2>$9 }{$3{%t}|{%f}}"
 #
 #song_status_format = "{{%a{ \"%b\"{ (%y)}} - }{%t}}|{%f}"
-song_status_format = "{{$3{%t}|{%f}$9}{ by $7%a$9}}"
+song_status_format = "{{$3{%t}|{%f}$9}{ $1by $7%a$9}}"
 #
 #song_library_format = "{%n - }{%t}|{%f}"
 song_library_format = "{%n - }{%t}|{%f}"
@@ -275,7 +276,8 @@ song_window_title_format = "{{{%t}|{%f}}{ by %a}}"
 ##   not available.
 ##
 #
-song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (23)[black]{a} (28)[black]{b} (6f)[black]{l}"
+song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (6f)[black]{lr}"
+#song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (23)[black]{a} (28)[black]{b} (6f)[black]{l}"
 #
 ##### various settings #####
 #
@@ -318,14 +320,7 @@ centered_cursor = "no"
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-#progressbar_look = "─╼─"
-#progressbar_look = ""
-#progressbar_look = ""
-#progressbar_look = ""
-progressbar_look = ""
-#progressbar_look = ""
-#progressbar_look = ""
-#progressbar_look = ""
+progressbar_look = ""
 #
 progressbar_boldness = "no"
 #
@@ -343,7 +338,7 @@ default_tag_editor_pattern = "%n - %t"
 #
 header_visibility = "no"
 #
-statusbar_visibility = "yes"
+statusbar_visibility = "no"
 #
 titles_visibility = "no"
 #
@@ -493,7 +488,7 @@ color1 = "green"
 #
 color2 = "yellow"
 #
-main_window_highlight_color = "green"
+main_window_highlight_color = "cyan"
 #
 progressbar_color = "black"
 #
@@ -505,7 +500,7 @@ alternative_ui_separator_color = "black"
 #
 active_column_color = "red"
 #
-visualizer_color = "black"
+visualizer_color = "cyan"
 #
 window_border_color = "black"
 #
