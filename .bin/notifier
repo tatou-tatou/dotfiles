@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -z "$*" ] ; then
-	echo -E "m" "\b4\u4\fr  \b0\u0\f5 \f3\f5 $(mpc current -f %title%) \fr\br\ur" > $PANEL_FIFO
-else
-	echo -E "m" "\b0\u0\f5$*\fr\br\ur" > $PANEL_FIFO
-fi

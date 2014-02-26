@@ -128,26 +128,26 @@ XF86LaunchB
 
 #Mute
 XF86AudioMute
- amixer set Master toggle ; notifier-improved -M
+ amixer set Master toggle ; not-stat -M
 # amixer set Master toggle ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted "
 
 #Volume
 XF86AudioRaiseVolume
- amixer set PCM 1dB+ ; notifier-improved -v
+ amixer set PCM 1dB+ ; not-stat -v
 # amixer set PCM 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
  
 XF86AudioLowerVolume
- amixer set PCM 1dB- ; notifier-improved -v
+ amixer set PCM 1dB- ; not-stat -v
 # amixer set PCM 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 #Master Volume
 super + XF86AudioRaiseVolume
- amixer set Master 1dB+ ; notifier-improved -V
+ amixer set Master 1dB+ ; not-stat -V
 # amixer set Master 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 super + XF86AudioLowerVolume
- amixer set Master 1dB- ; notifier-improved -V
+ amixer set Master 1dB- ; not-stat -V
 # amixer set Master 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 
@@ -158,35 +158,35 @@ super + XF86AudioLowerVolume
 
 #Toggle
 XF86AudioPlay
- mpc toggle ; notifier-improved -m
+ mpc toggle ; not-stat -m
 # mpc toggle ; notifier "\\b4\\u4\\fr$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/  /g' | sed 's/playing/  /g')\\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
 
 # Ouvrir ncmpcpp
 super + XF86AudioPlay
- urxvt -e ncmpcpp ; notifier-improved -m
+ urxvt -e ncmpcpp ; not-stat -m
 
 # Infos musique
 super + XF86AudioNext
- notifier-improved -m
+ not-stat -m
 
 # Coverart-meh
 mod5 + XF86AudioPlay
- coverart ; notifier-improved -m
+ coverart ; not-stat -m
 
 # Suivant
 XF86AudioNext
- mpc next ; notifier-improved -m
+ mpc next ; not-stat -m
 # mpc next ; notifier " \\f3\\f5 $(mpc current -f %title%) \\b4\\u4\\fr  "
 
 # Début
 XF86AudioPrev
 # mpc seek 0% ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
- mpc seek 0% ; notifier-improved -m
+ mpc seek 0% ; not-stat -m
 
 # Précédent
 super + XF86AudioPrev
 # mpc prev ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
- mpc prev ; notifier-improved -m
+ mpc prev ; not-stat -m
 
 
 
@@ -196,20 +196,20 @@ super + XF86AudioPrev
 
 # Écran
 XF86MonBrightnessUp
- sudo mbp_backlight up ; notifier-improved -b
+ sudo mbp_backlight up ; not-stat -b
 # sudo mbp_backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
 XF86MonBrightnessDown
- sudo mbp_backlight down ; notifier-improved -b
+ sudo mbp_backlight down ; not-stat -b
 # sudo mbp_backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
 # Clavier
 XF86KbdBrightnessUp
- sudo keyboard-backlight up ; notifier-improved -B
+ sudo keyboard-backlight up ; not-stat -B
 # sudo keyboard-backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
 
 XF86KbdBrightnessDown
- sudo keyboard-backlight down ; notifier-improved -B
+ sudo keyboard-backlight down ; not-stat -B
 # sudo keyboard-backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
 
 
@@ -246,5 +246,5 @@ super + XF86Eject
 
 # Batterie
 super + XF86MonBrightnessUp
- notifier-improved -r
+ not-stat -r
 # notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 $(acpi -b | cut -s -d',' -f3) "

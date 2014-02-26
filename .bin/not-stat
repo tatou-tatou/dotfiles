@@ -1,5 +1,7 @@
 #!/bin/sh
 
+kill $(cat ~/.notifier.pid)
+
 bld=$'\e[1m'
 rst=$'\e[0m'
 
@@ -57,7 +59,7 @@ while getopts ":mbBdrvVMh" flags; do
 		#message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 
 		valeur_volume="$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
-		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" -eq "off" ]
+		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
 		then
 			icon=" "
 		elif [ $valeur_volume -eq 0 ]
@@ -80,7 +82,7 @@ while getopts ":mbBdrvVMh" flags; do
 		#message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 
 		valeur_volume="$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
-		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" -eq "off" ]
+		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
 		then
 			icon=" "
 		elif [ $valeur_volume -eq 0 ]
@@ -100,23 +102,22 @@ while getopts ":mbBdrvVMh" flags; do
 	;;
 	M)
 		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
-		message="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted"
+		message=" $(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted"
 	;;
 	h) #help
 			echo -e "Usage:"
-			echo -e "  notifier [OPTION] [MESSAGE]"
+			echo -e "  not-stat [OPTION] [MESSAGE]"
 			echo ""
-			echo "Display notifications on the top panel with various icons:"
+			echo "Display notifications on the top panel with various icons. After 3 seconds of inactivity, notifications get replaced by the current mpd song."
 			echo ""
 			echo -e "Options${rst}:"
-			echo -e "   ${bld}-m${rst}                 Currently played music with a music note or a paused icon."
-			echo -e "   ${bld}-b${rst}                 Screen backlight with a lightbub icon."
-			echo -e "   ${bld}-B${rst}                 Keyboard backlight with a lightbub icon."
-			echo -e "   ${bld}-d${rst}                 To use with a [MESSAGE]. Show up with a down arrow icon."
+			echo -e "   ${bld}-m${rst}                 Currently played music."
+			echo -e "   ${bld}-b${rst}                 Screen backlight."
+			echo -e "   ${bld}-B${rst}                 Keyboard backlight."
+			echo -e "   ${bld}-d${rst}                 To use with a [MESSAGE]."
 			echo -e "   ${bld}-r${rst}                 Remaining battery time."
-
-			echo -e "   ${bld}-v${rst}                 PCM volume value in percent."
-			echo -e "   ${bld}-V${rst}                 Master volume value in percent."
+			echo -e "   ${bld}-v${rst}                 PCM volume in percent."
+			echo -e "   ${bld}-V${rst}                 Master volume in percent."
 			echo -e "   ${bld}-M${rst}                 Mute/Not mute."
 			echo -e "   ${bld}-h${rst}                 Display this help."
 
@@ -126,3 +127,13 @@ while getopts ":mbBdrvVMh" flags; do
 done
 
 echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $PANEL_FIFO
+
+echo $$ > ~/.notifier.pid
+
+sleep 3
+
+icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
+message=" $(mpc current -f %title%)"
+echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $PANEL_FIFO
+
+echo "" > ~/.notifier.pid
