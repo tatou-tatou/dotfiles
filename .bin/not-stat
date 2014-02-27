@@ -1,4 +1,28 @@
 #!/bin/sh
+#
+# - Send a pre-defined notification to a fifo with a fitting icon. The fifo is meant to be read by bspwm's panel.
+# - Every notifications are temporary and get replaced by the current mpd song (or by nothing) after a certain amount of time (3s by default).
+# - Currently, volume and battery icons change their shape according to their respective value.
+# - To be used with the modified MonteCarlo font on https://github.com/tatou-tatou/dotfiles/tree/master/.fonts/MonteCarlo-glyphes otherwise, you will not have any icons.
+#
+#
+
+##### Settings: #####
+
+# Replace by mpd song?
+mpd_replace=true
+
+# Countdown in seconds
+countdown=3
+
+# FIFO
+fifo="/tmp/panel-fifo"
+
+# Character used by the bspwm panel script to know where to put the notification (see the bspwmpanel-bar script for more details)
+premessage="m"
+
+#####################
+
 
 kill $(cat ~/.notifier.pid)
 
@@ -126,14 +150,27 @@ while getopts ":mbBdrvVMh" flags; do
 	esac
 done
 
-echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $PANEL_FIFO
+
+
+###
+#
+# Send the message to the panel.
+#
+###
+
+echo -E "$premessage" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $fifo
 
 echo $$ > ~/.notifier.pid
 
-sleep 3
+sleep $countdown
 
-icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
-message=" $(mpc current -f %title%)"
-echo -E "m" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $PANEL_FIFO
+if [ $mpd_replace == true ]
+then
+	icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
+	message=" $(mpc current -f %title%)"
+	echo -E "$premessage" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $fifo
+else
+	echo -E "$premessage" "" > $fifo
+fi
 
 echo "" > ~/.notifier.pid

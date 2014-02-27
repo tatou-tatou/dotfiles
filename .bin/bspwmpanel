@@ -12,7 +12,6 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding 18
 
 bspc control --subscribe > "$PANEL_FIFO" &
-#xtitle -sf 'T%s' > "$PANEL_FIFO" &
 clock -sf 'S\b0\u0  \f3 \f2%d \f5%b  \f3\f5 %H:%M \br\ur\fr' > "$PANEL_FIFO" &
 
 cat "$PANEL_FIFO" | bspwmpanel-bar | bar-aint-recursive &

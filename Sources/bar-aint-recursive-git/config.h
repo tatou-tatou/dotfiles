@@ -7,7 +7,7 @@
 /* Choose between an underline or an overline */
 #define BAR_UNDERLINE 1
 /* The thickness of the underline (in pixels). Set to 0 to disable. */
-#define BAR_UNDERLINE_HEIGHT 2
+#define BAR_UNDERLINE_HEIGHT 0
 /* Default bar position, overwritten by '-b' switch */
 #define BAR_BOTTOM 0
 /* The fonts used for the bar, comma separated. Only the first 2 will be used. */

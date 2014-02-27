@@ -1,6 +1,0 @@
-style"gtkdrawingarea"
-{
-engine"mist"{}}
-class"*GtkDrawingArea*"style"gtkdrawingarea"
-class"*GtkCurve*"style"gtkdrawingarea"
-class"*GdkPixbuf*"style"gtkdrawingarea"
