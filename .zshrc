@@ -52,6 +52,7 @@ alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ;
 
 # Inutiles
 alias toilettes='toilet -f mono12 --gay'
+alias chiottes='toilet -f mono12 --metal'
 alias center="sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 

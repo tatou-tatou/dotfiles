@@ -276,7 +276,7 @@ song_window_title_format = "{{{%t}|{%f}}{ by %a}}"
 ##   not available.
 ##
 #
-song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (6f)[black]{lr}"
+song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (5f)[black]{lr}"
 #song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (23)[black]{a} (28)[black]{b} (6f)[black]{l}"
 #
 ##### various settings #####
@@ -356,7 +356,7 @@ fetch_lyrics_for_current_song_in_background = "no"
 #
 store_lyrics_in_song_dir = "no"
 #
-generate_win32_compatible_filenames = "yes"
+generate_win32_compatible_filenames = "no"
 #
 ##
 ## Note: If you set this variable, ncmpcpp will try to
@@ -405,7 +405,7 @@ screen_switcher_mode = "sequence: 2 -> 3"
 #
 locked_screen_width_part = "50"
 #
-ask_for_locked_screen_width_part = "yes"
+ask_for_locked_screen_width_part = "no"
 #
 ##
 ## Note: You can define startup screen for ncmpcpp
