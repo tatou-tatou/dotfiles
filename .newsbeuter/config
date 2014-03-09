@@ -1,8 +1,8 @@
 ## GÉNÉRAL ##
 always-display-description true
 auto-reload yes
-#browser "firefox-nightly %u > /dev/null 2>&1 &"
-browser "luakit -n %u > /dev/null 2>&1 &"
+browser "firefox %u > /dev/null 2>&1 &"
+#browser "luakit -n %u > /dev/null 2>&1 &"
 html-renderer "internal"
 keep-articles-days 30
 articlelist-format "%4i %f %D %?T?;%-17T; ?%t"
@@ -21,8 +21,8 @@ color background cyan default bold
 #color info color16 green
 color info green black
 color listnormal black default
-color listfocus default magenta bold
+color listfocus default red bold
 color listnormal_unread black default bold
-color listfocus_unread default magenta
+color listfocus_unread default red bold
 color article default default
 

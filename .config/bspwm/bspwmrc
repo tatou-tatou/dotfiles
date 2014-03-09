@@ -15,9 +15,9 @@ bspc config focus_follows_pointer  true
 ## COULEURS ##
 #
 
-bspc config focused_border_color "#5c5748"
-bspc config normal_border_color "#2D2D2D"
-bspc config presel_border_color "#878438"
+bspc config focused_border_color "#57544F"
+bspc config normal_border_color "#292825"
+bspc config presel_border_color "#3D444E"
 
 
 
@@ -27,6 +27,7 @@ bspc config presel_border_color "#878438"
 
 # Flotter
 #bspc rule -a wine floating=true
+bspc rule -a nitrogen floating=true
 
 # Centrer les fenêtres flottantes
 bspc rule -a \* center=true

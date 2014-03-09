@@ -59,8 +59,9 @@ class Default(ColorScheme):
 					fg = magenta
 			if context.main_column:
 				if context.selected:
-					fg = green
-					attr = reverse
+					fg = white
+					bg = red
+					attr = normal
 				if context.marked:
 					attr |= bold
 					fg = yellow

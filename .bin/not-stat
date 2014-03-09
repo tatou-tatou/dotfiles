@@ -7,6 +7,10 @@
 #
 #
 
+kill $(cat ~/.notifier.pid)
+
+echo $$ > ~/.notifier.pid
+
 ##### Settings: #####
 
 # Replace by mpd song?
@@ -22,9 +26,6 @@ fifo="/tmp/panel-fifo"
 premessage="m"
 
 #####################
-
-
-kill $(cat ~/.notifier.pid)
 
 bld=$'\e[1m'
 rst=$'\e[0m'
@@ -160,7 +161,6 @@ done
 
 echo -E "$premessage" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $fifo
 
-echo $$ > ~/.notifier.pid
 
 sleep $countdown
 

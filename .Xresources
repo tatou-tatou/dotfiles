@@ -47,12 +47,13 @@ Xft.rgba: rgb
 *background: #201F1D
 
 ! black
-*color0  : #363126
+!*color0  : #363126
+*color0  : #332F27
 *color8  : #5C5541
 
 ! red
-!*color1  : #A7341B
-*color1  : #A6321D
+*color1  : #9C3018
+!*color1  : #A73D26
 *color9  : #7D2714
 
 ! green
@@ -64,7 +65,7 @@ Xft.rgba: rgb
 *color11 : #B3921E
 
 ! blue
-*color4  : #28617d
+*color4  : #2D83AD
 *color12 : #204D63
 
 ! magenta
