@@ -15,6 +15,10 @@ URxvt*geometry:84x24
 ! Fonts
 !_______
 
+!URxvt*font: xft:Liberation Mono:pixelsize=11:antialias=false, \
+!            [codeset=JISX0208]xft:Kochi Gothic:antialias=false
+!URxvt*boldFont: xft:Liberation Mono:pixelsize=11:antialias=false, \
+!            [codeset=JISX0208]xft:Kochi Gothic:antialias=false
 URxvt*font: xft:MonteCarlo:pixelsize=11:antialias=false, \
             [codeset=JISX0208]xft:Kochi Gothic:antialias=false
 URxvt*boldFont: xft:MonteCarlo:pixelsize=11:antialias=false, \

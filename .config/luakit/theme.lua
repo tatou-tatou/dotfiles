@@ -53,12 +53,12 @@ theme.ibar_fg           = "#E3D9BB"
 theme.ibar_bg           = "#201F1D"
 
 -- Tab label
-theme.tab_fg            = "#363126"
-theme.tab_ntheme        = "#363126"
+theme.tab_fg            = "#DED0B4"
+theme.tab_ntheme        = "#201F1D"
 theme.tab_bg            = "#201F1D"
-theme.selected_fg       = "#E3D9BB"
-theme.selected_bg       = "#201F1D"
-theme.selected_ntheme   = "#C23C1F"
+theme.selected_fg       = "#EDDEC9"
+theme.selected_bg       = "#3D444E"
+theme.selected_ntheme   = "#3D444E"
 theme.loading_fg        = "#A7341B"
 theme.loading_bg        = "#000"
 

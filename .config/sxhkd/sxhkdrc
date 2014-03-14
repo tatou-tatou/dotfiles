@@ -218,7 +218,7 @@ XF86KbdBrightnessDown
 ## Lancements de programmes
 #
 super + XF86LaunchA
- firefox & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
+ firefox-holly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
 
 XF86LaunchA
  luakit & dzen-notify "^fg(#A7341B)>^fg()  luakit" 200 1

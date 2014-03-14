@@ -1,7 +1,7 @@
 ## GÉNÉRAL ##
 always-display-description true
 auto-reload yes
-browser "firefox %u > /dev/null 2>&1 &"
+browser "firefox-holly %u > /dev/null 2>&1 &"
 #browser "luakit -n %u > /dev/null 2>&1 &"
 html-renderer "internal"
 keep-articles-days 30
