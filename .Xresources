@@ -56,29 +56,28 @@ Xft.rgba: rgb
 *color8  : #5C5541
 
 ! red
-*color1  : #9C3018
-!*color1  : #A73D26
-*color9  : #7D2714
+*color1  : #A73E28
+*color9  : #85311E
 
 ! green
 *color2  : #878438
 *color10 : #62712C
 
 ! yellow
-*color3  : #ddb62b
-*color11 : #B3921E
+*color3  : #C4905E
+*color11 : #C4A63B
 
 ! blue
-*color4  : #2D83AD
-*color12 : #204D63
+*color4  : #3D444E
+*color12 : #757A80
 
 ! magenta
-*color5  : #802828
-*color13 : #522226
+*color5  : #533F48
+*color13 : #835C6E
 
 ! cyan
-*color6  : #3D444E
-*color14 : #757A80
+*color6  : #9D534A
+*color14 : #6A3D38
 
 ! white
 URxvt.color7  : #eddec9
