@@ -88,7 +88,7 @@ visualizer_sync_interval = "30"
 visualizer_type = "spectrum"
 #
 #visualizer_look = ""
-visualizer_look = ""
+visualizer_look = "██"
 #
 ##### system encoding #####
 ##
@@ -171,7 +171,7 @@ message_delay_time = "1"
 ##
 #
 #song_list_format = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
-song_list_format = " {$1%a $2>$9 }{$3{%t}|{%f}}"
+song_list_format = "{$3%l }{$0{%t}|{%f}}{ $1%a}$9"
 #
 #song_status_format = "{{%a{ \"%b\"{ (%y)}} - }{%t}}|{%f}"
 song_status_format = "{{$3{%t}|{%f}$9}{ $1by $7%a$9}}"
@@ -221,12 +221,13 @@ alternative_header_second_line_format = "{{$/b$3%b$9} {$/b$8by$9 $5%a$9}}"
 ## text attributes listed above.
 ##
 #
-now_playing_prefix = "$1$b $9"
+now_playing_prefix = "$1$b $9$/b"
+#now_playing_prefix = "$1$b $9"
 #
 #now_playing_suffix = "$9$/b"
 now_playing_suffix = "$9$/b"
 #
-browser_playlist_prefix = "$2playlist$9 "
+browser_playlist_prefix = "$2playlist$9i"
 #
 selected_item_prefix = "$b$3"
 #
@@ -276,8 +277,8 @@ song_window_title_format = "{{{%t}|{%f}}{ by %a}}"
 ##   not available.
 ##
 #
-song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (5f)[black]{lr}"
-#song_columns_list_format = "(3f)[black]{} (39)[black]{t|f} (23)[black]{a} (28)[black]{b} (6f)[black]{l}"
+#song_columns_list_format = "(3f)[]{} (39)[]{t|f} (5f)[black]{lr}"
+song_columns_list_format = "(3f)[]{} (50)[]{t|f} (30)[green]{ar} (5f)[black]{lr}"
 #
 ##### various settings #####
 #
@@ -320,7 +321,9 @@ centered_cursor = "no"
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-progressbar_look = ""
+#progressbar_look = ""
+#progressbar_look = "▇▇▇"
+progressbar_look = ""
 #
 progressbar_boldness = "no"
 #
@@ -403,9 +406,9 @@ screen_switcher_mode = "sequence: 2 -> 3"
 ## Acceptable values are from 20 to 80.
 ##
 #
-locked_screen_width_part = "50"
+locked_screen_width_part = "35"
 #
-ask_for_locked_screen_width_part = "no"
+ask_for_locked_screen_width_part = "yes"
 #
 ##
 ## Note: You can define startup screen for ncmpcpp
@@ -472,7 +475,7 @@ use_console_editor = "yes" (set to yes, if your editor is console app)
 #
 colors_enabled = "yes"
 #
-empty_tag_color = "cyan"
+empty_tag_color = "blue"
 #
 header_window_color = "default"
 #
@@ -482,13 +485,15 @@ state_line_color = "default"
 #
 state_flags_color = "default"
 #
-main_window_color = "black"
+main_window_color = "default"
 #
 color1 = "green"
 #
 color2 = "yellow"
 #
 main_window_highlight_color = "cyan"
+#
+main_window_highlight_foreground_color = "white"
 #
 progressbar_color = "black"
 #
@@ -500,9 +505,10 @@ alternative_ui_separator_color = "black"
 #
 active_column_color = "red"
 #
-visualizer_color = "cyan"
+visualizer_color = "blue"
 #
 window_border_color = "black"
 #
 active_window_border = "red"
 #
+separator_color = "black"

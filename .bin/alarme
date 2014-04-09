@@ -12,10 +12,10 @@ case "$1" in
 		yad --image="sakuyaicon70" --text="<span color='#740000'>C'est l'heure \!</span>\n\nCliquez pour arrêter la musique." --center --on-top
 	;;
 	dmenu)
-		echo "" | dmenu -b -p "'ENTRÉE' pour arrêter la musique." -fn MonteCarlo-8 -h 20 -w 205 -x 535 -sb '#740000'
+		echo "" | dmenu -b -p "'ENTRÉE' pour arrêter la musique." -fn 'Lucida Grande-8' -h 20 -w 205 -x 535 -sb '#740000'
 	;;
 	*)
-		echo "" | dmenu -b -p "'ENTRÉE' pour arrêter la musique." -fn MonteCarlo-8 -h 20 -w 205 -x 535 -sb '#740000'
+		echo "" | dmenu -b -p "'ENTRÉE' pour arrêter la musique." -fn 'Lucida Grande-12' -h 30 -w 280 -x 500 -sb '#A73E28'
 	;;
 esac
 

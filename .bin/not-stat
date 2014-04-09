@@ -1,9 +1,22 @@
 #!/bin/sh
 #
-# - Send a pre-defined notification to a fifo with a fitting icon. The fifo is meant to be read by bspwm's panel.
-# - Every notifications are temporary and get replaced by the current mpd song (or by nothing) after a certain amount of time (3s by default).
-# - Currently, volume and battery icons change their shape according to their respective value.
-# - To be used with the modified MonteCarlo font on https://github.com/tatou-tatou/dotfiles/tree/master/.fonts/MonteCarlo-glyphes otherwise, you will not have any icons.
+# not-stat OPTION ["STRING"]
+#
+#  Kinda works like statnot, except it does not use libnotify and it's not written in
+# python:
+#  - Send a pre-defined notification to a fifo with a fitting icon. The fifo is meant
+# to be read by lemonboy's bar (see bspwmpanel-bar).
+#  - Every notifications are temporary and get replaced by the current mpd song (or
+# by nothing) after a certain amount of time (3 seconds by default).
+#  - Currently, volume and battery icons change their shape according to the
+# respective value of what they represent.
+#  - To be used with the modified MonteCarlo font on  (otherwise, you will not
+# have any icons).
+#
+#  I wrote this to have fun and to waste time, I would not recommend anyone else to
+# use it. If you want notifications in your panel, tweak statnot to work with
+# something else than with dwm. It's very easy to do and probably much better, as
+# statnot is a true, full featured, notification daemon.
 #
 #
 
@@ -25,6 +38,9 @@ fifo="/tmp/panel-fifo"
 # Character used by the bspwm panel script to know where to put the notification (see the bspwmpanel-bar script for more details)
 premessage="m"
 
+# Colors
+. bar_colors
+
 #####################
 
 bld=$'\e[1m'
@@ -33,19 +49,19 @@ rst=$'\e[0m'
 while getopts ":mbBdrvVMh" flags; do
 	case $flags in
 	m)
-		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
-		message=" $(mpc current -f %title%)"
+		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
+		message=" $(mpc current -f '%title%|%file%')"
 	;;
 	b)
-		icon=""
+		icon=""
 		message=" Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
 	;;
 	B)
-		icon=""
+		icon=""
 		message=" Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
 	;;
 	d)
-		icon=""
+		icon=""
 		message=$2
 	
 	;;
@@ -60,73 +76,73 @@ while getopts ":mbBdrvVMh" flags; do
 		then
 			if [ $(echo "$percent > 89" | bc) == 1 ]
 			then
-				icon=""
+				icon=""
 			elif [ $(echo "$percent > 74" | bc) == 1 ]
 			then
-				icon=""
+				icon=""
 			elif [ $(echo "$percent > 49" | bc) == 1 ]
 			then
-				icon=""
+				icon=""
 			elif [ $(echo "$percent > 24" | bc) == 1 ]
 			then
-				icon=""
+				icon=""
 			else
-				icon=""
+				icon=""
 			fi
 		else
-			icon=""
+			icon=""
 			message=" Chargé"
 		fi
 
 	;;
 	v)
-		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
 		#message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 
 		valeur_volume="$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
 		then
-			icon=" "
+			icon=" "
 		elif [ $valeur_volume -eq 0 ]
 		then
-			icon=" "
+			icon=" "
 		elif [ $valeur_volume -eq 100 ]
 		then
-			icon=""
+			icon=""
 		elif [ $(echo "$valeur_volume > 49" | bc) == 1 ]
 		then
-			icon=""
+			icon=""
 		else
-			icon=""
+			icon=""
 		fi
 
 		message=" Volume $valeur_volume"
 	;;
 	V)
-		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
 		#message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 
 		valeur_volume="$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
 		then
-			icon=" "
+			icon=" "
 		elif [ $valeur_volume -eq 0 ]
 		then
-			icon=" "
+			icon=" "
 		elif [ $valeur_volume -eq 100 ]
 		then
-			icon=""
+			icon=""
 		elif [ $(echo "$valeur_volume > 49" | bc) == 1 ]
 		then
-			icon=""
+			icon=""
 		else
-			icon=""
+			icon=""
 		fi
 
 		message=" Master $valeur_volume"
 	;;
 	M)
-		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
+		icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
 		message=" $(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted"
 	;;
 	h) #help
@@ -159,16 +175,16 @@ done
 #
 ###
 
-echo -E "$premessage" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $fifo
+echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons} $icon %{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications}$message %{B-}%{F-}" > $fifo
 
 
 sleep $countdown
 
 if [ $mpd_replace == true ]
 then
-	icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
-	message=" $(mpc current -f %title%)"
-	echo -E "$premessage" "\b4\u4\fr $icon \b0\u0\f5 \f3\f5$message \fr\br\ur" > $fifo
+	icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
+	message=" $(mpc current -f '%title%|%file%')"
+	echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons} $icon %{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications}$message %{B-}%{F-}" > $fifo
 else
 	echo -E "$premessage" "" > $fifo
 fi

@@ -51,33 +51,33 @@ Xft.rgba: rgb
 *background: #201F1D
 
 ! black
-!*color0  : #363126
-*color0  : #332F27
-*color8  : #5C5541
+!URxvt.color0  : #363126
+URxvt.color0  : #332F27
+URxvt.color8  : #5C5541
 
 ! red
-*color1  : #A73E28
-*color9  : #85311E
+URxvt.color1  : #A73E28
+URxvt.color9  : #85311E
 
 ! green
-*color2  : #878438
-*color10 : #62712C
+URxvt.color2  : #878438
+URxvt.color10 : #62712C
 
 ! yellow
-*color3  : #C4905E
-*color11 : #C4A63B
+URxvt.color3  : #C4905E
+URxvt.color11 : #C4A63B
 
 ! blue
-*color4  : #3D444E
-*color12 : #757A80
+URxvt.color4  : #3D444E
+URxvt.color12 : #757A80
 
 ! magenta
-*color5  : #533F48
-*color13 : #835C6E
+URxvt.color5  : #533F48
+URxvt.color13 : #835C6E
 
 ! cyan
-*color6  : #9D534A
-*color14 : #6A3D38
+URxvt.color6  : #9D534A
+URxvt.color14 : #6A3D38
 
 ! white
 URxvt.color7  : #eddec9

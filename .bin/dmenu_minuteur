@@ -18,9 +18,7 @@ mpc pause
 #mpv "/home/tatou/Music/Tokyo Active NEETs/東方爆音ジャズ/05 弾幕注意報.mp3" & reimupid=$!
 mpv "/home/tatou/Music/Electro Planet/[C83] BPM FxxKER/03-Clean tears-none the wiser.mp3" & reimupid=$!
 
-
-	echo "" | dmenu -b -p "'ENTRÉE pour arrêter la musique." -fn MonteCarlo-8 -h 20 -w 205 -x 535 -sb '#740000'
-	#yad --image="sakuyaicon70" --text="<span color='#740000'>C'est l'heure \!</span>\n\nCliquez pour arrêter la musique." --center --on-top
+echo "" | dmenu -b -p "'ENTRÉE' pour arrêter la musique." -fn 'Lucida Grande-12' -h 30 -w 280 -x 500 -sb '#A73E28'
 
 kill $reimupid
 kill $dzenpid

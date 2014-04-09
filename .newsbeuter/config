@@ -18,11 +18,11 @@ notify-beep no
 
 ## COULEURS ##
 color background cyan default bold
-#color info color16 green
-color info green black
-color listnormal black default
+#color info green black
+color info white blue
+color listnormal default default
 color listfocus default red bold
-color listnormal_unread black default bold
-color listfocus_unread default red bold
+color listnormal_unread blue default
+color listfocus_unread white red
 color article default default
 

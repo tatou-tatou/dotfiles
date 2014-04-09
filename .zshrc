@@ -33,7 +33,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Prompt
 autoload -U promptinit
 promptinit
-PROMPT=" %{$fg[black]%}%{$reset_color%} "
+PROMPT=" %{$fg[black]%}%{$reset_color%} "
 #PROMPT=" %{$fg[black]%}▪%{$reset_color%} "
 #PROMPT=" %{$bg[black]%}%{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%~%{$reset_color%}"
@@ -49,13 +49,19 @@ alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias mutt='mutt ; mailbox_to_fifo'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 alias rt='tmux attach -t rt'
-alias sf="screenfetch ; echo muh useless pseudotiling | sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
+alias sf="screenfetch ; echo muh useless pseudotiling | sed -e :a -e 's/^.\{1,77\}$/ & /;ta'"
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'
+
+# Général
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Inutiles
 alias toilettes='toilet -f mono12 --gay'
 alias chiottes='toilet -f mono12 --metal'
-alias center="sed -e :a -e 's/^.\{1,80\}$/ & /;ta'"
+alias viz='mpdviz --scale=4 -v spectrum -i true'
+alias center="sed -e :a -e 's/^.\{1,77\}$/ & /;ta'"
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 
 # Couleurs
@@ -76,8 +82,8 @@ man() {
 
 # Éditeur
 export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/firefox"
-export TERMCMD="/usr/bin/urxvt"
+export BROWSER="/usr/bin/firefox-holly"
+export TERMCMD="/usr/bin/termite"
 
 # Raccourcis type vi
 bindkey -v
@@ -99,3 +105,9 @@ zstyle ':completion:*:*:killall:*' menu yes select
 #    done
 #    clear
 #fi
+
+# Console : PROMPT
+if [ "$TERM" = "linux" ]; then
+	PROMPT=" %{$fg_bold[black]%}$%{$reset_color%} "
+	RPROMPT="%{$fg_bold[black]%}%~%{$reset_color%}"
+fi

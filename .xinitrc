@@ -15,6 +15,9 @@ xsetroot -cursor_name left_ptr &
 nvidia-settings -l &
 /etc/profile.d/infinality-settings.sh &
 
+# Screen powersave
+xset +dpms
+xset dpms 0 0 300
 
 ## WM ##
 nitrogen --restore &
@@ -23,6 +26,7 @@ bspwm & wmpid=$!
 
 ## DAEMONS ##
 #devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
+devmon --exec-on-disc "urxvt -e sh -c 'ranger %d'" --exec-on-drive "urxvt -e sh -c 'ranger %d'" &
 mpd &
 compton &
 mpdcron &
