@@ -1,0 +1,7 @@
+"1.1
+
+loadplugins '\.(js|penta)$'
+colorscheme stendhal
+set guioptions=Cs
+
+" vim: set ft=pentadactyl:

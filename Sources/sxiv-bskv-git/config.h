@@ -10,16 +10,16 @@ enum {
  * (see X(7) section "FONT NAMES" for valid values)
  */
 //static const char * const BAR_FONT = "Lucida Grande:size=8";
-static const char * const BAR_FONT = "MonteCarlo:pixelsize=11";
+static const char * const BAR_FONT = "Lucida Grande:pixelsize=11";
 
 /* colors:
  * (see X(7) section "COLOR NAMES" for valid values)
  */
 static const char * const WIN_BG_COLOR = "#141412";
 static const char * const WIN_FS_COLOR = "#000000";
-static const char * const SEL_COLOR    = "#DDDDDD";
+static const char * const SEL_COLOR    = "#A73E28";
 static const char * const BAR_BG_COLOR = "#201F1D";
-static const char * const BAR_FG_COLOR = "#5C5541";
+static const char * const BAR_FG_COLOR = "#DED0B4";
 
 #endif
 #ifdef _IMAGE_CONFIG
@@ -60,7 +60,7 @@ static const int    GAMMA_RANGE = 32;
 #ifdef _THUMBS_CONFIG
 
 /* default dimension of thumbnails (width == height): */
-enum { THUMB_SIZE = 60 };
+enum { THUMB_SIZE = 180 };
 
 #endif
 #ifdef _RENDER_CONFIG

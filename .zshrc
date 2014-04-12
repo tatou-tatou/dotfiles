@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
-#   _________  _   _ ____   ____ 
+#   ____ ____  _   _ ____   ____
 #  |__  / ___|| | | |  _ \ / ___|
-#    / /\___ \| |_| | |_) | |    
-# _ / /_ ___) |  _  |  _ <| |___ 
+#    / /\___ \| |_| | |_) | |
+# _ / /_ ___) |  _  |  _ <| |___
 #(_)____|____/|_| |_|_| \_\\____|
 #
 
@@ -36,7 +36,7 @@ promptinit
 PROMPT=" %{$fg[black]%}%{$reset_color%} "
 #PROMPT=" %{$fg[black]%}▪%{$reset_color%} "
 #PROMPT=" %{$bg[black]%}%{$fg_bold[black]%}%{$reset_color%} "
-RPROMPT="%{$fg_bold[black]%}%~%{$reset_color%}"
+RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
 
 # Path
 export PATH=/home/tatou/.bin:$PATH
@@ -56,6 +56,9 @@ alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ;
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+# EASY MODO RICE
+alias parasite='GTK_MODULES=gtkparasite'
 
 # Inutiles
 alias toilettes='toilet -f mono12 --gay'

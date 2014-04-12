@@ -1,0 +1,106 @@
+" Pentadactyl color file
+"
+" Note: Based on the molokai colorscheme. You need Lucida Grande if you want
+" to see the same thing as me.
+" Name: Stendhal
+
+hi clear
+" Section: Javascript - General{{{1
+hi -a Boolean   color: #AE81FF;
+hi -a Function  color: #A6E22E;
+hi -a Null      color: #AE81FF; font-weight: bold;
+hi -a Number    color: #AE81FF;
+hi -a Object    color: #66D9EF;
+hi -a String    color: #E6DB74;
+hi -a Comment   color: #75715E;
+hi -a Key       font-weight:bold;
+hi -a Indicator color: #66D9EF;
+hi -a Keyword   color: #F92672;
+hi -a URL       color: #AE81FF;
+hi -a URLExtra  color: #BCBCBC;
+hi -a Title     color: #F92672;
+hi -a Tag       color: #66D9EF;
+hi -a Disabled  color: #960050;
+hi -a FontCode  font-family: "Lucida Grande"; font-size:8pt; font-weight: normal;
+hi -a FontFixed  font-family: "Lucida Grande"; font-size:8pt; font-weight: normal;
+hi -a FontProportional  font-family: "Lucida Grande"; font-size:8pt; font-weight: normal;
+" Normal{{{2
+hi -a Normal background: #201F1D !important;
+hi -a Normal color: #F8F8F2 !important;
+hi -a Normal font-size: 9pt;
+" ErrorMsg{{{2
+hi -a ErrorMsg background: #201F1D !important;
+hi -a ErrorMsg color: #F92672 !important;
+" InfoMsg{{{2
+hi -a InfoMsg background: #201F1D !important;
+hi -a InfoMsg color: #E6DB74 !important;
+" LineNr{{{2
+hi -a LineNr background: #201F1D !important;
+hi -a InfoMsg color: #960050 !important;
+" NonText{{{2
+hi -a NonText background: #201F1D !important;
+hi -a NonText color:#BCBCBC !important;
+" Question{{{2
+hi -a Question background: #201F1D !important;
+hi -a Question color:#66D9EF !important;
+" StatusQuestion{{{2
+hi -a StatusQuestion color:#F92672 !important;
+" WarningMsg{{{2
+hi -a WarningMsg background:#FD971F !important;
+hi -a WarningMsg color:#F8F8F2 !important;
+" StatusWarningMsg{{{2
+hi -a StatusWarningMsg: color:#FD971F !important;
+" StatusInfoMsg
+
+" Bell {{{2
+hi -a border:0 none; background: #272822
+" Completition{{{2
+hi -a CompTitle color: #201F1D; background: #BCBCBC; font-weight: bold;
+hi -a CompTitleSep background: -moz-linear-gradient(60dg, #62712C, #F92672);
+hi -a CompItem:nth-child(2n+1) background:#201F1D;
+hi -a CompItem[selected] background:#A73E28; color: #EDDEC9;
+hi -a CompItem background:#201F1D;
+hi -a CompItem font-family: Lucida Grande; font-size: 8pt;
+hi -a Comp border-top: 0px;
+" Section: Status Line{{{1
+" StatusModeMsg{{{2
+hi -a StatusModeMsg background: #62712C !important;
+hi -a StatusModeMsg color: #EDDEC9;
+" ModeMsg{{{2
+hi -a ModeMsg background: #62712C !important;
+hi -a ModeMsg color: #EDDEC9;
+hi -a ModeMsg font-weight: bold !important;
+hi -a ModeMsg border-style: solid !important; border-color: #302C23 !important; border-width: 1px !important; padding-left: 5px !important; padding-right: 5px !important;
+" MoreMsg{{{2
+hi -a MoreMsg background: #62712C !important;
+hi -a MoreMsg color: #EDDEC9;
+" StatusLine
+hi -a StatusLine -moz-appearance: none !important; padding-bottom: 1px !important;; font-weight: normal; background: transparent !important; border: 0px !important; padding-right: 3px !important; padding-left: 1px !important; min-height: 19px !important; text-shadow: none !important;
+" Normal{{{2
+hi -a StatusLineNormal background: #201F1D !important;
+hi -a StatusLineNormal color: #DED0B4 !important;
+" Secure{{{2
+hi -a StatusLineSecure background: #201F1D !important;
+hi -a StatusLineSecure color: #66D9EF !important;
+" Broken{{{2
+hi -a StatusLineBroken background: #201F1D !important;
+hi -a StatusLineBroken color: #F92672 !important;
+" Extended{{{2
+hi -a StatusLineExtended background: #201F1D !important;
+hi -a StatusLineExtended color: #A6E22E !important;
+" Section: Hint{{{1
+hi -a Hint font-family: Sans; font-size: 12px; font-weight: bold;
+hi -a Hint border: 0 none;
+hi -a Hint padding:2px;
+hi -a Hint::after content: attr(number);
+hi -a Hint color: #A6E22E !important;
+hi -a Hint background-color: rgba(35, 37, 38, .8) !important;
+hi -a HintActive background-color: #66D9EF !important; color: #F8F8F2 !important;
+hi -a HintElem background-color: inherit !important;
+hi -a HintElem -moz-box-shadow: 0px 0px 2px 2px rgba(102, 217, 239, .5);
+hi -a HintImage opacity: .5;
+" -*- vim -*- vim:set ft=vim et sw=2 sts=2:
+" Section: CmdLine
+hi -a CmdLine font-family: Lucida Grande; font-size: 8pt;
+hi -a CmdLine padding: 2px;
+hi -a CmdPrompt font-family: Lucida Grande; font-size: 8pt;
