@@ -33,7 +33,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Prompt
 autoload -U promptinit
 promptinit
-PROMPT=" %{$fg[black]%}%{$reset_color%} "
+PROMPT=" %{$fg_bold[black]%}%{$reset_color%} "
 #PROMPT=" %{$fg[black]%}▪%{$reset_color%} "
 #PROMPT=" %{$bg[black]%}%{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
@@ -48,8 +48,7 @@ alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias mutt='mutt ; mailbox_to_fifo'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
-alias rt='tmux attach -t rt'
-alias sf="screenfetch ; echo muh useless pseudotiling | sed -e :a -e 's/^.\{1,77\}$/ & /;ta'"
+#alias rt='tmux attach -t rt'
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'
 
 # Général
@@ -61,8 +60,7 @@ alias .....="cd ../../../.."
 alias parasite='GTK_MODULES=gtkparasite'
 
 # Inutiles
-alias toilettes='toilet -f mono12 --gay'
-alias chiottes='toilet -f mono12 --metal'
+alias toilettes='toilet -f mono12'
 alias viz='mpdviz --scale=4 -v spectrum -i true'
 alias center="sed -e :a -e 's/^.\{1,77\}$/ & /;ta'"
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
