@@ -4,34 +4,63 @@
 #                     #
 #######################
 
+#
+# Global
+#________
+
+### Quit bspwm
 super + alt + Escape
     pkill -x bspwmpanel; bspc quit
 
+### Close window
 super + w
     bspc window -c
 
-super + t
-    bspc desktop -l next
+### make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
 
-super + ctrl + t
-    bspc window -t pseudo_tiled
 
-super + b
-    bspc desktop -B
+#
+# Active window
+#_______________
 
-super + {s,f}
-    bspc window -t {floating,fullscreen}
+super + {h,j,k,l}
+    bspc window -f {left,down,up,right}
 
-super + {grave,Tab}
-    bspc {window,desktop} -f last
-
-super + r
-    bspc window -s last
+super + {Left,Down,Up,Right}
+    bspc window -f {left,down,up,right}
 
 super + {o,i}
     bspc control --record-history off; \
     bspc window {older,newer} -f; \
     bspc control --record-history on
+
+super + {_,shift + }c
+    bspc window -f {next,prev}
+
+super + grave
+    bspc window -f last
+
+~button1
+    bspc pointer -g focus
+
+
+#
+# Move windows
+#______________
+
+super + shift + {h,j,k,l}
+    bspc window -s {left,down,up,right}
+
+super + mod5 + {Left,Down,Up,Right}
+    bspc window -s {left,down,up,right}
+
+super + r
+    bspc window -s last
+
+super + {comma,semicolon}
+    bspc desktop -C {backward,forward}
 
 super + y
     bspc window -w last.manual
@@ -39,53 +68,74 @@ super + y
 super + m
     bspc window -s biggest
 
-super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
+### Flip the tree
+super + equal
+    bspc desktop -F vertical
 
-super + {_,mod5 + }{Left,Down,Up,Right}
-    bspc window -{f,s} {left,down,up,right}
+#
+# Presel
+#________
 
-super + {_,shift + }c
-    bspc window -f {next,prev}
-
-super + {comma,period}
-    bspc desktop -C {backward,forward}
-
-super + bracket{left,right}
-    bspc desktop -f {prev,next}
-
+# Send the presel signal
 super + ctrl + {h,j,k,l}
     bspc window -p {left,down,up,right}
 
+super + shift + {Left,Down,Up,Right}
+    bspc window -p {left,down,up,right}
+
+### Cancel the presel
 super + ctrl + {_,shift + }space
     bspc {window -p cancel,desktop -c}
 
-mod5 + {h,j,k,l}
-    bspc window -e {left,down,up,right} push
-
-super + mod5 + {h,j,k,l}
-    bspc window -e {right,up,down,left} pull
-
-super + ctrl + {1-9}
+### Change the split ratio of the selected window
+super + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla}
     bspc window -r 0.{1-9}
 
-super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe}
-    bspc {desktop -f,window -d} ^{1-4}
 
-super + {_,shift + }{1-9,0}
-   bspc {desktop -f,window -d} ^{1-9,10}
+#
+# Window state
+#______________
 
-~button1
-    bspc pointer -g focus
+### Floating, fullscreen
+super + {s,f}
+    bspc window -t {floating,fullscreen}
 
-super + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
+### Monocle
+super + t
+    bspc desktop -l next
 
+### Pseudo-tiling
+super + ctrl + t
+    bspc window -t pseudo_tiled
+
+#
+# Resize windows
+#________________
+
+### Agrandir
+mod5 + {h,j,k,l}
+    bspc window -e {left -10,down +10,up -10,right +10}
+
+### Rétrécir
+super + mod5 + {h,j,k,l}
+    bspc window -e {right -10,up +10,down -10,left +10}
+    
+### Balance/equalize windows
+super + b
+    bspc desktop -B
+
+super + e
+    bspc desktop -E
+
+### Mouse
 super + alt + button1
     bspc pointer -g resize_corner
 
 super + ctrl + button1
     bspc pointer -g resize_side
+
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
 
 super +{_,ctrl,alt +} !button{1-3}
     bspc pointer -t %i %i
@@ -94,16 +144,24 @@ super +{_,ctrl,alt +} @button{1-3}
     bspc pointer -u
 
 
-# Resize windows
-super + alt + {left, down, up, right}
-	bspc window -e {left -20,down +20,up -20,right +20}
+#
+# Change desktop
+#________________
 
-alt + {left, down, up, right}
-	bspc window -e {right -20,up +20,down -20,left +20}
+### Change desktop, send window to desktop
+super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe}
+    bspc {desktop -f,window -d} ^{1-4}
 
-# make sxhkd reload its configuration files:
-super + Escape
-    pkill -USR1 -x sxhkd
+super + {_,shift + }{1-9,0}
+   bspc {desktop -f,window -d} ^{1-9,10}
+
+### Next/Previous desktop
+super + bracket{left,right}
+    bspc desktop -f {prev,next}
+
+### Last desktop
+super + Tab
+    bspc desktop -f last
 
 
 
@@ -117,7 +175,6 @@ super + Escape
 ###################################
 
 super + Return
-#    urxvt
     termite
 
 super + ugrave
@@ -135,100 +192,88 @@ XF86LaunchB
 
 
 #
-## VOLUME
-#
+# VOLUME
+#________
 
-#Mute
+### Mute
 XF86AudioMute
  amixer set Master toggle ; not-stat -M
-# amixer set Master toggle ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on/Not /g' | sed 's/off//g')Muted "
 
-#Volume
+### Volume
 XF86AudioRaiseVolume
  amixer set PCM 1dB+ ; not-stat -v
-# amixer set PCM 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 
 XF86AudioLowerVolume
  amixer set PCM 1dB- ; not-stat -v
-# amixer set PCM 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(amixer -q | grep -m 1 -E '\[off\]' | cut -d'[' -f4 | cut -d']' -f1 | sed 's/off/\[m\] /g')Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
-#Master Volume
+### Master Volume
 super + XF86AudioRaiseVolume
  amixer set Master 1dB+ ; not-stat -V
-# amixer set Master 1dB+ ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 super + XF86AudioLowerVolume
  amixer set Master 1dB- ; not-stat -V
-# amixer set Master 1dB- ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1) "
 
 
 
 #
-## MPD/NCMPCPP
-#
+# MPD/NCMPCPP
+#_____________
 
-#Toggle
+### Toggle
 XF86AudioPlay
  mpc toggle ; not-stat -m
-# mpc toggle ; notifier "\\b4\\u4\\fr$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused/  /g' | sed 's/playing/  /g')\\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
 
-# Ouvrir ncmpcpp
+### Ouvrir ncmpcpp
 super + XF86AudioPlay
  termite -e ncmpcpp ; not-stat -m
 
-# Infos musique
+### Infos musique
 super + XF86AudioNext
  not-stat -m
 
-# Coverart-meh
+### Coverart-meh
 mod5 + XF86AudioPlay
  coverart ; not-stat -m
 
-# Suivant
+### Suivant
 XF86AudioNext
  mpc next ; not-stat -m
-# mpc next ; notifier " \\f3\\f5 $(mpc current -f %title%) \\b4\\u4\\fr  "
 
-# Début
+### Début
 XF86AudioPrev
-# mpc seek 0% ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
  mpc seek 0% ; not-stat -m
 
-# Précédent
+### Précédent
 super + XF86AudioPrev
-# mpc prev ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 \\f3\\f5 $(mpc current -f %title%) "
  mpc prev ; not-stat -m
 
 
 
 #
-## Luminosité
-#
+# Luminosité
+#____________
 
-# Écran
+### Écran
 XF86MonBrightnessUp
  sudo mbp_backlight up ; not-stat -b
-# sudo mbp_backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
 XF86MonBrightnessDown
  sudo mbp_backlight down ; not-stat -b
-# sudo mbp_backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness) "
 
-# Clavier
+### Clavier
 XF86KbdBrightnessUp
  sudo keyboard-backlight up ; not-stat -B
-# sudo keyboard-backlight up ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
 
 XF86KbdBrightnessDown
  sudo keyboard-backlight down ; not-stat -B
-# sudo keyboard-backlight down ; notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness) "
 
 
 
 #
-## Lancements de programmes
-#
+# Lancements de programmes
+#__________________________
+
 #super + XF86LaunchA
 # luakit & dzen-notify "^fg(#A7341B)>^fg()  luakit" 200 1
 
@@ -242,8 +287,9 @@ super + XF86LaunchB
 
 
 #
-## Éjections, démonter
-#
+# Éjections, démonter
+#_____________________
+
 XF86Eject
  udevil umount /dev/sr0 ; eject ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)^fg() Éjection CD-ROM" 200 1
 
@@ -253,10 +299,9 @@ super + XF86Eject
 
 
 #
-## Informations
-#
+# Informations
+#______________
 
-# Batterie
+### Batterie
 super + XF86MonBrightnessUp
  not-stat -r
-# notifier "\\b4\\u4\\fr  \\b0\\u0\\f5 $(acpi -b | cut -s -d',' -f3) "

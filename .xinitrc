@@ -13,7 +13,7 @@ xrdb -merge ~/.Xresources
 setxkbmap -model macintosh -layout fr &
 xsetroot -cursor_name left_ptr &
 nvidia-settings -l &
-/etc/profile.d/infinality-settings.sh &
+#/etc/profile.d/infinality-settings.sh &
 
 # Screen powersave
 xset +dpms

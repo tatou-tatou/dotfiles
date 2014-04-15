@@ -2,7 +2,6 @@
 always-display-description true
 auto-reload yes
 browser "firefox-holly %u > /dev/null 2>&1 &"
-#browser "luakit -n %u > /dev/null 2>&1 &"
 html-renderer "internal"
 keep-articles-days 30
 articlelist-format "%4i %f %D %?T?;%-17T; ?%t"
@@ -19,10 +18,9 @@ notify-beep no
 ## COULEURS ##
 color background cyan default bold
 #color info green black
-color info white blue
+color info default color24
 color listnormal default default
-color listfocus default red bold
-color listnormal_unread blue default
+color listfocus default red
+color listnormal_unread color14 default
 color listfocus_unread white red
 color article default default
-
