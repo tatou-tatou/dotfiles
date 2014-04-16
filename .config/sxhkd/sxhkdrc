@@ -119,7 +119,7 @@ mod5 + {h,j,k,l}
 ### Rétrécir
 super + mod5 + {h,j,k,l}
     bspc window -e {right -10,up +10,down -10,left +10}
-    
+
 ### Balance/equalize windows
 super + b
     bspc desktop -B
@@ -149,8 +149,8 @@ super +{_,ctrl,alt +} @button{1-3}
 #________________
 
 ### Change desktop, send window to desktop
-super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe}
-    bspc {desktop -f,window -d} ^{1-4}
+super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+    bspc {desktop -f,window -d} ^{1-9,10}
 
 super + {_,shift + }{1-9,0}
    bspc {desktop -f,window -d} ^{1-9,10}
@@ -179,6 +179,15 @@ super + Return
 
 super + ugrave
     termite -e ranger
+
+XF86LaunchA
+    firefox-holly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
+
+super + XF86LaunchA
+    thunar
+
+super + XF86LaunchB
+    nitrogen
 
 super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
@@ -267,22 +276,6 @@ XF86KbdBrightnessUp
 
 XF86KbdBrightnessDown
  sudo keyboard-backlight down ; not-stat -B
-
-
-
-#
-# Lancements de programmes
-#__________________________
-
-#super + XF86LaunchA
-# luakit & dzen-notify "^fg(#A7341B)>^fg()  luakit" 200 1
-
-XF86LaunchA
- firefox-holly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
-
-super + XF86LaunchB
- nitrogen
-
 
 
 
