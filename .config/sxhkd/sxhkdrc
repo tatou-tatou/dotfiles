@@ -72,6 +72,9 @@ super + m
 super + equal
     bspc desktop -F vertical
 
+super + colon
+    bspc desktop -F horizontal
+
 #
 # Presel
 #________
@@ -231,11 +234,11 @@ super + XF86AudioLowerVolume
 
 ### Toggle
 XF86AudioPlay
- mpc toggle ; not-stat -m
+ mpc toggle
 
 ### Ouvrir ncmpcpp
 super + XF86AudioPlay
- termite -e ncmpcpp ; not-stat -m
+ termite -e ncmpcpp
 
 ### Infos musique
 super + XF86AudioNext
@@ -247,15 +250,15 @@ mod5 + XF86AudioPlay
 
 ### Suivant
 XF86AudioNext
- mpc next ; not-stat -m
+ mpc next
 
 ### Début
 XF86AudioPrev
- mpc seek 0% ; not-stat -m
+ mpc seek 0%
 
 ### Précédent
 super + XF86AudioPrev
- mpc prev ; not-stat -m
+ mpc prev
 
 
 
