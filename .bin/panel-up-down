@@ -1,0 +1,32 @@
+#!/bin/bash
+
+. panel-settings
+
+## Some case test, to see what we are changing
+while getopts ":bBvV" flags; do
+	case $flags in
+	b) # backlight
+		setting=""
+		down="sudo mbp_backlight down ; not-stat -b &"
+		up="sudo mbp_backlight up ; not-stat -b &"
+	;;
+	B) # keyboard backlight
+		setting=""
+		down="sudo keyboard-backlight down ; not-stat -B &"
+		up="sudo keyboard-backlight up ; not-stat -B &"
+	;;
+	v) # PCM volume
+		setting="%{A:amixer set Master toggle:}M%{A} "
+		down="amixer set PCM 1dB- ; not-stat -V &"
+		up="amixer set PCM 1dB+ ; not-stat -V &"
+	;;
+	V) # Master Volume
+		setting="%{A:amixer set Master toggle ; not-stat -M &:}M%{A} "
+		down="amixer set Master 1dB- ; not-stat -V &"
+		up="amixer set Master 1dB+ ; not-stat -V &"
+	;;
+	esac
+done
+## Fin du test
+
+echo "c" "%{B$bg_music}  $setting%{A:$down:}%{A}%{A:$up:}%{A}  %{A:echo c > /tmp/panel-fifo:}%{A} %{B-}" > /tmp/panel-fifo
