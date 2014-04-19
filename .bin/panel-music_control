@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. panel-settings
+
+#PID=$(pgrep -x dzen2)
+#
+#if [[ -n "$PID" ]];
+#then
+#	kill -9 $PID
+#else
+#	echo "^fg(#7D7358)^ca(1,exit)   ^ca()^fg()^bg(#62712C)^ca(1, mpc prev)  ^ca()^bg() ^bg(#62712C)^ca(1, mpc toggle)  ^ca()^bg() ^bg(#62712C)^ca(1, mpc next)  ^ca()^bg()" | dzen2 -fn "MonteCarlo:pixelsize=11" -p 0 -x 90 -y 18 -w 132 -h 19 -bg "#1A1917" -fg "#ded0b4" -ta l -e 'button3=exit'
+#fi
+echo "c" "%{B$bg_music} %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:echo c > /tmp/panel-fifo:}%{A} %{B-}" > /tmp/panel-fifo

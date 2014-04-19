@@ -1,12 +1,16 @@
 #! /bin/sh
 
-. bar_colors
+. panel-settings
 
 while read -r line ; do
     case $line in
         S*)
             # clock output
             horloge="${line#?}"
+            ;;
+	c*)
+            # config
+            config="${line#?}"
             ;;
 	m*)
             # music and notifications
@@ -27,27 +31,27 @@ while read -r line ; do
                 case $item in
                     O*)
                         # focused occupied desktop
-                        wm_infos="$wm_infos  "
+                        wm_infos="$wm_infos$occupied_focus"
                         ;;
                     F*)
                         # focused free desktop
-                        wm_infos="$wm_infos  "
+                        wm_infos="$wm_infos$empty_focus"
                         ;;
                     U*)
                         # focused urgent desktop
-                        wm_infos="$wm_infos%{B$bg_urgenttags}%{F$fg_urgenttags}  %{B$bg_tags}%{F$fg_tags}"
+                        wm_infos="$wm_infos%{B$bg_urgenttags}%{F$fg_urgenttags}$occupied_focus%{B$bg_tags}%{F$fg_tags}"
                         ;;
                     o*)
                         # occupied desktop
-                        wm_infos="$wm_infos  "
+                        wm_infos="$wm_infos$occupied"
                         ;;
                     f*)
                         # free desktop
-                        wm_infos="$wm_infos  "
+                        wm_infos="$wm_infos$empty"
                         ;;
                     u*)
                         # urgent desktop
-                        wm_infos="$wm_infos%{B$bg_urgenttags}%{F$fg_urgenttags}  %{B$bg_tags}%{F$fg_tags}"
+                        wm_infos="$wm_infos%{B$bg_urgenttags}%{F$fg_urgenttags}$occupied%{B$bg_tags}%{F$fg_tags}"
                         ;;
                     L*)
                         # layout
@@ -59,5 +63,5 @@ while read -r line ; do
             done
             ;;
     esac
-    printf "%s\n" "%{A:mygtkmenu ~/.config/GTKmenu/MonsterMenu > /dev/null 2>&1:}$wm_infos%{A}$musique $layout %{r} $mails%{A:dzen-date:}$horloge%{A}"
+    printf "%s\n" "%{A:mygtkmenu ~/.config/GTKmenu/StartMenu > /dev/null 2>&1:}$wm_infos%{A}$config$musique $layout %{r} $mails%{A:dzen-date:}$horloge%{A}"
 done

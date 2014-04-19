@@ -42,6 +42,4 @@ bspc rule -a \* center=true
 #
 
 bspwmpanel &
-sleep 2
-mailbox_to_fifo &
-not-stat -m &
+plank &

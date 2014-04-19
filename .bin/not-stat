@@ -39,7 +39,7 @@ fifo="/tmp/panel-fifo"
 premessage="m"
 
 # Colors
-. bar_colors
+. panel-settings
 
 #####################
 
@@ -51,7 +51,8 @@ while getopts ":mbBdrvVMh" flags; do
 	m)
 		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 		message=" $(mpc current -f '%title%|%file%')"
-		execute="mpc toggle > /dev/null"
+		#execute="mpc toggle > /dev/null"
+		execute="panel-music_control"
 	;;
 	b)
 		icon=""
@@ -185,7 +186,8 @@ if [ $mpd_replace == true ]
 then
 	icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 	message=" $(mpc current -f '%title%|%file%')"
-	execute="mpc toggle > /dev/null"
+	#execute="mpc toggle > /dev/null"
+	execute="panel-music_control"
 	echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications}$message %{B-}%{F-}" > $fifo
 else
 	echo -E "$premessage" "" > $fifo

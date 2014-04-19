@@ -11,11 +11,14 @@ mkfifo "$PANEL_FIFO"
 
 bspc config top_padding 18
 
-. bar_colors
+. panel-settings
 
 bspc control --subscribe > "$PANEL_FIFO" &
 clock -sf "S%{B$bg_clock}  %{F$fg_squares} %{F$fg_clockemph}%d %{F$fg_clock}%b  %{F$fg_squares}%{F$fg_clock} %H:%M %{B-}%{F-}" > "$PANEL_FIFO" &
 
-cat "$PANEL_FIFO" | bspwmpanel-bar | bar-aint-recursive -g 1280x18 -B $bg_global -F $fg_global -f "-windows-montecarlopanel-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252" | while read line; do eval "$line"; done &
+cat "$PANEL_FIFO" | panel-skeleton | bar-aint-recursive -g 1280x18 -B $bg_global -F $fg_global -f "-windows-montecarlopanel-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252" | while read line; do eval "$line"; done &
+
+panel-mail &
+not-stat -m &
 
 wait
