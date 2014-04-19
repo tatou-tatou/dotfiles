@@ -54,6 +54,7 @@ while getopts ":mbBdrvVMh" flags; do
 	m)
 		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 		message=" $(mpc current -f '%title%|%file%')"
+		text_execute="mpc toggle > /dev/null"
 	;;
 	b)
 		icon=""
@@ -178,7 +179,7 @@ done
 #
 ###
 
-echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications}$message %{B-}%{F-}" > $fifo
+echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications}%{A:$text_execute:} %{F$fg_squares}%{F$fg_notifications}$message %{A}%{B-}%{F-}" > $fifo
 
 
 sleep $countdown
@@ -187,7 +188,8 @@ if [ $mpd_replace == true ]
 then
 	icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 	message=" $(mpc current -f '%title%|%file%')"
-	echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications}$message %{B-}%{F-}" > $fifo
+	text_execute="mpc toggle > /dev/null"
+	echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications}%{A:$text_execute:} %{F$fg_squares}%{F$fg_notifications}$message %{A}%{B-}%{F-}" > $fifo
 else
 	echo -E "$premessage" "" > $fifo
 fi
