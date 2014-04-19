@@ -43,5 +43,5 @@ bspc rule -a \* center=true
 ## PANEL
 #
 
-bspwmpanel &
+panel &
 plank &
