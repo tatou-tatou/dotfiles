@@ -6,25 +6,25 @@
 while getopts ":bBvV" flags; do
 	case $flags in
 	b) # backlight
-		title="Scr"
+		title="Sc"
 		setting=""
 		down="sudo mbp_backlight down ; not-stat -b &"
 		up="sudo mbp_backlight up ; not-stat -b &"
 	;;
 	B) # keyboard backlight
-		title="Kbd"
+		title="Kb"
 		setting=""
 		down="sudo keyboard-backlight down ; not-stat -B &"
 		up="sudo keyboard-backlight up ; not-stat -B &"
 	;;
 	v) # PCM volume
-		title="Pcm"
-		setting="%{A:amixer set Master toggle:}M%{A} "
-		down="amixer set PCM 1dB- > /dev/null ; not-stat -V &"
-		up="amixer set PCM 1dB+ > /dev/null ; not-stat -V &"
+		title="Vp"
+		setting="%{A:amixer set Master toggle ; not-stat -M &:}M%{A} "
+		down="amixer set PCM 1dB- > /dev/null ; not-stat -v &"
+		up="amixer set PCM 1dB+ > /dev/null ; not-stat -v &"
 	;;
 	V) # Master Volume
-		title="Mas"
+		title="Vm"
 		setting="%{A:amixer set Master toggle ; not-stat -M &:}M%{A} "
 		down="amixer set Master 1dB- ; not-stat -V &"
 		up="amixer set Master 1dB+ ; not-stat -V &"
@@ -33,4 +33,4 @@ while getopts ":bBvV" flags; do
 done
 ## Fin du test
 
-echo "c" "%{B$bg_button} $title %{B$bg_monitor} $setting%{A:$down:}%{A}%{A:$up:}%{A} %{A:panel-monitor:}%{A} %{B-}" > /tmp/panel-fifo
+echo "c" "%{B$bg_button}%{F$fg_button}%{A:panel-monitor:} $title %{A}%{B$bg_monitor}%{F$fg_monitor} $setting%{A:$down:}%{A}%{A:$up:}%{A} %{F$fg_close}%{A:echo c > /tmp/panel-fifo:}%{A} %{F-}%{B-}" > /tmp/panel-fifo

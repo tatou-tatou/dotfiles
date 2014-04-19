@@ -37,6 +37,8 @@ bspc rule -a nitrogen floating=true
 # Centrer les fenêtres flottantes
 bspc rule -a \* center=true
 
+# Faire flotter le panel pour qu'il aie une ombre
+
 #
 ## PANEL
 #

@@ -59,7 +59,11 @@ fg_squares="#ff5C5541"
 bg_monocle="#ff62712C"
 fg_monocle="#ffded0b4"
 
-### MUSIC
-bg_music="#ff62712C"
+### CLICK CLICK CLICK!
 bg_monitor="#ff201F1D"
+fg_monitor="#ffded0b4"
+
 bg_button="#ff47362B"
+fg_button="#ffded0b4"
+
+fg_close="#ffded0b4"
