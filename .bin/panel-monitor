@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. panel-settings
+
+echo "c" "%{B$bg_monitor}%{B$bg_button}%{A:panel-up-down -v:} Vp %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -V:} Vm %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-music_control:} Mu %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -B:} Kb %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -b:} Sc %{A}%{B$bg_monitor} %{A:echo c > /tmp/panel-fifo:}%{A} %{B-}" > /tmp/panel-fifo
