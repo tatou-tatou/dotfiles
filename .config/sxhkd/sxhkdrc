@@ -10,7 +10,7 @@
 
 ### Quit bspwm
 super + alt + Escape
-    pkill -x bspwmpanel; bspc quit
+    pkill -x panel; bspc quit
 
 ### Close window
 super + w
