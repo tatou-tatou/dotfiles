@@ -2,4 +2,60 @@
 
 . panel-settings
 
-echo "c" "%{B$bg_monitor}%{B$bg_button}%{A:panel-up-down -v:} Vp %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -V:} Vm %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-music_control:} Mu %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -B:} Kb %{A}%{B$bg_monitor} %{B$bg_button}%{A:panel-up-down -b:} Sc %{A}%{B$bg_monitor} %{A:echo c > /tmp/panel-fifo:}%{A} %{B-}" > /tmp/panel-fifo
+monitor=""
+
+for B in Vp Vm Mu Kb Sc
+do
+	## For normal, unfocused, buttons
+	title=$B
+	message=" "
+	cmd_return="panel-monitor "
+	cmd_return+="$B"
+
+	## For the focused button
+	if [ "$1" == "$B" ]
+	then
+		case $B in
+		Mu) #music
+			cmd_return="panel-monitor"
+			message=" %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:panel-music_control:}%{A} "
+		;;
+		Sc) # backlight
+			cmd_return="panel-monitor"
+			down="sudo mbp_backlight down ; not-stat -b &"
+			up="sudo mbp_backlight up ; not-stat -b &"
+			message=" %{A:$down:}%{A}%{A:$up:}%{A} "
+		;;
+		Kb) # keyboard backlight
+			cmd_return="panel-monitor"
+			setting=""
+			down="sudo keyboard-backlight down ; not-stat -B &"
+			up="sudo keyboard-backlight up ; not-stat -B &"
+			message=" %{A:$down:}%{A}%{A:$up:}%{A} "
+		;;
+		Vp) # PCM volume
+			cmd_return="panel-monitor"
+			setting="%{A:amixer set Master toggle ; not-stat -M &:}M%{A} "
+			down="amixer set PCM 1dB- > /dev/null ; not-stat -v &"
+			up="amixer set PCM 1dB+ > /dev/null ; not-stat -v &"
+			message=" $setting%{A:$down:}%{A}%{A:$up:}%{A} "
+		;;
+		Vm) # Master Volume
+			cmd_return="panel-monitor"
+			setting="%{A:amixer set Master toggle ; not-stat -M &:}M%{A} "
+			down="amixer set Master 1dB- ; not-stat -V &"
+			up="amixer set Master 1dB+ ; not-stat -V &"
+			message=" $setting%{A:$down:}%{A}%{A:$up:}%{A} "
+		;;
+		esac
+	fi
+
+	monitor+="%{A:$cmd_return:}%{B$bg_button}%{F$fg_button} $title %{A}%{B$bg_monitor}%{F$fg_monitor}$message%{B-}%{F-}"
+
+done
+
+# Add close button
+monitor+="%{B$bg_monitor}%{F$fg_close}%{A:echo c > /tmp/panel-fifo:}%{A} %{B-}%{F-}"
+
+# Send to panel
+echo "c" "$monitor" > /tmp/panel-fifo
