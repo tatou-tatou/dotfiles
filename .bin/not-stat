@@ -42,7 +42,7 @@ premessage="m"
 . panel-settings
 
 # What happens when you click on the icon
-execute="panel-monitor"
+execute="panel-monitor &"
 
 #####################
 
@@ -54,7 +54,7 @@ while getopts ":mbBdrvVMh" flags; do
 	m)
 		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 		message=" $(mpc current -f '%title%|%file%')"
-		text_execute="mpc toggle > /dev/null"
+		text_execute="mpc toggle > /dev/null &"
 	;;
 	b)
 		icon=""
@@ -65,14 +65,11 @@ while getopts ":mbBdrvVMh" flags; do
 		message=" Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
 	;;
 	d)
-		icon=""
+		icon=""
 		message=$2
 	
 	;;
 	r)
-		#icon=""
-		#message="$(acpi -b | cut -s -d',' -f3)"
-
 		percent=$(acpi -b | cut -s -d' ' -f4 | cut -s -d'%' -f1)
 		message="$(acpi -b | cut -s -d',' -f3)"
 

@@ -51,7 +51,7 @@ alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
 alias mutt='mutt ; panel-mail'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 #alias rt='tmux attach -t rt'
-alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; mailbox_to_fifo'
+alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; panel-mail'
 
 # Général
 alias ...="cd ../.."

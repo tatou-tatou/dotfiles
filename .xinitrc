@@ -30,6 +30,7 @@ devmon --exec-on-disc "urxvt -e sh -c 'ranger %d'" --exec-on-drive "urxvt -e sh 
 mpd &
 compton &
 mpdcron &
+statnot ~/.statnot &
 #redshift -l 48.5:2.2 -t 6000:5500 -m vidmode &
 /usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
 

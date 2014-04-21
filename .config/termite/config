@@ -13,11 +13,14 @@ clickable_url = true
 #font = Liberation Mono 8
 #font = Bitstream Vera Sans Mono 9
 font = Menlo 8
+#font = Menlo 10
 #font = Consolas 10
+#font = Inconsolata 11
+#font = Ubuntu Mono bold 12
 scrollback_lines = 1000
 search_wrap = true
 icon_name = terminal
-#geometry = 542x285
+#geometry = 455x270
 geometry = 507x285
 
 # "system", "on" or "off"

@@ -18,7 +18,7 @@ do
 		case $B in
 		Mu) #music
 			cmd_return="panel-monitor"
-			message=" %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:panel-music_control:}%{A} "
+			message=" %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:coverart &:}%{A} %{A:panel-music_control:}%{A} "
 		;;
 		Sc) # backlight
 			cmd_return="panel-monitor"
@@ -26,12 +26,11 @@ do
 			up="sudo mbp_backlight up ; not-stat -b &"
 			message=" %{A:$down:}%{A}%{A:$up:}%{A} "
 		;;
-		Kb) # keyboard backlight
+		Kb) # keyboard layout
 			cmd_return="panel-monitor"
-			setting=""
-			down="sudo keyboard-backlight down ; not-stat -B &"
-			up="sudo keyboard-backlight up ; not-stat -B &"
-			message=" %{A:$down:}%{A}%{A:$up:}%{A} "
+			down="setxkbmap -model macintosh -layout fr ; not-stat -d ' AZERTY' &"
+			up="setxkbmap -model macintosh -layout us ; not-stat -d ' QWERTY' &"
+			message=" $setting%{A:$down:}Fr%{A} %{A:$up:}Us%{A} "
 		;;
 		Vp) # PCM volume
 			cmd_return="panel-monitor"

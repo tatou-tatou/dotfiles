@@ -24,6 +24,13 @@ monocle=""
 
 
 #
+# Misc
+#_____________
+
+font="-windows-montecarlopanel-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252"
+height="18"
+
+#
 # Panel colors
 #______________
 
@@ -38,6 +45,8 @@ fg_icons="#ffded0b4"
 ### NOTIFICATIONS
 bg_notifications="#ff201f1d"
 fg_notifications="#ffded0b4"
+bg_exclamation="#ffA73E28" 
+#bg_exclamation="#ff62712C" 
 
 ### DATE AND CLOCK
 bg_clock="#ff201f1d"

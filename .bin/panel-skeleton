@@ -13,8 +13,12 @@ while read -r line ; do
             config="${line#?}"
             ;;
 	m*)
-            # music and notifications
+            # not-stat
             musique="${line#?}"
+            ;;
+	n*)
+            # stat-not
+            stat="${line#?}"
             ;;
 	M*)
             # mails
@@ -43,25 +47,25 @@ while read -r line ; do
                         ;;
                     o*)
                         # occupied desktop
-                        wm_infos="$wm_infos$occupied"
+                        wm_infos="$wm_infos%{A:bspc desktop -f ${name}:}$occupied%{A}"
                         ;;
                     f*)
                         # free desktop
-                        wm_infos="$wm_infos$empty"
+                        wm_infos="$wm_infos%{A:bspc desktop -f ${name}:}$empty%{A}"
                         ;;
                     u*)
                         # urgent desktop
-                        wm_infos="$wm_infos%{B$bg_urgenttags}%{F$fg_urgenttags}$occupied%{B$bg_tags}%{F$fg_tags}"
+                        wm_infos="$wm_infos%{A:bspc desktop -f ${name}:}%{B$bg_urgenttags}%{F$fg_urgenttags}$occupied%{B$bg_tags}%{F$fg_tags}%{A}"
                         ;;
                     L*)
                         # layout
 			layout="%{B$bg_monocle}%{F$fg_monocle}$(printf "%s" "$(echo ${name} |sed 's/tiled//g' |sed 's/monocle/%{A:bspc desktop -l next:}  Monocle %{A}/g')")%{B-}%{F-}"
-                        wm_infos="%{B$bg_tags}%{F$fg_tags} $wm_infos %{B-}%{F-}"
+                        wm_infos="%{B$bg_tags}%{F$fg_tags}%{A:mygtkmenu ~/.config/GTKmenu/StartMenu > /dev/null 2>&1:} %{A}$wm_infos %{B-}%{F-}"
                         ;;
                 esac
                 shift
             done
             ;;
     esac
-    printf "%s\n" "%{A:mygtkmenu ~/.config/GTKmenu/StartMenu > /dev/null 2>&1:}$wm_infos%{A}$config$musique $layout %{r} $mails%{A:dzen-date &:}$horloge%{A}"
+    printf "%s\n" "$wm_infos$config$musique $layout %{c}$stat %{r} $mails%{A:dzen-date &:}$horloge%{A}"
 done

@@ -1,5 +1,0 @@
-#!/bin/sh
-. bar_colors
-fifo="/tmp/panel-fifo"
-
-echo -E "m" "%{B$bg_icons}%{F$fg_icons}  %{B$bg_notifications} %{F$fg_squares}%{F$fg_notifications} $* %{B-}%{F-}" > $fifo
