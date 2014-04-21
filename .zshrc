@@ -41,7 +41,7 @@ PROMPT=" %{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
 
 # Path
-export PATH=/home/tatou/.bin:$PATH
+export PATH=/home/tatou/.panel:/home/tatou/.bin:$PATH
 
 # Alias
 alias transmission="transmission-remote-cli"
