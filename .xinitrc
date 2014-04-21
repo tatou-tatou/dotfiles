@@ -13,7 +13,6 @@ xrdb -merge ~/.Xresources
 setxkbmap -model macintosh -layout fr &
 xsetroot -cursor_name left_ptr &
 nvidia-settings -l &
-#/etc/profile.d/infinality-settings.sh &
 
 # Screen powersave
 xset +dpms
@@ -25,13 +24,11 @@ sxhkd &
 bspwm & wmpid=$!
 
 ## DAEMONS ##
-#devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
-devmon --exec-on-disc "urxvt -e sh -c 'ranger %d'" --exec-on-drive "urxvt -e sh -c 'ranger %d'" &
+devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
 mpd &
 compton &
 mpdcron &
 statnot ~/.statnot &
-#redshift -l 48.5:2.2 -t 6000:5500 -m vidmode &
 /usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
 
 wait $wmpid
