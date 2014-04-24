@@ -184,7 +184,8 @@ super + ugrave
     termite -e ranger
 
 XF86LaunchA
-    firefox-holly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
+#    firefox-nightly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
+    firefox-nightly & notify-send "<b><span foreground='#A73E28'>></span></b> Launching firefox"
 
 super + XF86LaunchA
     thunar
@@ -196,10 +197,11 @@ super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
 
 super + dead_grave
-    mygtkmenu ~/.config/GTKmenu/MonsterMenu
+    mygtkmenu ~/.config/GTKmenu/StartMenu
 
 XF86LaunchB
- scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
+#    scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
+    scrot & notify-send "<b><span foreground='#A73E28'>></span></b> Screenshot taken!"
 
 
 

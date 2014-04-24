@@ -10,7 +10,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt hist_ignore_all_dups
+setopt histignorealldups
 
 zstyle :compinstall filename '/home/tatou/.zshrc'
 
@@ -23,11 +23,15 @@ compinit
 # Apparence de l'auto-complétion
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+setopt completealiases
 
 # Fish-like syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -r' 'fg=white,bg=red')
+
+# "Command not found"
+[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 
 ## Correction de commandes
 #setopt correctall
@@ -41,7 +45,7 @@ PROMPT=" %{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
 
 # Path
-export PATH=/home/tatou/.panel:/home/tatou/.bin:$PATH
+#export PATH=/home/tatou/.panel:/home/tatou/.bin:$PATH
 
 # Alias
 alias transmission="transmission-remote-cli"
@@ -57,8 +61,16 @@ alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ;
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias mkdir='mkdir -p -v'
 
-# EASY MODO RICE
+# Sécurité
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -Iv --one-file-system"
+alias ln="ln -i"
+alias cls='echo -ne "\033c"'
+
+# EASY MODO GTK RICE
 alias parasite='GTK_MODULES=gtkparasite'
 
 # Inutiles
@@ -85,7 +97,7 @@ man() {
 
 # Éditeur
 export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/firefox-holly"
+export BROWSER="/usr/bin/firefox-nightly"
 export TERMCMD="/usr/bin/termite"
 
 # Raccourcis type vi

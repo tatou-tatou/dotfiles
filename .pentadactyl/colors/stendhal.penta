@@ -79,9 +79,10 @@ hi -a StatusLine -moz-appearance: none !important; padding-bottom: 1px !importan
 " Normal{{{2
 hi -a StatusLineNormal background: #201F1D !important;
 hi -a StatusLineNormal color: #DED0B4 !important;
+hi -a StatusLineNormal color: #DED0B4 !important;
 " Secure{{{2
 hi -a StatusLineSecure background: #201F1D !important;
-hi -a StatusLineSecure color: #66D9EF !important;
+hi -a StatusLineSecure color: #DED0B4 !important;
 " Broken{{{2
 hi -a StatusLineBroken background: #201F1D !important;
 hi -a StatusLineBroken color: #F92672 !important;

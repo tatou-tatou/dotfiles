@@ -28,7 +28,8 @@ devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'rang
 mpd &
 compton &
 mpdcron &
-statnot ~/.statnot &
+#statnot &
+dunst &
 /usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
 
 wait $wmpid
