@@ -1,0 +1,69 @@
+#!/bin/bash
+
+dzenpid=$(cat ~/.panel/PID/dzen-submenu.pid)
+dzenpid="${dzenpid:2}"
+
+#I use sigusr1 since kill won't work if I use the "onexit" event in dzen. So I've configured dzen to close and clean the process if it receives the USR1 signal.
+closing="kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid" 
+
+# Production du contenu
+
+if [ $1 == "Mu" ]; then
+	title="Music "
+	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()^ca(1,panel-music_control ; $closing)^fg(#53414A)^ca() "
+else
+	## Slider type
+	case $1 in
+		Vm)
+			n=$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)
+			n=$(($n/10))
+			title="Master"
+			;;
+		Vp)
+			n=$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)
+			n=$(($n/10))
+			title="Volume"
+			;;
+		Sc)
+			n="$(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
+			n=$(($n*10/15))
+			title="Screen"
+			;;
+		*)
+			n=$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)
+			n=$(($n/10))
+			title="Master"
+			;;
+	esac
+
+	slider="^fg(#A73E28)"
+	for i in {1..10}
+	do
+		case $1 in
+			Vm)
+				slider+="^ca(1,amixer set Master $(($i*10))% > /dev/null ; dzen-submenu-content Vm ; pkill not-stat ; not-stat -V &)"
+				;;
+			Vp)
+				slider+="^ca(1,amixer set PCM $(($i*10))% > /dev/null ; dzen-submenu-content Vp ; pkill not-stat ; not-stat -v &)"
+				;;
+			Sc)
+				slider+="^ca(1,sudo mbp_backlight $(($i*15/10)) ; dzen-submenu-content Sc ; pkill not-stat ; not-stat -b &)"
+				;;
+			*)
+				;;
+		esac
+
+
+		if [ "$i" -gt "$n" ]; then
+			slider+=""
+		elif [ "$i" -eq "$n" ]; then
+			slider+="^fg(#403A2E)"
+		else
+			slider+=""
+		fi
+		slider+="^ca()"
+	done
+	slider+="^fg()"
+	message=$slider
+fi
+echo " $title $message  ^ca(1,$closing)^fg(#ABA08B)^fg()^ca()" > /tmp/dzen-fifo

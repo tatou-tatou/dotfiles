@@ -1,0 +1,50 @@
+#!/bin/bash
+
+##
+#
+# Clean if a dzen submenu is already opened
+#
+##
+
+
+
+previouspid=$(cat ~/.panel/PID/dzen-submenu.pid)
+previouspid="${previouspid:2}"
+
+if [[ -n "$previouspid" && "$(ps -p $previouspid -o comm=)" = "dzen2" ]]; then
+	pkill $previouspid
+	pkill -f 'tail -f /tmp/dzen-fifo'
+	echo "" > ~/.panel/PID/dzen-submenu.pid
+	exit
+fi
+
+##
+#
+# Clean when dzen close
+#
+##
+
+closing="pkill -f 'tail -f /tmp/dzen-fifo' & echo '' > ~/.panel/PID/dzen-submenu.pid"
+
+##
+#
+# Make the submenu window
+#
+##
+
+[ -e "/tmp/dzen-fifo" ] && rm "/tmp/dzen-fifo"
+mkfifo "/tmp/dzen-fifo"
+
+case $1 in
+	Vm) xpos=144 ;;
+	Vp) xpos=114  ;;
+	Sc) xpos=234 ;;
+	Mu) xpos=174 ;;
+	*)  xpos=144 ;;
+esac
+
+exec tail -f /tmp/dzen-fifo | dzen2 -p -w 156 -h 23 -y 18 -x $xpos -fn "MonteCarlo-8" -e "button3=exit,exec:$closing;sigusr1=exit,exec:$closing" & dzenpid=$!
+
+echo $1$dzenpid > ~/.panel/PID/dzen-submenu.pid
+
+dzen-submenu-content "$1"

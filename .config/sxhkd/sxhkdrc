@@ -185,7 +185,7 @@ super + ugrave
 
 XF86LaunchA
 #    firefox-nightly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
-    firefox-nightly & notify-send "<b><span foreground='#A73E28'>></span></b> Launching firefox"
+    firefox & notify-send "<b><span foreground='#A73E28'>></span></b> Launching firefox"
 
 super + XF86LaunchA
     thunar
@@ -211,22 +211,22 @@ XF86LaunchB
 
 ### Mute
 XF86AudioMute
- amixer set Master toggle ; not-stat -M
+ amixer set Master toggle ; pkill not-stat ; not-stat -M
 
 ### Volume
 XF86AudioRaiseVolume
- amixer set PCM 1dB+ ; not-stat -v
+ amixer set PCM 1dB+ ; pkill not-stat ; not-stat -v
 
 
 XF86AudioLowerVolume
- amixer set PCM 1dB- ; not-stat -v
+ amixer set PCM 1dB- ; pkill not-stat ; not-stat -v
 
 ### Master Volume
 super + XF86AudioRaiseVolume
- amixer set Master 1dB+ ; not-stat -V
+ amixer set Master 1dB+ ; pkill not-stat ; not-stat -V
 
 super + XF86AudioLowerVolume
- amixer set Master 1dB- ; not-stat -V
+ amixer set Master 1dB- ; pkill not-stat ; not-stat -V
 
 
 
@@ -244,11 +244,11 @@ super + XF86AudioPlay
 
 ### Infos musique
 super + XF86AudioNext
- not-stat -m
+ pkill not-stat ; not-stat -m
 
 ### Coverart-meh
 mod5 + XF86AudioPlay
- coverart ; not-stat -m
+ coverart ; pkill not-stat ; not-stat -m
 
 ### Suivant
 XF86AudioNext
@@ -270,17 +270,17 @@ super + XF86AudioPrev
 
 ### Écran
 XF86MonBrightnessUp
- sudo mbp_backlight up ; not-stat -b
+ sudo mbp_backlight up ; pkill not-stat ; not-stat -b
 
 XF86MonBrightnessDown
- sudo mbp_backlight down ; not-stat -b
+ sudo mbp_backlight down ; pkill not-stat ; not-stat -b
 
 ### Clavier
 XF86KbdBrightnessUp
- sudo keyboard-backlight up ; not-stat -B
+ sudo keyboard-backlight up ; pkill not-stat ; not-stat -B
 
 XF86KbdBrightnessDown
- sudo keyboard-backlight down ; not-stat -B
+ sudo keyboard-backlight down ; pkill not-stat ; not-stat -B
 
 
 
@@ -302,4 +302,4 @@ super + XF86Eject
 
 ### Batterie
 super + XF86MonBrightnessUp
- not-stat -r
+ pkill not-stat ; not-stat -r

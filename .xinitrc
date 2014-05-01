@@ -8,28 +8,40 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 
-## RÉGLAGES ##
+## SETTINGS ##
+# Urxvt
 xrdb -merge ~/.Xresources
-setxkbmap -model macintosh -layout fr &
-xsetroot -cursor_name left_ptr &
-nvidia-settings -l &
 
-# Screen powersave
+# Screen
+/usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
+#nvidia-settings -l &
 xset +dpms
 xset dpms 0 0 300
 
-## WM ##
-nitrogen --restore &
-sxhkd &
-bspwm & wmpid=$!
+# Pointer
+xsetroot -cursor_name left_ptr &
+xinput --set-ptr-feedback bcm5974 3 4 1 &
+xinput --set-prop bcm5974 'Device Accel Constant Deceleration' 3 &
+
+# Keyboard
+setxkbmap -model macintosh -layout fr &
+
+# Wallpaper
+#nitrogen --restore &
+hsetroot -solid '#B9B3A8' &
+
+
 
 ## DAEMONS ##
-devmon --exec-on-disc "termite -e 'ranger %d'" --exec-on-drive "termite -e 'ranger %d'" &
+sxhkd &
+devmon &
 mpd &
 compton &
 mpdcron &
 #statnot &
 dunst &
-/usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
+#transmission-daemon &
 
-wait $wmpid
+
+
+exec bspwm

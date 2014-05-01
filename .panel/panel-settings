@@ -45,8 +45,8 @@ fg_icons="#ffded0b4"
 ### NOTIFICATIONS
 bg_notifications="#ff201f1d"
 fg_notifications="#ffded0b4"
-bg_exclamation="#ffA73E28" 
-#bg_exclamation="#ff62712C" 
+bg_exclamation="#ffA73E28"
+#bg_exclamation="#ff62712C"
 
 ### DATE AND CLOCK
 bg_clock="#ff201f1d"
@@ -72,7 +72,7 @@ fg_monocle="#ffded0b4"
 bg_monitor="#ff201F1D"
 fg_monitor="#ffded0b4"
 
-bg_button="#ff47362B"
-fg_button="#ffded0b4"
+bg_button="#ff9D534A"
+fg_button="#ffeddec9"
 
 fg_close="#ffABA08B"

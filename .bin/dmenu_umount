@@ -1,7 +1,7 @@
 #!/bin/sh
 #udevil umount $(lsblk -l -o "MOUNTPOINT" | grep "/run/media/tatou" | dmenu -b )
 
-mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/run/media/tatou")
+mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/media")
 
 if [ -z "$mountlist" ]
 then

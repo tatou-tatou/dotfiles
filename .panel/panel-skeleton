@@ -67,5 +67,5 @@ while read -r line ; do
             done
             ;;
     esac
-    printf "%s\n" "$wm_infos$config$musique $layout %{c}$stat %{r} $mails%{A:dzen-date &:}$horloge%{A}"
+    printf "%s\n" "$wm_infos$config$musique $layout %{c}$stat %{r} $mails%{A:dzen-cal &:}$horloge%{A}"
 done

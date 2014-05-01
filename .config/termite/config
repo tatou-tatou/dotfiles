@@ -9,19 +9,28 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = false
 clickable_url = true
-#font = MonteCarlo
-#font = Liberation Mono 8
-#font = Bitstream Vera Sans Mono 9
-font = Menlo 8
-#font = Menlo 10
-#font = Consolas 10
-#font = Inconsolata 11
-#font = Ubuntu Mono bold 12
 scrollback_lines = 1000
 search_wrap = true
 icon_name = terminal
 #geometry = 455x270
 geometry = 507x285
+
+
+## FONT ##
+# Bitmap
+#font = MonteCarlo
+#font = Berry
+#font = Profont
+#font = Tewi
+
+# Vector
+#font = Liberation Mono 8
+#font = Bitstream Vera Sans Mono 9
+font = Menlo 8
+#font = Menlo 9
+#font = Consolas 10
+#font = Inconsolata 11
+#font = Ubuntu Mono bold 12
 
 # "system", "on" or "off"
 cursor_blink = on
@@ -30,7 +39,7 @@ cursor_blink = on
 cursor_shape = block
 
 # $BROWSER is used by default
-browser = firefox-nightly
+browser = firefox
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
@@ -48,7 +57,7 @@ foreground_bold = #ded0b4
 #foreground_dim = #888888
 #background = #1A1917
 background = #201F1D
-cursor = #998f7c
+cursor = #d9d9d9
 
 # if unset, will reverse foreground and background
 highlight = #6b372C

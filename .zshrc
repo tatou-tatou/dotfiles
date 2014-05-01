@@ -62,13 +62,15 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias mkdir='mkdir -p -v'
+alias cls='echo -ne "\033c"'
+alias todo='vim ~/Documents/TODO'
+mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 
 # Sécurité
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -Iv --one-file-system"
 alias ln="ln -i"
-alias cls='echo -ne "\033c"'
 
 # EASY MODO GTK RICE
 alias parasite='GTK_MODULES=gtkparasite'
@@ -77,7 +79,12 @@ alias parasite='GTK_MODULES=gtkparasite'
 alias toilettes='toilet -f mono12'
 alias viz='mpdviz --scale=4 -v spectrum -i true'
 alias center="sed -e :a -e 's/^.\{1,77\}$/ & /;ta'"
-mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
+alias tomoyo="oneko -tomoyo -rv -name neko & xsetroot -cursor_name left_ptr"
+sakura-tomoyo() {
+ oneko -sakura -rv -name neko &
+ oneko -tomoyo -rv -name neko -toname neko
+ xsetroot -cursor_name left_ptr
+}
 
 # Couleurs
 export GREP_COLOR=31
@@ -97,7 +104,7 @@ man() {
 
 # Éditeur
 export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/firefox-nightly"
+export BROWSER="/usr/bin/firefox"
 export TERMCMD="/usr/bin/termite"
 
 # Raccourcis type vi

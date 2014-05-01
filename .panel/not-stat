@@ -20,10 +20,6 @@
 #
 #
 
-kill $(cat ~/.notifier.pid)
-
-echo $$ > ~/.notifier.pid
-
 ##### Settings: #####
 
 # Replace by mpd song?
@@ -57,12 +53,18 @@ while getopts ":mbBdrvVMh" flags; do
 		text_execute="mpc toggle > /dev/null &"
 	;;
 	b)
+		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus="${dzenstatus:0:2}"
+		if [ "$dzenstatus" = "Sc" ]; then
+			dzen-submenu-content Sc &
+		fi
+
 		icon=""
-		message=" Luminosité $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
+		message=" Backlight $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
 	;;
 	B)
 		icon=""
-		message=" Clavier $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
+		message=" Keyboard $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
 	;;
 	d)
 		icon=""
@@ -92,13 +94,16 @@ while getopts ":mbBdrvVMh" flags; do
 			fi
 		else
 			icon=""
-			message=" Chargé"
+			message=" Full"
 		fi
 
 	;;
 	v)
-		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
-		#message="Volume $(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus="${dzenstatus:0:2}"
+		if [ "$dzenstatus" = "Vp" ]; then
+			dzen-submenu-content Vp &
+		fi
 
 		valeur_volume="$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
@@ -120,8 +125,11 @@ while getopts ":mbBdrvVMh" flags; do
 		message=" Volume $valeur_volume"
 	;;
 	V)
-		#icon="$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1 | sed 's/on//g' | sed 's/off/ /g')"
-		#message="Master $(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
+		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus="${dzenstatus:0:2}"
+		if [ "$dzenstatus" = "Vm" ]; then
+			dzen-submenu-content Vm &
+		fi
 
 		valeur_volume="$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
 		if [ "$(amixer -q | grep -m 5 on | cut -sd'[' -f4 | cut -d']' -f1)" == "off" ]
@@ -190,5 +198,3 @@ then
 else
 	echo -E "$premessage" "" > $fifo
 fi
-
-echo "" > ~/.notifier.pid
