@@ -13,6 +13,7 @@ firstloop=true
 
 while true; do
 
+# Exit if meh is closed
 if [ $firstloop = false ]; then
 	pgrep meh > /dev/null || exit
 fi

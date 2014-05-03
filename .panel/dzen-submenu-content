@@ -11,6 +11,9 @@ closing="kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid"
 if [ $1 == "Mu" ]; then
 	title="Music "
 	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()^ca(1,panel-music_control ; $closing)^fg(#53414A)^ca() "
+elif [ $1 == "Mc" ]; then
+	title="Music "
+	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()^ca(1,panel-monitor Mu ; $closing)^fg(#53414A)^ca() "
 else
 	## Slider type
 	case $1 in

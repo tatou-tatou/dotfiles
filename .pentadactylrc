@@ -3,5 +3,6 @@
 loadplugins '\.(js|penta)$'
 colorscheme stendhal
 set guioptions=Cs
+set defsearch=duckduckgo
 
 " vim: set ft=pentadactyl:
