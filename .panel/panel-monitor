@@ -1,46 +1,56 @@
 #!/bin/bash
 
+### Load color settings ###
 . panel-settings
+
+
+### Close the dzen popup if it exists ###
+dzenpid=$(cat ~/.panel/PID/dzen-submenu.pid)
+dzenpid="${dzenpid:2}"
+
+[ -n "$dzenpid" ] && kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid
+
+
+### Create the menu ###
+# If there is no argument => Create just the pink buttons
+# If there is an argument => Create the pink buttons and expand the appropriate button
 
 monitor=""
 
 for B in Vp Vm Mu Kb Sc
 do
-	## For normal, unfocused, buttons
+	## For normal, unfocused, buttons ##
 	title=$B
 	message=" "
 	cmd_return="panel-monitor "
 	cmd_return+="$B"
 
-	## For the focused button
+	## For the focused button ##
 	if [ "$1" == "$B" ]
 	then
+		cmd_return="panel-monitor"
+
 		case $B in
 		Mu) #music
-			cmd_return="panel-monitor"
 			message=" %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:dzen-submenu-window Mu &:}%{A} "
 		;;
 		Sc) # backlight
-			cmd_return="panel-monitor"
 			down="sudo mbp_backlight down ; pkill not-stat ; not-stat -b &"
 			up="sudo mbp_backlight up ; pkill not-stat ; not-stat -b &"
 			message=" %{A:$down:}%{A}%{A:$up:}%{A}%{A:dzen-submenu-window Sc &:}%{A} "
 		;;
 		Kb) # keyboard layout
-			cmd_return="panel-monitor"
 			down="setxkbmap -model macintosh -layout fr ; pkill not-stat ; not-stat -d ' AZERTY' &"
 			up="setxkbmap -model macintosh -layout us ; pkill not-stat ; not-stat -d ' QWERTY' &"
 			message=" $setting%{A:$down:}Fr%{A} %{A:$up:}Us%{A} "
 		;;
 		Vp) # PCM volume
-			cmd_return="panel-monitor"
 			setting="%{A:amixer set Master toggle ; pkill not-stat ; not-stat -M &:}M%{A} "
 			down="amixer set PCM 1dB- > /dev/null ; pkill not-stat ; not-stat -v &"
 			up="amixer set PCM 1dB+ > /dev/null ; pkill not-stat ; not-stat -v &"
 			message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{A:dzen-submenu-window Vp &:}%{A} "
 		;;
 		Vm) # Master Volume
-			cmd_return="panel-monitor"
 			setting="%{A:amixer set Master toggle ; pkill not-stat ; not-stat -M &:}M%{A} "
 			down="amixer set Master 1dB- ; pkill not-stat ; not-stat -V &"
 			up="amixer set Master 1dB+ ; pkill not-stat ; not-stat -V &"
@@ -53,8 +63,8 @@ do
 
 done
 
-# Add close button
+### Add close button ###
 monitor+="%{B$bg_monitor}%{F$fg_close}%{A:echo c > /tmp/panel-fifo:}%{A} %{B-}%{F-}"
 
-# Send to panel
+### Send to panel ###
 echo "c" "$monitor" > /tmp/panel-fifo

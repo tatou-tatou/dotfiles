@@ -3,7 +3,7 @@
 dzenpid=$(cat ~/.panel/PID/dzen-submenu.pid)
 dzenpid="${dzenpid:2}"
 
-#I use sigusr1 since kill won't work if I use the "onexit" event in dzen. So I've configured dzen to close and clean the process if it receives the USR1 signal.
+#I use sigusr1 since kill won't work if I use the "onexit" event in dzen. So I've configured dzen to close and clean the script processes if it receives the USR1 signal.
 closing="kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid" 
 
 # Production du contenu

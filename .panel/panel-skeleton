@@ -9,7 +9,7 @@ while read -r line ; do
             horloge="${line#?}"
             ;;
 	c*)
-            # config
+            # buttons
             config="${line#?}"
             ;;
 	m*)

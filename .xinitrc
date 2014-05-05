@@ -15,8 +15,8 @@ xrdb -merge ~/.Xresources
 # Screen
 /usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
 #nvidia-settings -l &
-xset +dpms
-xset dpms 0 0 300
+#xset +dpms
+#xset dpms 0 0 300
 
 # Pointer
 xsetroot -cursor_name left_ptr &
@@ -27,8 +27,8 @@ xinput --set-prop bcm5974 'Device Accel Constant Deceleration' 3 &
 setxkbmap -model macintosh -layout fr &
 
 # Wallpaper
-#nitrogen --restore &
-hsetroot -solid '#B9B3A8' &
+nitrogen --restore &
+#hsetroot -solid '#B9B3A8' &
 
 
 

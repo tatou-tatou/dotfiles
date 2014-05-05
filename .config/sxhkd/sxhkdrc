@@ -255,13 +255,18 @@ mod5 + XF86AudioPlay
 XF86AudioNext
  mpc next
 
-### Début
+### Previous song if song just began, else replay the begining of the song
 XF86AudioPrev
- mpc seek 0%
+ mpc-prev
 
-### Précédent
-super + XF86AudioPrev
- mpc prev
+
+#### Début
+#XF86AudioPrev
+# mpc seek 0%
+#
+#### Précédent
+#super + XF86AudioPrev
+# mpc prev
 
 
 
