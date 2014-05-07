@@ -48,7 +48,7 @@ RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
 #export PATH=/home/tatou/.panel:/home/tatou/.bin:$PATH
 
 # Alias
-alias transmission="transmission-remote-cli"
+alias tsm="transmission-remote-cli"
 alias azerty='setxkbmap -model macintosh -layout fr'
 alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'

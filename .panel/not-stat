@@ -58,8 +58,8 @@ while getopts ":mbBdrvVMh" flags; do
 		icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 		message=" $(mpc current -f '%title%|%file%')"
 		if [ "$message" = " " ];then
-			icon=""
-			message=" Nothing is playing"
+			icon=""
+			message=" (Nothing is playing!)"
 		fi
 	;;
 	b)
@@ -202,8 +202,8 @@ sleep $countdown
 icon="$(mpc | grep -E 'playing|paused' | cut -d'[' -f2 | cut -d']' -f1 | sed 's/paused//g' | sed 's/playing//g')"
 message=" $(mpc current -f '%title%|%file%')"
 if [ "$message" = " " ];then
-	icon=""
-	message=" Nothing is playing"
+	icon=""
+	message=" (Nothing is playing!)"
 fi
 
 echo -E "$premessage" "%{B$bg_icons}%{F$fg_icons}%{A:$execute:} $icon %{A}%{B$bg_notifications}%{A:$text_execute:} %{F$fg_squares}%{F$fg_notifications}$message %{A}%{B-}%{F-}" > $fifo
