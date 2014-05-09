@@ -1,16 +1,18 @@
 #!/bin/bash
 
+. panel-settings
+
 #
 # Close and clean if a dzen submenu is already opened
 #
 
-previouspid=$(cat ~/.panel/PID/dzen-submenu.pid)
+previouspid=$(cat $dzen_popup_path)
 previouspid="${previouspid:2}"
 
 if [[ -n "$previouspid" && "$(ps -p $previouspid -o comm=)" = "dzen2" ]]; then
 	pkill $previouspid
 	pkill -f 'tail -f /tmp/dzen-fifo'
-	echo "" > ~/.panel/PID/dzen-submenu.pid
+	echo "" > $dzen_popup_path
 	exit
 fi
 
@@ -20,7 +22,7 @@ fi
 # Executed when dzen closes, either by right clicking on the popup or when the popup receives the USR1 signal (which is sent by other scripts, for example when you click on the close button)
 # 
 
-closing="pkill -f 'tail -f /tmp/dzen-fifo' & echo '' > ~/.panel/PID/dzen-submenu.pid"
+closing="pkill -f 'tail -f /tmp/dzen-fifo' & echo '' > $dzen_popup_path"
 
 
 #
@@ -46,7 +48,7 @@ exec tail -f /tmp/dzen-fifo | dzen2 -p -w 156 -h 23 -y 18 -x $xpos -fn "MonteCar
 # Save the PID of the dzen popup along with the nature of the opened popup (music, volume, screen...) so that other scripts can close it and update it depending on its nature
 # eg: if the "screen backlight" popup is opened, changing the backlight with kebinds should update the slider, but changing the volume should not
 #
-echo $1$dzenpid > ~/.panel/PID/dzen-submenu.pid
+echo $1$dzenpid > $dzen_popup_path
 
 #
 # Create content for the popup

@@ -63,18 +63,18 @@ while getopts ":mbBdrvVMh" flags; do
 		fi
 	;;
 	b)
-		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus=$(cat $dzen_popup_path)
 		dzenstatus="${dzenstatus:0:2}"
 		if [ "$dzenstatus" = "Sc" ]; then
 			dzen-submenu-content Sc &
 		fi
 
 		icon=""
-		message=" Backlight $(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
+		message=" Backlight $(cat $brightness_path)"
 	;;
 	B)
 		icon=""
-		message=" Keyboard $(cat /sys/class/leds/smc::kbd_backlight/brightness)"
+		message=" Keyboard $(cat $keyboard_path)"
 	;;
 	d)
 		icon=""
@@ -109,7 +109,7 @@ while getopts ":mbBdrvVMh" flags; do
 
 	;;
 	v)
-		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus=$(cat $dzen_popup_path)
 		dzenstatus="${dzenstatus:0:2}"
 		if [ "$dzenstatus" = "Vp" ]; then
 			dzen-submenu-content Vp &
@@ -135,7 +135,7 @@ while getopts ":mbBdrvVMh" flags; do
 		message=" Volume $valeur_volume"
 	;;
 	V)
-		dzenstatus=$(cat ~/.panel/PID/dzen-submenu.pid)
+		dzenstatus=$(cat $dzen_popup_path)
 		dzenstatus="${dzenstatus:0:2}"
 		if [ "$dzenstatus" = "Vm" ]; then
 			dzen-submenu-content Vm &

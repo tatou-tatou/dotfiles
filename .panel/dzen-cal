@@ -7,7 +7,8 @@
 #
 . panel-settings
 
-calendarpid=$(cat ~/.panel/PID/calendar.pid)
+echo $calendar_path
+calendarpid=$(cat $calendar_path)
 new_calendarpid=""
 
 if [[ -n "$calendarpid" ]]; # If there's already a calendar, it will close it
@@ -25,4 +26,4 @@ else # If there's no calendar, it will create one
 fi
 
 # Save the dzen popup PID so the script can check if it's already opened or not
-echo $new_calendarpid > ~/.panel/PID/calendar.pid
+echo $new_calendarpid > "$calendar_path"

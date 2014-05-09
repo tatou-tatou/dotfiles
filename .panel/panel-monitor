@@ -5,10 +5,10 @@
 
 
 ### Close the dzen popup if it exists ###
-dzenpid=$(cat ~/.panel/PID/dzen-submenu.pid)
+dzenpid=$(cat $dzen_popup_path)
 dzenpid="${dzenpid:2}"
 
-[ -n "$dzenpid" ] && kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid
+[ -n "$dzenpid" ] && kill -10 $dzenpid ; echo '' > $dzen_popup_path
 
 
 ### Create the menu ###

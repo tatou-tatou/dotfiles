@@ -194,7 +194,7 @@ super + XF86LaunchA
 super + XF86LaunchB
     nitrogen
 
-super + space
+super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
 
 super + dead_grave

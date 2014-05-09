@@ -1,10 +1,11 @@
 #!/bin/bash
+. panel-settings
 
-dzenpid=$(cat ~/.panel/PID/dzen-submenu.pid)
+dzenpid=$(cat $dzen_popup_path)
 dzenpid="${dzenpid:2}"
 
 #I use sigusr1 since kill won't work if I use the "onexit" event in dzen. So I've configured dzen to close and clean the script processes if it receives the USR1 signal.
-closing="kill -10 $dzenpid ; echo '' > ~/.panel/PID/dzen-submenu.pid" 
+closing="kill -10 $dzenpid ; echo '' > $dzen_popup_path" 
 
 # Production du contenu
 
@@ -28,8 +29,9 @@ else
 			title="Volume"
 			;;
 		Sc)
-			n="$(cat /sys/devices/virtual/backlight/apple_backlight/brightness)"
-			n=$(($n*10/15))
+			n="$(cat $brightness_path)"
+			max="$(cat $maxbrightness_path)"
+			n=$(($n*10/$max))
 			title="Screen"
 			;;
 		*)
@@ -39,7 +41,7 @@ else
 			;;
 	esac
 
-	slider="^fg(#A73E28)"
+	slider="^fg($dzen_full)"
 	for i in {1..10}
 	do
 		case $1 in
@@ -58,15 +60,15 @@ else
 
 
 		if [ "$i" -gt "$n" ]; then
-			slider+=""
+			slider+="$empty_slider"
 		elif [ "$i" -eq "$n" ]; then
-			slider+="^fg(#403A2E)"
+			slider+="$indicator_slider^fg($dzen_empty)"
 		else
-			slider+=""
+			slider+="$full_slider"
 		fi
 		slider+="^ca()"
 	done
 	slider+="^fg()"
 	message=$slider
 fi
-echo " $title $message  ^ca(1,$closing)^fg(#ABA08B)^fg()^ca()" > /tmp/dzen-fifo
+echo " $title $message  ^ca(1,$closing)^fg($dzen_close)^fg()^ca()" > /tmp/dzen-fifo
