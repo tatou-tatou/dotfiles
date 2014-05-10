@@ -32,7 +32,7 @@ do
 
 		case $B in
 		Mu) #music
-			message=" %{A:mpc prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:dzen-submenu-window Mu &:}%{A} "
+			message=" %{A:mpc-script prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{A:dzen-submenu-window Mu &:}%{A} "
 		;;
 		Sc) # backlight
 			down="sudo mbp_backlight down ; pkill not-stat ; not-stat -b &"

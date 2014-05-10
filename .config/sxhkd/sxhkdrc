@@ -257,7 +257,7 @@ XF86AudioNext
 
 ### Previous song if song just began, else replay the begining of the song
 XF86AudioPrev
- mpc-prev
+ mpc-script prev
 
 
 #### Début

@@ -1,0 +1,27 @@
+#!/bin/sh
+case $1 in
+prev)
+	percent=$(mpc | sed -n 2p | cut -d '(' -f 2 | cut -d '%' -f 1)
+	if [ $percent -le 2 ]; then
+		mpc -q prev
+	else
+		mpc -q seek 0%
+	fi
+;;
+#toggle)
+#	current="$(mpc current)"
+#	if [ -n '$current' ]; then
+#		mpc -q toggle
+#	else
+#		not-stat -d " Empty playlist"
+#	fi
+#;;
+*)
+	percent=$(mpc | sed -n 2p | cut -d '(' -f 2 | cut -d '%' -f 1)
+	if [ $percent -le 2 ]; then
+		mpc -q prev
+	else
+		mpc -q seek 0%
+	fi
+;;
+esac
