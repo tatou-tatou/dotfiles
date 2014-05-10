@@ -9,7 +9,7 @@ Put those files in your $PATH.
 
 `panel-settings` contains various settings, like the colors. It is loaded by the other scripts.
 
-All the special characters (icons...) are custom made. You need the MonteCarloPanel and MonteCarloMedium fonts from my Monégasque repo.
+All the special characters (icons...) are custom made. You need the *MonteCarloPanel* and *MonteCarloMedium* fonts from my Monégasque repo.
 
 ##Notifications
 ![Screenshot](https://raw.github.com/tatou-tatou/dotfiles/master/.panel/Previews/notstat.gif)
@@ -22,11 +22,11 @@ You call it like this:
 
     pkill not-stat ; not-stat -<x>
 
-Do not forget to kill the *not-stat* process before calling it, else the three seconds wait will not work properly.
+**Do not forget** to kill the *not-stat* process before calling it, else the three seconds wait will not work properly.
 
 
-###With mpcron
-On each song change (or mpd event, like play/pause), [mpdcron](https://bbs.archlinux.org/viewtopic.php?pid=1354247) will execute the following:
+###With mpdcron
+On each song change or mpd event (like play/pause), [mpdcron](https://bbs.archlinux.org/viewtopic.php?pid=1354247) will execute the following:
 
     pkill not-stat ; not-stat -m &
 
@@ -62,7 +62,7 @@ Click on it to know what each button does, it's not really complicated.
 
 `dzen-submenu-content` creates the actual content of the popup, like the sliders.
 
-Do not forget to create `~/.panel/PID/dzen-submenu.pid`, else a few things will not work (like closing it properly or moving the indicator through other means than clicking on the slider).
+**Do not forget** to create `~/.panel/PID/dzen-submenu.pid`, else a few things will not work (like closing it properly or moving the indicator through other means than clicking on the slider).
 
 ###Sound
 Should work out of the box. I just use the CLI tools that come with ALSA to get and change the volume of the Master and PCM channels.
