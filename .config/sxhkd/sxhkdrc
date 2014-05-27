@@ -87,8 +87,8 @@ super + shift + {Left,Down,Up,Right}
     bspc window -p {left,down,up,right}
 
 ### Cancel the presel
-super + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
+super + ctrl + space
+    bspc desktop -c
 
 ### Change the split ratio of the selected window
 super + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla}
@@ -107,9 +107,9 @@ super + {s,f}
 super + t
     bspc desktop -l next
 
-### Pseudo-tiling
-super + ctrl + t
-    bspc window -t pseudo_tiled
+### Pseudo-tiling, private or sticky
+super + shift + {t,p,s}
+    bspc window -t {pseudo_tiled,private,sticky}
 
 #
 # Resize windows
@@ -166,7 +166,12 @@ super + bracket{left,right}
 super + Tab
     bspc desktop -f last
 
+### Add or remove desktop
+super + shift + colon
+    bspc-script desktop-less
 
+super + shift + equal
+    bspc-script desktop-plus
 
 
 
@@ -185,8 +190,8 @@ super + ugrave
 
 XF86LaunchA
 #    firefox-nightly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
-#    firefox & notify-send "Firefox is launching..." -i "firefox"
-    firefox
+    firefox & notify-send "Firefox" "Launching firefox..." -i "firefox"
+#    firefox
 
 super + XF86LaunchA
     thunar
@@ -201,7 +206,7 @@ super + dead_grave
     mygtkmenu ~/.config/GTKmenu/StartMenu
 
 XF86LaunchB
-    scrot ; dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
+    scrot ; mpv -vo null /usr/share/sounds/freedesktop/stereo/camera-shutter.oga & dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
 #    scrot & notify-send "<b><span foreground='#A73E28'>></span></b> Screenshot taken!"
 
 
@@ -295,7 +300,7 @@ XF86KbdBrightnessDown
 #_____________________
 
 XF86Eject
- udevil umount /dev/sr0 ; eject ; dzen-notify "^fg(#A7341B)>^fg()  ^fg(#A7341B)^fg() Éjection CD-ROM" 200 1
+ udevil umount /dev/sr0 ; eject
 
 super + XF86Eject
  dmenu_umount

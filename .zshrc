@@ -57,6 +57,8 @@ alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output
 #alias rt='tmux attach -t rt'
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; panel-mail'
 alias mpv='mpc pause ; mpv'
+alias udm='udevil mount'
+alias udu='udevil umount'
 
 # Général
 alias ...="cd ../.."

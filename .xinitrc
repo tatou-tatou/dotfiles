@@ -14,9 +14,8 @@ xrdb -merge ~/.Xresources
 
 # Screen
 /usr/bin/xcalib "/home/tatou/.colorprofiles/Color LCD-4F159F59-A71D-63AE-FCE9-4E26FC6D6EDD.icc"
-#nvidia-settings -l &
-#xset +dpms
-#xset dpms 0 0 300
+xset +dpms
+xset dpms 0 0 300
 
 # Pointer
 xsetroot -cursor_name left_ptr &
@@ -34,13 +33,11 @@ nitrogen --restore &
 
 ## DAEMONS ##
 sxhkd &
-devmon &
+devmon --exec-on-video "notify-send '%f monté' 'Lancement de mpv...' -i mpv & mpc pause & mpv -vo opengl-hq dvdnav://menu" --exec-on-drive "thunar %d" --exec-on-disc "thunar %d" --exec-on-unmount "notify-send '%f' 'Le disque a été démonté correctement.' -i eject" &
 mpd &
 compton &
 mpdcron &
-#statnot &
-dunst &
-#transmission-daemon &
+pgrep -f "transmission-daemon" || transmission-daemon &
 
 
 

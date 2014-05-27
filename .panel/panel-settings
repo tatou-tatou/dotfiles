@@ -20,7 +20,6 @@ keyboard_path="/sys/class/leds/smc::kbd_backlight/brightness"
 
 ### Where to save process ID and other necessary things
 # Use the absolute path!
-calendar_path="/home/tatou/.panel/PID/calendar.pid"
 dzen_popup_path="/home/tatou/.panel/PID/dzen-submenu.pid"
 
 

@@ -12,7 +12,7 @@ reload-time 60
 show-read-feeds no
 
 ## NOTIFICATIONS ##
-notify-program "notify-send"
+notify-program "notify-rss"
 notify-beep no
 
 ## COULEURS ##

@@ -1,0 +1,20 @@
+#!/bin/sh
+case $1 in
+desktop-plus)
+	current=$(bspc query -D | tail -n 1)
+	if [ "$current" -lt "10" ]; then
+		new=$((current + 1))
+		bspc monitor -a $new
+		bspc config border_width 3
+	fi
+;;
+desktop-less)
+	current=$(bspc query -D | tail -n 1)
+	if [ "$current" -gt "4" ]; then
+		bspc monitor -r $current
+	fi
+;;
+*)
+	exit
+;;
+esac
