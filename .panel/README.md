@@ -11,7 +11,7 @@ As I am not a developer and do not plan to be one, I don't really know C except 
 
 
 ##Panel
-`panel` starts the panel and creates the panel fifo.
+To start everything, just launch `panel`, it will create the panel fifo and start bar.
 
 `panel-skeleton` interprets where to put each information that is piped to the fifo.
 
@@ -19,7 +19,7 @@ As I am not a developer and do not plan to be one, I don't really know C except 
 
 All the special characters (icons...) are custom made. You will need the *MonteCarloPanel* and *MonteCarloMedium* fonts from my Monégasque repo, or add the characters yourself to your font of choice.
 
-If you want to use your own font with your own glyphs, just know that I had some issues with vertical alignment. I fixed it by duplicating my font and changing some of its properties (namely SIZE, PIXEL_SIZE and FONT_DESCENT) to align it properly. That's why I have both a *MonteCarloMedium* font and a *MonteCarloPanel* font, the latter being dedicated to the panel.
+If you want to use your own font with your own glyphs, just know that I had some issues with vertical alignment. I fixed it by duplicating my font and changing some of its properties (namely SIZE, PIXEL_SIZE and FONT_DESCENT) to align it properly. That's why I have both a *MonteCarloMedium* font and a *MonteCarloPanel* font, the later being dedicated to the panel.
 
 ##Notifications
 ![Screenshot](https://raw.github.com/tatou-tatou/dotfiles/master/.panel/Previews/notstat.gif)
