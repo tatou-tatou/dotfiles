@@ -10,16 +10,27 @@
 
 ### Quit bspwm
 super + alt + Escape
-    pkill -x panel; bspc quit
+   pkill -x panel ; bspc quit
 
 ### Close window
+# Close focused
 super + w
     bspc window -c
+# Close all windows belonging to the same class and on the same desktop
+super + q
+    xdo close -cd
 
 ### make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
 
+### Toggle visibility
+super + z
+    bspc control --toggle-visibility
+
+### Blank window
+super + shift + z
+    blank_window
 
 #
 # Active window
@@ -36,14 +47,15 @@ super + {o,i}
     bspc window {older,newer} -f; \
     bspc control --record-history on
 
-super + {_,shift + }c
-    bspc window -f {next,prev}
-
 super + grave
     bspc window -f last
 
 ~button1
     bspc pointer -g focus
+
+###  Next/prev window
+super + {_,mod5 + }{n,b}
+    bspc window -f {next,prev}.{tiling,floating}
 
 
 #
@@ -68,12 +80,20 @@ super + y
 super + m
     bspc window -s biggest
 
+### Move to last manual split
+super + shift + m
+    bspc window -w last.manual
+
 ### Flip the tree
 super + equal
     bspc desktop -F vertical
 
 super + colon
     bspc desktop -F horizontal
+
+### Rotate the tree
+super + shift + {ugrave,dead_grave}
+    bspc desktop -R {90,-90}
 
 #
 # Presel
@@ -100,31 +120,47 @@ super + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,ex
 #______________
 
 ### Floating, fullscreen
-super + {s,f}
-    bspc window -t {floating,fullscreen}
+#super + {s,f}
+#    bspc window -t {floating,fullscreen}
 
 ### Monocle
 super + t
     bspc desktop -l next
 
 ### Pseudo-tiling, private or sticky
-super + shift + {t,p,s}
-    bspc window -t {pseudo_tiled,private,sticky}
+#super + shift + {t,p,s}
+#    bspc window -t {pseudo_tiled,private,sticky}
 
+super + {shift+s,s,f,x,X,shift+p}
+    bspc window -t {pseudo_tiled,floating,fullscreen,locked,sticky,private}
+
+#
 #
 # Resize windows
 #________________
 
 ### Agrandir
-mod5 + {h,j,k,l}
-    bspc window -e {left -10,down +10,up -10,right +10}
+#mod5 + {h,j,k,l}
+#    bspc window -e {left -10,down +10,up -10,right +10}
+
+mod5 + h
+    bspc window -e left -10 || bspc window -e right -10
+
+mod5 + j
+    bspc window -e down +10 || bspc window -e up +10
+
+mod5 + k
+    bspc window -e up -10 || bspc window -e down -10
+
+mod5 + l
+    bspc window -e right +10 || bspc window -e left +10
 
 ### Rétrécir
 super + mod5 + {h,j,k,l}
     bspc window -e {right -10,up +10,down -10,left +10}
 
 ### Balance/equalize windows
-super + b
+super + shift + e
     bspc desktop -B
 
 super + e
@@ -203,13 +239,17 @@ super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
 
 super + dead_grave
-    mygtkmenu ~/.config/GTKmenu/StartMenu
+    mygtkmenu ~/.config/GTKmenu/StartMenuAnywhere
 
 XF86LaunchB
     scrot ; mpv -vo null /usr/share/sounds/freedesktop/stereo/camera-shutter.oga & dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
 #    scrot & notify-send "<b><span foreground='#A73E28'>></span></b> Screenshot taken!"
 
-
+#
+# dswitcher
+#
+alt + Tab
+    dswitcher
 
 #
 # VOLUME
@@ -314,3 +354,11 @@ super + XF86Eject
 ### Batterie
 super + XF86MonBrightnessUp
  pkill not-stat ; not-stat -r
+
+#
+# Misc
+#______________
+
+### To watch list
+alt + XF86LaunchA
+ dzen-to-watch

@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
+#if [ -d /etc/X11/xinit/xinitrc.d ]; then
+#  for f in /etc/X11/xinit/xinitrc.d/*; do
+#    [ -x "$f" ] && . "$f"
+#  done
+#  unset f
+#fi
 
 
 ## SETTINGS ##
@@ -37,6 +37,7 @@ devmon --exec-on-video "notify-send '%f monté' 'Lancement de mpv...' -i mpv & m
 mpd &
 compton &
 mpdcron &
+dunst &
 pgrep -f "transmission-daemon" || transmission-daemon &
 
 

@@ -5,7 +5,6 @@ desktop-plus)
 	if [ "$current" -lt "10" ]; then
 		new=$((current + 1))
 		bspc monitor -a $new
-		bspc config border_width 3
 	fi
 ;;
 desktop-less)

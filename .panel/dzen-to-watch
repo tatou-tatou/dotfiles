@@ -43,7 +43,7 @@ lines=$(wc -l < $file)
 
 # CREATE THE POPUP
 (echo "$title"
-exec tail -f /tmp/dzen-watch-fifo) | dzen2 -p -m -x 872 -y 18 -w 408 -h 20 -fn 'MonteCarlo-8' -fg '#DED0B4' -bg '#1A1917' -l $lines -e "onstart=uncollapse,stick;button1=menuprint,exit,exec:$clean_tail:panel-torrents full;button3=exit,exec:$clean_tail:panel-torrents full;button4=scrollup;button5=scrolldown" | while read FNAME; do
+exec tail -f /tmp/dzen-watch-fifo) | dzen2 -p -m -x 872 -y 18 -w 408 -h 20 -fn 'MonteCarlo-8' -fg '#DED0B4' -bg '#1A1917' -l $lines -e "onstart=uncollapse;button1=menuprint,exit,exec:$clean_tail:panel-torrents full;button3=exit,exec:$clean_tail:panel-torrents full;button4=scrollup;button5=scrolldown" | while read FNAME; do
 	FNAME=${FNAME:4}
 	xdg-open "$DIR$FNAME" &
 done &

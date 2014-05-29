@@ -30,7 +30,7 @@ font = Menlo 8
 #font = Menlo 9
 #font = Consolas 10
 #font = Inconsolata 11
-#font = Ubuntu Mono bold 12
+#font = Ubuntu Mono bold 11
 
 # "system", "on" or "off"
 cursor_blink = on
@@ -49,13 +49,8 @@ browser = firefox
 #size_hints = false
 
 [colors]
-#foreground = #eddec9
-#foreground = #cfc1a8
 foreground = #ded0b4
-#foreground_bold = #eddec9
 foreground_bold = #ded0b4
-#foreground_dim = #888888
-#background = #1A1917
 background = #201F1D
 cursor = #ded0b4
 
@@ -67,8 +62,6 @@ highlight = #6b372C
 # Black
 color0 = #302C23
 color8 = #403A2E
-#color0 = #403A2E
-#color8 = #7A6F59
 
 # Red
 color1 = #A73E28
@@ -76,13 +69,11 @@ color9 = #85311E
 
 # Green
 color2 = #878438
-#color2 = #878438
 color10 = #62712C
 
 # Yellow
 color3 = #C4905E
 color11 = #C4A63B
-#color11 = #C9A62A
 
 # Blue
 color4 = #3D444E
