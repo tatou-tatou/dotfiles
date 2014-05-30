@@ -225,15 +225,13 @@ super + ugrave
     termite -e ranger
 
 XF86LaunchA
-#    firefox-nightly & dzen-notify "^fg(#A7341B)>^fg()  firefox" 200 1
-    firefox & notify-send "Firefox" "Launching firefox..." -i "firefox"
-#    firefox
+    run-or-raise firefox
 
 super + XF86LaunchA
-    thunar
+    run-or-raise thunar
 
 super + XF86LaunchB
-    nitrogen
+    run-or-raise nitrogen
 
 super + p
     dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
@@ -242,12 +240,16 @@ super + dead_grave
     mygtkmenu ~/.config/GTKmenu/StartMenuAnywhere
 
 XF86LaunchB
-    scrot ; mpv -vo null /usr/share/sounds/freedesktop/stereo/camera-shutter.oga & dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
-#    scrot & notify-send "<b><span foreground='#A73E28'>></span></b> Screenshot taken!"
+#    scrot ; mpv -vo null /usr/share/sounds/freedesktop/stereo/camera-shutter.oga & dzen-notify "^fg(#878438)Scrot^fg() !" 200 2
+    scrot ; notify-send "Scrot!" "Screenshot taken."
 
-#
-# dswitcher
-#
+super + mod5 + z
+    run-or-raise plank
+
+super + XF86MonBrightnessDown
+    run-or-raise transmission
+
+### dswitcher
 alt + Tab
     dswitcher
 
@@ -294,7 +296,7 @@ super + XF86AudioNext
 
 ### Coverart-meh
 mod5 + XF86AudioPlay
- coverart ; pkill not-stat ; not-stat -m
+ run-or-raise coverart
 
 ### Suivant
 XF86AudioNext

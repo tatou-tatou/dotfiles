@@ -33,7 +33,7 @@ nitrogen --restore &
 
 ## DAEMONS ##
 sxhkd &
-devmon --exec-on-video "notify-send '%f monté' 'Lancement de mpv...' -i mpv & mpc pause & mpv -vo opengl-hq dvdnav://menu" --exec-on-drive "thunar %d" --exec-on-disc "thunar %d" --exec-on-unmount "notify-send '%f' 'Le disque a été démonté correctement.' -i eject" &
+devmon --exec-on-video "notify-send '<b>%f monté</b>' '<i>Lancement de mpv...</i>' -i mpv & mpc pause & mpv -vo opengl-hq dvdnav://menu" --exec-on-drive "thunar %d" --exec-on-disc "thunar %d" --exec-on-unmount "notify-send '<b>%f</b>' '<i>Le disque a été démonté correctement.</i>' -i eject" &
 mpd &
 compton &
 mpdcron &
