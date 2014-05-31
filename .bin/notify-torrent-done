@@ -1,5 +1,5 @@
 #!/bin/sh
 export DISPLAY=:0
-notify-send "<b>Transmission</b>" "$TR_TORRENT_NAME completed." -i transmission &
+notify-send "Transmission" "$TR_TORRENT_NAME completed." -i transmission &
 echo "$TR_TORRENT_NAME" >> /home/tatou/Documents/To_watch
 panel-torrents

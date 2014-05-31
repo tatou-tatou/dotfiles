@@ -119,7 +119,7 @@
     padding = 6
     
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 6
     
     # Define a color for the separator.
     # possible values are:
