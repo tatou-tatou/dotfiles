@@ -1,6 +1,7 @@
 [global]
     #font = Lucida Grande 10
     font = DejaVu Sans 9
+    #font = Frutiger 57 Cn 12
 
     
     # Allow a small subset of html markup:

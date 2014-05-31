@@ -5,9 +5,8 @@ You will need [bar-aint-recursive](https://github.com/LemonBoy/bar) (for the pan
 
 Put those files in your $PATH. Sometimes, it might need a script I put in `~/.bin`, so look for it in the appropriate [place](https://github.com/tatou-tatou/dotfiles/tree/master/.bin).
 
-There's an **issue** (or a design choice, I don't know) with *bar* preventing from having more than ten clickable areas at the same time. I just increased the value of `N` in the *bar* source from 10 to 20, and it increased the limit somehow.
+The developper was lazy and haven't implemented a way to increase the number of clickable areas without recompiling: in the source code, there is a `define N 10` somewhere, increase that value to 20 for example.
 
-As I am not a developer and do not plan to be one, I don't really know C except for some very basic things, so no precise idea why it works, what are the consequences and why `N` was equal to 10 in the first place. Maybe it was a very bad idea to change that, but I don't really have the time to care right now. If you care, go bug LemonBoy, or take a look by yourself.
 
 
 ##Panel
@@ -107,4 +106,5 @@ Found it on Twily's [website](http://www.twily.info), tweaked it a little.
 
 If you click on the date in the panel, the calendar will pop. If you click again on the date, it will disappear.
 
-Do not forget to create `~/.panel/PID/calendar.pid`, else the above behavior will not happen.
+##To-watch list
+I use various scripts from my ~/.bin, I will write an explanation soon.

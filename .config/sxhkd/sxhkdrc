@@ -209,6 +209,10 @@ super + shift + colon
 super + shift + equal
     bspc-script desktop-plus
 
+### Using three finger swipe
+@button{10,11}
+    bspc desktop -f {prev,next}
+
 
 
 
