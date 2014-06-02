@@ -145,7 +145,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_folders = /home/tatou/.icons/Tatou/apps/48x48/:/48x48/status/
+    icon_folders = /home/tatou/.icons/Pixelfaker/apps/48x48/:/home/tatou/Pixelfaker/status/48x48/
 
 [frame]
     width = 3

@@ -19,6 +19,7 @@ Position=3
 #The dock's position offset from center (in percent).
 Offset=0
 #The name of the dock's theme to use.
+#Theme=Tatou_
 Theme=Tatou_
 #The alignment for the dock on the monitor's edge.  If 0, panel-mode.  If 1, right-aligned.  If 2, left-aligned.  If 3, centered.
 Alignment=3

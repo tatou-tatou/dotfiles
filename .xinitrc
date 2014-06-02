@@ -1,11 +1,11 @@
 #!/bin/sh
 
-#if [ -d /etc/X11/xinit/xinitrc.d ]; then
-#  for f in /etc/X11/xinit/xinitrc.d/*; do
-#    [ -x "$f" ] && . "$f"
-#  done
-#  unset f
-#fi
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
 
 
 ## SETTINGS ##
@@ -33,7 +33,10 @@ nitrogen --restore &
 
 ## DAEMONS ##
 sxhkd &
-devmon --exec-on-video "notify-send '<b>%f monté</b>' '<i>Lancement de mpv...</i>' -i mpv & mpc pause & mpv -vo opengl-hq dvdnav://menu" --exec-on-drive "thunar %d" --exec-on-disc "thunar %d" --exec-on-unmount "notify-send '<b>%f</b>' '<i>Le disque a été démonté correctement.</i>' -i eject" &
+devmon --exec-on-video "notify-send '%f mounted' 'Launching mpv...' -i mpv & mpc pause & mpv -vo opengl-hq dvdnav://menu"\
+	--exec-on-drive "thunar %d"\
+	--exec-on-disc "thunar %d"\
+	--exec-on-unmount "notify-send '%f' 'The device was successfully unmounted.' -i eject" &
 mpd &
 compton &
 mpdcron &
