@@ -1,0 +1,269 @@
+From 2676df8cc2c00fedc6deca4b4ea69f051fc3c85c Mon Sep 17 00:00:00 2001
+From: tatou-tatou <tatou-tatou@users.noreply.github.com>
+Date: Sun, 1 Jun 2014 20:04:52 +0200
+Subject: [PATCH 1/3] Removed active glow/shadow thingy
+
+---
+ lib/DockRenderer.vala | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/DockRenderer.vala b/lib/DockRenderer.vala
+index 2ef283d..fa98efa 100644
+--- a/lib/DockRenderer.vala
++++ b/lib/DockRenderer.vala
+@@ -530,9 +530,9 @@ namespace Plank
+ 			var opacity = double.min (1, active_time / (double) (theme.ActiveTime * 1000));
+ 			if ((item.State & ItemState.ACTIVE) == 0)
+ 				opacity = 1 - opacity;
+-			if (opacity > 0) {
+-				theme.draw_active_glow (main_buffer, background_rect, draw_value.background_region, item.AverageIconColor, opacity, controller.prefs.Position);
+-			}
++			//if (opacity > 0) {
++			//	theme.draw_active_glow (main_buffer, background_rect, draw_value.background_region, item.AverageIconColor, opacity, controller.prefs.Position);
++			//}
+ 			
+ 			// draw the icon shadow
+ 			if (icon_shadow_surface != null) {
+-- 
+1.9.3
+
+
+From 292f0df18b408e16abb3cf056cae2ca5ae90ec62 Mon Sep 17 00:00:00 2001
+From: tatou-tatou <tatou-tatou@users.noreply.github.com>
+Date: Sun, 1 Jun 2014 20:12:02 +0200
+Subject: [PATCH 2/3] Only one indicator is drawn, even if there are multiple
+ windows opened
+
+---
+ lib/DockRenderer.vala | 18 +++---------------
+ 1 file changed, 3 insertions(+), 15 deletions(-)
+
+diff --git a/lib/DockRenderer.vala b/lib/DockRenderer.vala
+index fa98efa..e06f72f 100644
+--- a/lib/DockRenderer.vala
++++ b/lib/DockRenderer.vala
+@@ -669,21 +669,9 @@ namespace Plank
+ 				break;
+ 			}
+ 			
+-			if (indicator == IndicatorState.SINGLE) {
+-				main_cr.set_source_surface (indicator_surface.Internal, x, y);
+-				main_cr.paint ();
+-			} else {
+-				var x_offset = 0.0, y_offset = 0.0;
+-				if (controller.prefs.is_horizontal_dock ())
+-					x_offset = controller.position_manager.IconSize / 16.0;
+-				else
+-					y_offset = controller.position_manager.IconSize / 16.0;
+-				
+-				main_cr.set_source_surface (indicator_surface.Internal, x - x_offset, y - y_offset);
+-				main_cr.paint ();
+-				main_cr.set_source_surface (indicator_surface.Internal, x + x_offset, y + y_offset);
+-				main_cr.paint ();
+-			}
++
++			main_cr.set_source_surface (indicator_surface.Internal, x, y);
++			main_cr.paint ();
+ 		}
+ 		
+ 		void draw_urgent_glow (DockItem item, Context cr)
+-- 
+1.9.3
+
+
+From 7b4c6ba3b7180f3168eb890203f2eb5faf03e9ee Mon Sep 17 00:00:00 2001
+From: tatou-tatou <tatou-tatou@users.noreply.github.com>
+Date: Sun, 1 Jun 2014 23:52:40 +0200
+Subject: [PATCH 3/3] Settings for indicator color and height
+
+---
+ data/themes/Default/dock.theme | 24 ++++++++++++++----------
+ lib/Drawing/DockTheme.vala     | 41 +++++++++++++++++++++++++----------------
+ lib/Drawing/Theme.vala         | 13 ++++++++++---
+ 3 files changed, 49 insertions(+), 29 deletions(-)
+
+diff --git a/data/themes/Default/dock.theme b/data/themes/Default/dock.theme
+index a3498e2..e8c5004 100644
+--- a/data/themes/Default/dock.theme
++++ b/data/themes/Default/dock.theme
+@@ -3,33 +3,37 @@
+ 
+ [PlankDrawingTheme]
+ #The roundness of the top corners.
+-TopRoundness=4
++TopRoundness=0
+ #The roundness of the bottom corners.
+ BottomRoundness=0
+ #The thickness (in pixels) of lines drawn.
+-LineWidth=1
++LineWidth=3
+ #The color (RGBA) of the outer stroke.
+-OuterStrokeColor=41;;41;;41;;255
++OuterStrokeColor=51;;47;;44;;255
+ #The starting color (RGBA) of the fill gradient.
+-FillStartColor=41;;41;;41;;255
++FillStartColor=221;;213;;198;;255
+ #The ending color (RGBA) of the fill gradient.
+-FillEndColor=80;;80;;80;;255
++FillEndColor=221;;213;;198;;255
+ #The color (RGBA) of the inner stroke.
+-InnerStrokeColor=255;;255;;255;;255
++InnerStrokeColor=221;;213;;198;;255
++#The color (RGBA) of the indicator.
++IndicatorColor=167;;62;;40;;255
+ 
+ [PlankDrawingDockTheme]
+ #The padding on the left/right dock edges, in tenths of a percent of IconSize.
+ HorizPadding=0
+ #The padding on the top dock edge, in tenths of a percent of IconSize.
+-TopPadding=-11
++TopPadding=1
+ #The padding on the bottom dock edge, in tenths of a percent of IconSize.
+-BottomPadding=2.5
++BottomPadding=2
+ #The padding between items on the dock, in tenths of a percent of IconSize.
+ ItemPadding=2
+ #The size of item indicators, in tenths of a percent of IconSize.
+-IndicatorSize=5
++IndicatorSize=4
++#The height of item indicators, in pixels.
++IndicatorHeight=3
+ #The size of the icon-shadow behind every item, in tenths of a percent of IconSize.
+-IconShadowSize=1
++IconShadowSize=0
+ #The height (in percent of IconSize) to bounce an icon when the application sets urgent.
+ UrgentBounceHeight=1.6666666666666667
+ #The height (in percent of IconSize) to bounce an icon when launching an application.
+diff --git a/lib/Drawing/DockTheme.vala b/lib/Drawing/DockTheme.vala
+index e47a7e7..8c46f40 100644
+--- a/lib/Drawing/DockTheme.vala
++++ b/lib/Drawing/DockTheme.vala
+@@ -44,9 +44,12 @@ namespace Plank.Drawing
+ 		[Description(nick = "item-padding", blurb = "The padding between items on the dock, in tenths of a percent of IconSize.")]
+ 		public double ItemPadding { get; set; }
+ 		
+-		[Description(nick = "indicator-size", blurb = "The size of item indicators, in tenths of a percent of IconSize.")]
++		[Description(nick = "indicator-size", blurb = "The width of item indicators, in tenths of a percent of IconSize.")]
+ 		public double IndicatorSize { get; set; }
+ 		
++		[Description(nick = "indicator-height", blurb = "The height of item indicators, in pixels.")]
++		public int IndicatorHeight { get; set; }
++
+ 		[Description(nick = "icon-shadow-size", blurb = "The size of the icon-shadow behind every item, in tenths of a percent of IconSize.")]
+ 		public double IconShadowSize { get; set; }
+ 		
+@@ -121,7 +124,8 @@ namespace Plank.Drawing
+ 			TopPadding = -11.0;
+ 			BottomPadding = 2.5;
+ 			ItemPadding = 2.0;
+-			IndicatorSize = 5.0;
++			IndicatorSize = 4.0;
++			IndicatorHeight = 2;
+ 			IconShadowSize = 1.0;
+ 			UrgentBounceHeight = 5.0 / 3.0;
+ 			LaunchBounceHeight = 0.625;
+@@ -212,9 +216,12 @@ namespace Plank.Drawing
+ 		 */
+ 		public DockSurface create_indicator (int size, Color color, DockSurface model)
+ 		{
+-			Logger.verbose ("DockTheme.create_indicator (size = %i)", size);
++
++			var indicator_height = IndicatorHeight;
++
++			Logger.verbose ("DockTheme.create_indicator (size = %i, height = %i)", size, indicator_height);
+ 			
+-			var surface = new DockSurface.with_dock_surface (size, size, model);
++			var surface = new DockSurface.with_dock_surface (size, indicator_height+1, model);
+ 			surface.clear ();
+ 			
+ 			if (size <= 0)
+@@ -222,21 +229,18 @@ namespace Plank.Drawing
+ 			
+ 			unowned Context cr = surface.Context;
+ 			
+-			var x = size / 2;
+-			var y = x;
++			var indicator_width = size;
++
++			var x = 0;
++			var y = 0;
+ 			
+ 			cr.move_to (x, y);
+-			cr.arc (x, y, size / 2, 0, Math.PI * 2);
++			cr.rel_line_to (indicator_width, 0);
++			cr.rel_line_to (0, indicator_height);
++			cr.rel_line_to (-indicator_width, 0);
++			cr.rel_line_to (0, -indicator_height);
+ 			
+-			var rg = new Pattern.radial (x, y, 0, x, y, size / 2);
+-			rg.add_color_stop_rgba (0, 1, 1, 1, 1);
+-			rg.add_color_stop_rgba (0.1, color.R, color.G, color.B, 1);
+-			rg.add_color_stop_rgba (0.2, color.R, color.G, color.B, 0.6);
+-			rg.add_color_stop_rgba (0.25, color.R, color.G, color.B, 0.25);
+-			rg.add_color_stop_rgba (0.5, color.R, color.G, color.B, 0.15);
+-			rg.add_color_stop_rgba (1.0, color.R, color.G, color.B, 0.0);
+-			
+-			cr.set_source (rg);
++			cr.set_source_rgba (IndicatorColor.R, IndicatorColor.G, IndicatorColor.B, IndicatorColor.A);
+ 			cr.fill ();
+ 			
+ 			return surface;
+@@ -554,6 +558,11 @@ namespace Plank.Drawing
+ 				else if (IndicatorSize > MAX_INDICATOR_SIZE)
+ 					IndicatorSize = MAX_INDICATOR_SIZE;
+ 				break;
++
++			case "IndicatorHeight":
++				if (IndicatorHeight < 1)
++					IndicatorHeight = 1;
++				break;
+ 			
+ 			case "IconShadowSize":
+ 				if (IconShadowSize < 0)
+diff --git a/lib/Drawing/Theme.vala b/lib/Drawing/Theme.vala
+index 4934517..d9639d6 100644
+--- a/lib/Drawing/Theme.vala
++++ b/lib/Drawing/Theme.vala
+@@ -54,6 +54,9 @@ namespace Plank.Drawing
+ 		[Description(nick = "inner-stroke-color", blurb = "The color (RGBA) of the inner stroke.")]
+ 		public Color InnerStrokeColor { get; set; }
+ 		
++		[Description(nick = "indicator-color", blurb = "The color (RGBA) of the indicator.")]
++		public Color IndicatorColor { get; set; }
++		
+ 		public Theme ()
+ 		{
+ 			theme_folder = get_theme_folder (DEFAULT_NAME);
+@@ -69,15 +72,16 @@ namespace Plank.Drawing
+ 		 */
+ 		protected override void reset_properties ()
+ 		{
+-			TopRoundness    = 6;
+-			BottomRoundness = 6;
++			TopRoundness    = 0;
++			BottomRoundness = 0;
+ 			
+-			LineWidth = 1;
++			LineWidth = 3;
+ 			
+ 			OuterStrokeColor = { 0.1647, 0.1647, 0.1647, 1.0 };
+ 			FillStartColor   = { 0.1647, 0.1647, 0.1647, 1.0 };
+ 			FillEndColor     = { 0.3176, 0.3176, 0.3176, 1.0 };
+ 			InnerStrokeColor = { 1.0, 1.0, 1.0, 1.0 };
++			IndicatorColor   = { 0, 0, 0, 1.0 };
+ 		}
+ 		
+ 		/**
+@@ -301,6 +305,9 @@ namespace Plank.Drawing
+ 			
+ 			case "InnerStrokeColor":
+ 				break;
++
++			case "IndicatorColor":
++				break;
+ 			}
+ 		}
+ 		
+-- 
+1.9.3
+

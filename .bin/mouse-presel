@@ -1,0 +1,21 @@
+#!/bin/sh
+# Get the necessary info
+eval $(xdotool getmouselocation --shell)
+IFS=" " read -a window <<< $(xwinfo -g $(bspc query -W -w focused))
+
+# Distance to each side
+up=$(expr "$Y" - "${window[3]}")
+down=$(expr "${window[3]}" + "${window[1]}" - "$Y" )
+left=$(expr "$X" - "${window[2]}")
+right=$(expr "${window[2]}" + "${window[0]}" - "$X" )
+
+# Find the minimal distance
+dir_final="up"
+for dir in down left right; do
+if [ "${!dir}" -lt "${!dir_final}" ]; then
+	dir_final=$dir
+fi
+done
+
+# Send the presel signal
+bspc window -p $dir_final

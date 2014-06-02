@@ -9,13 +9,15 @@ BottomRoundness=0
 #The thickness (in pixels) of lines drawn.
 LineWidth=3
 #The color (RGBA) of the outer stroke.
-OuterStrokeColor=41;;40;;37;;255
+OuterStrokeColor=153;;82;;74;;255
 #The starting color (RGBA) of the fill gradient.
-FillStartColor=194;;173;;157;;255
+FillStartColor=216;;206;;190;;255
 #The ending color (RGBA) of the fill gradient.
-FillEndColor=194;;173;;157;;255
+FillEndColor=216;;206;;190;;255
 #The color (RGBA) of the inner stroke.
-InnerStrokeColor=194;;173;;157;;255
+InnerStrokeColor=216;;206;;190;;255
+#The color (RGBA) of the indicator.
+IndicatorColor=153;;82;;74;;255
 
 [PlankDrawingDockTheme]
 #The padding on the left/right dock edges, in tenths of a percent of IconSize.
@@ -26,8 +28,10 @@ TopPadding=1
 BottomPadding=2
 #The padding between items on the dock, in tenths of a percent of IconSize.
 ItemPadding=2
-#The size of item indicators, in tenths of a percent of IconSize.
+#The width of item indicators, in tenths of a percent of IconSize.
 IndicatorSize=4
+#The height of item indicators, in pixels.
+IndicatorHeight=3
 #The size of the icon-shadow behind every item, in tenths of a percent of IconSize.
 IconShadowSize=0
 #The height (in percent of IconSize) to bounce an icon when the application sets urgent.
