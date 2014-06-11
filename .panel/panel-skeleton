@@ -14,7 +14,11 @@ while read -r line ; do
             ;;
 	m*)
             # not-stat
-            musique="${line#?}"
+            notstat="${line#?}"
+            ;;
+	y*)
+	    # Stand alone music player
+            music="${line#?}"
             ;;
 	n*)
             # stat-not
@@ -70,5 +74,5 @@ while read -r line ; do
             done
             ;;
     esac
-    printf "%s\n" "$wm_infos$config$musique $layout %{c}$stat %{r} $torrents$mails%{A:dzen-cal &:}$horloge%{A}"
+    printf "%s\n" "$wm_infos$config$music$notstat $layout %{c}$stat %{r} $torrents$mails%{A:dzen-cal &:}$horloge%{A}"
 done

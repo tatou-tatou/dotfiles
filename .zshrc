@@ -39,7 +39,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -r' 'fg=white,bg=red')
 # Prompt
 autoload -U promptinit
 promptinit
-PROMPT=" %{$fg_bold[black]%}%{$reset_color%} "
+PROMPT=" %{$fg_bold[black]%}▪%{$reset_color%} "
 #PROMPT=" %{$fg[black]%}▪%{$reset_color%} "
 #PROMPT=" %{$bg[black]%}%{$fg_bold[black]%}%{$reset_color%} "
 RPROMPT="%{$fg_bold[black]%}%3~%{$reset_color%}"
