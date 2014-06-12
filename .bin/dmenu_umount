@@ -7,9 +7,9 @@ lines=$(echo mountlist | wc -l)
 if [ -z "$mountlist" ]
 then
 	#notify-send -t 0 "Rien n'est monté !"
-	echo "Rien n'est monté !" | dmenu -i -x 415 -y 330 -w 450 -l 1 -h 20 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER' > /dev/null
+	echo "Rien n'est monté !" | dmenu -i -x 415 -y 330 -w 450 -l 1 -h 20 -fn 'Lucida Grande 8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER' > /dev/null
 else
-	device="$(echo "$mountlist" | dmenu -i -x 415 -y 330 -w 450 -l 4 -h 20 -fn 'Lucida Grande-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER')"
+	device="$(echo "$mountlist" | dmenu -i -x 415 -y 330 -w 450 -l 4 -h 20 -fn 'Lucida Grande 8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9' -p 'DÉMONTER')"
 	echo "$device"
 	udevil umount "$device"
 fi

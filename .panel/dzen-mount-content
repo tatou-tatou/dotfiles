@@ -1,0 +1,37 @@
+#!/bin/bash
+lines="$1"
+
+mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/media")
+lines_new=$(echo "$mountlist" | wc -l)
+
+difference=$(($lines - $lines_new))
+
+i=1
+
+#(echo "$title"
+if [ -z "$mountlist" ]; then
+	(echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg() The list is empty!"
+
+	i=1
+	while [ "$i" -le "$difference" ]
+	do
+		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
+		i=$((i+1))
+	done
+
+	) > /tmp/dzen-mount-fifo
+else
+	(echo "$mountlist" | while read line; do
+		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,udevil umount '$line'; dzen-mount-content $lines)^ca() ^fg()^bg() $line"
+		i=$((i+1))
+	done
+
+	i=1
+	while [ "$i" -le "$difference" ]
+	do
+		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
+		i=$((i+1))
+	done
+
+	) > /tmp/dzen-mount-fifo
+fi
