@@ -52,7 +52,7 @@ alias tsm="transmission-remote-cli"
 alias azerty='setxkbmap -model macintosh -layout fr'
 alias qwerty='setxkbmap -model macintosh -layout us'
 alias winecd='ranger ~/.wine/drive_c/Program\ Files/'
-alias mutt='mutt ; panel-mail'
+#alias mutt='mutt ; panel-mail'
 alias fusionpdf='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./output.pdf'
 #alias rt='tmux attach -t rt'
 alias getmail='/usr/bin/getmail -v --rcfile gmail --rcfile tatou --rcfile free ; panel-mail'
@@ -66,7 +66,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias mkdir='mkdir -p -v'
 alias cls='echo -ne "\033c"'
-alias todo='vim ~/Documents/TODO'
+#alias todo='vim ~/Documents/TODO'
 mkcdir() { /bin/mkdir -p "$@" && cd "$_"; }
 
 # Sécurité

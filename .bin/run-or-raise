@@ -17,6 +17,16 @@ transmission)
 	wid=$(xdo id -p "$pid" | head -n 1)
 	pgrep -f "termite -e transmission-remote-cli" > /dev/null && wmctrl -i -a "$wid" || termite -e transmission-remote-cli
 ;;
+ncmpcpp)
+	pid=$(pgrep -o -f "termite -e ncmpcpp")
+	wid=$(xdo id -p "$pid" | head -n 1)
+	pgrep -f "termite -e ncmpcpp" > /dev/null && wmctrl -i -a "$wid" || termite -e ncmpcpp
+;;
+mutt)
+	pid=$(pgrep -o -f "termite -e mutt")
+	wid=$(xdo id -p "$pid" | head -n 1)
+	pgrep -f "termite -e mutt" > /dev/null && wmctrl -i -a "$wid" || termite -e mutt
+;;
 coverart)
 	pgrep -f "coverart" > /dev/null && wmctrl -a "meh" || coverart
 ;;

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Load settings (color, etc)
 #. panel-settings
 
 #
@@ -9,10 +10,10 @@
 cleaning ()
 {
 	pkill -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20"
-	pkill -f 'tail -f /tmp/dzen-mount-fifo'
+	pkill -f 'tail -f /tmp/dzen-menu-fifo'
 	panel-torrents full
 }
-clean_tail="pkill -f 'tail -f /tmp/dzen-mount-fifo'"
+clean_tail="pkill -f 'tail -f /tmp/dzen-menu-fifo'"
 pgrep -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20" > /dev/null && $(cleaning) && exit
 
 
@@ -25,17 +26,17 @@ mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/media")
 lines=$(echo "$mountlist" | wc -l)
 
 # FIFO
-[ -e "/tmp/dzen-mount-fifo" ] && rm "/tmp/dzen-mount-fifo"
-mkfifo "/tmp/dzen-mount-fifo"
+[ -e "/tmp/dzen-menu-fifo" ] && rm "/tmp/dzen-menu-fifo"
+mkfifo "/tmp/dzen-menu-fifo"
 
 # TITLE
 title="^fg(#878438)Mounted drive^fg() list:"
 
 # CREATE THE POPUP
 (echo "$title"
-exec tail -f /tmp/dzen-mount-fifo) | dzen2 -p -m -x -408 -y 18 -w 408 -h 20 -fn 'MonteCarlo-8' -fg '#DED0B4' -bg '#1A1917' -l $lines -e "onstart=uncollapse;button1=menuprint,exit,exec:$clean_tail;button3=exit,exec:$clean_tail;button4=scrollup;button5=scrolldown" | while read FNAME; do
+exec tail -f /tmp/dzen-menu-fifo) | dzen2 -p -m -x -408 -y 18 -w 408 -h 20 -fn 'MonteCarlo-8' -fg '#DED0B4' -bg '#1A1917' -l $lines -e "onstart=uncollapse;button1=menuprint,exit,exec:$clean_tail;button3=exit,exec:$clean_tail;button4=scrollup;button5=scrolldown" | while read FNAME; do
 	case $FNAME in
-	"Rien n'est monté !")
+	"The list is empty!")
 		break
 		;;
 	*)

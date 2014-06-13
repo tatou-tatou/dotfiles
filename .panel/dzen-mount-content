@@ -19,7 +19,7 @@ if [ -z "$mountlist" ]; then
 		i=$((i+1))
 	done
 
-	) > /tmp/dzen-mount-fifo
+	) > /tmp/dzen-menu-fifo
 else
 	(echo "$mountlist" | while read line; do
 		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,udevil umount '$line'; dzen-mount-content $lines)^ca() ^fg()^bg() $line"
@@ -33,5 +33,5 @@ else
 		i=$((i+1))
 	done
 
-	) > /tmp/dzen-mount-fifo
+	) > /tmp/dzen-menu-fifo
 fi

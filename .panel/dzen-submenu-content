@@ -14,19 +14,19 @@ if [ $1 == "Mu" ]; then
 	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()^ca(1,panel-music_control ; $closing)^fg(#53414A)^ca() "
 elif [ $1 == "Mc" ]; then
 	title="Music "
-	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()^ca(1,panel-monitor Mu ; $closing)^fg(#53414A)^ca() "
+	message=" ^ca(1,coverart)^fg(#A73E28)^ca()^ca(1,termite -e 'mpdviz -i true')^fg(#99704A)^ca()^ca(1,termite -e ncmpcpp &)^fg(#878438)^ca()   "
 else
 	## Slider type
 	case $1 in
 		Vm)
 			n=$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)
 			n=$(($n/10))
-			title="Master"
+			title="^ca(1,amixer set Master 0 ; pkill not-stat ; not-stat -V &)Master^ca()"
 			;;
 		Vp)
 			n=$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)
 			n=$(($n/10))
-			title="Volume"
+			title="^ca(1,amixer set PCM 0 ; pkill not-stat ; not-stat -v &)Volume^ca()"
 			;;
 		Sc)
 			n="$(cat $brightness_path)"

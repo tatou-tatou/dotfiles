@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Info
 . panel-settings
+xpos=$2
 
 #
 # Close and clean if a dzen submenu is already opened
@@ -15,6 +17,7 @@ if [[ -n "$previouspid" && "$(ps -p $previouspid -o comm=)" = "dzen2" ]]; then
 	echo "" > $dzen_popup_path
 	exit
 fi
+[ "$1" == "close" ] && exit
 
 #
 # Clean when dzen closes
@@ -28,17 +31,17 @@ closing="pkill -f 'tail -f /tmp/dzen-fifo' & echo '' > $dzen_popup_path"
 # Make the submenu window
 #
 
+case $1 in
+	Vm) xpos=$(($xpos - 42)) ;;
+	Vp) xpos=$(($xpos - 42)) ;;
+	Sc) xpos=$(($xpos - 30)) ;;
+	Mu) xpos=$(($xpos - 60)) ;;
+	Mc) xpos=$(($xpos - 60)) ;;
+	*)  exit ;;
+esac
+
 [ -e "/tmp/dzen-fifo" ] && rm "/tmp/dzen-fifo"
 mkfifo "/tmp/dzen-fifo"
-
-case $1 in
-	Vm) xpos=144 ;;
-	Vp) xpos=114 ;;
-	Sc) xpos=234 ;;
-	Mu) xpos=174 ;;
-	Mc) xpos=114 ;;
-	*)  xpos=144 ;;
-esac
 
 exec tail -f /tmp/dzen-fifo | dzen2 -p -w 156 -h 23 -y 18 -x $xpos -fn "MonteCarlo-8" -e "button3=exit,exec:$closing;sigusr1=exit,exec:$closing" & dzenpid=$!
 

@@ -32,6 +32,10 @@ super + z
 super + shift + z
     blank_window
 
+#
+# Mouse controls
+#________________
+
 ### Mouse preselection and mygtkmenu
 super + @button3
     MouseLaunch
@@ -39,6 +43,10 @@ super + @button3
 ### bspwm controls menu
 super + @button2
     mygtkmenu ~/.config/GTKmenu/BspwmMenu
+
+### Center mouse in the active window
+super + c
+    MouseCenter
 
 #
 # Active window
@@ -210,10 +218,6 @@ super + shift + colon
 super + shift + equal
     bspc-script desktop-plus
 
-### Using three finger swipe
-@button{10,11}
-    bspc desktop -f {prev,next}
-
 
 #
 # Misc
@@ -223,6 +227,17 @@ super + shift + equal
 super + g
     bspc config -m focused window_gap {0,6}
 
+#
+# Touchpad "gestures"
+#_____________________
+
+### Three finger swipe (left or right) to change desktop
+@button{10,11}
+    bspc desktop -f {prev,next}
+
+### Three finger swipe (up) to launch dswitcher
+@button8
+    dswitcher & xdotool mousemove 640 400
 
 
 ###################################
