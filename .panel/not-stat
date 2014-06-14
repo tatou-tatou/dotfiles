@@ -63,7 +63,7 @@ while getopts ":mbBdrvVMh" flags; do
 		message=" $(mpc current -f '%title%|%file%')"
 		if [ "$message" = " " ];then
 			icon=""
-			message=" (Nothing is playing!)"
+			message=" (Nothing is playing)"
 		fi
 	;;
 	b)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Load settings (color, etc)
+# Load settings (colors, etc)
 #. panel-settings
 
 #
@@ -20,7 +20,6 @@ pgrep -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20" > /dev/null && $(cleaning) && 
 #
 # Make the submenu window
 #
-
 # INFO
 mountlist=$(lsblk -l -o "MOUNTPOINT" | grep "/media")
 lines=$(echo "$mountlist" | wc -l)

@@ -8,7 +8,6 @@ difference=$(($lines - $lines_new))
 
 i=1
 
-#(echo "$title"
 if [ -z "$mountlist" ]; then
 	(echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg() The list is empty!"
 
