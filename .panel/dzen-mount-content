@@ -9,28 +9,28 @@ difference=$(($lines - $lines_new))
 i=1
 
 if [ -z "$mountlist" ]; then
-	(echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg() The list is empty!"
+    (echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg() The list is empty!"
 
-	i=1
-	while [ "$i" -le "$difference" ]
-	do
-		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
-		i=$((i+1))
-	done
+    i=1
+    while [ "$i" -le "$difference" ]
+    do
+        echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
+        i=$((i+1))
+    done
 
-	) > /tmp/dzen-menu-fifo
+    ) > /tmp/dzen-menu-fifo
 else
-	(echo "$mountlist" | while read line; do
-		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,udevil umount '$line'; dzen-mount-content $lines)^ca() ^fg()^bg() $line"
-		i=$((i+1))
-	done
+    (echo "$mountlist" | while read line; do
+        echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,udevil umount '$line'; dzen-mount-content $lines)^ca() ^fg()^bg() $line"
+        i=$((i+1))
+    done
 
-	i=1
-	while [ "$i" -le "$difference" ]
-	do
-		echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
-		i=$((i+1))
-	done
+    i=1
+    while [ "$i" -le "$difference" ]
+    do
+        echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
+        i=$((i+1))
+    done
 
-	) > /tmp/dzen-menu-fifo
+    ) > /tmp/dzen-menu-fifo
 fi

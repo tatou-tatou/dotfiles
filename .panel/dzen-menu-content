@@ -1,13 +1,14 @@
 #!/bin/bash
-file="$2"
 lines="$1"
+file="$2"
+updatecmd="$3" #Command to update the panel icon
 lines_new=$(cat $file | wc -l)
 
 i=1
 
 (cat "$file" | while read line; do
-	echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,sed -i '${i}d' $file ; dzen-menu-content $lines $file; panel-torrents reduced)^ca() ^fg()^bg() $line"
-	i=$((i+1))
+    echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,sed -i '${i}d' $file ; dzen-menu-content $lines $file '$updatecmd'; $updatecmd)^ca() ^fg()^bg() $line"
+    i=$((i+1))
 done
 
 difference=$(($lines - $lines_new))
@@ -15,8 +16,8 @@ difference=$(($lines - $lines_new))
 i=1
 while [ "$i" -le "$difference" ]
 do
-	echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
-	i=$((i+1))
+    echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B)    ^fg()^bg()"
+    i=$((i+1))
 done
 
 ) > /tmp/dzen-menu-fifo

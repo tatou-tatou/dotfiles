@@ -18,7 +18,7 @@ right=$(expr "${window[2]}" + "${window[0]}" - "$X" )
 dir_final="up"
 for dir in down left right; do
 if [ "${!dir}" -lt "${!dir_final}" ]; then
-	dir_final=$dir
+    dir_final=$dir
 fi
 done
 

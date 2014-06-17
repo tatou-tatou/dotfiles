@@ -8,12 +8,13 @@
 
 cleaning ()
 {
-	pkill -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20"
-	pkill -f 'tail -f /tmp/dzen-menu-fifo'
-	panel-torrents full
+    pkill -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20"
+    pkill -f 'tail -f /tmp/dzen-menu-fifo'
+    panel-torrents full
+    panel-remind
 }
 
-clean_tail="pkill -f 'tail -f /tmp/dzen-menu-fifo' && panel-torrents full"
+clean_tail="pkill -f 'tail -f /tmp/dzen-menu-fifo' && panel-torrents full && panel-remind"
 
 pgrep -f "dzen2 -p -m -x -408 -y 18 -w 408 -h 20" > /dev/null && $(cleaning) && exit
 
@@ -37,18 +38,18 @@ title="^fg(#878438)To watch^fg() list:"
 lines=$(wc -l < $file)
 #if [ "$lines" -gt 6 ]
 #then
-#	lines=6
+#   lines=6
 #fi
 
 # CREATE THE POPUP
 (echo "$title"
 exec tail -f /tmp/dzen-menu-fifo) | dzen2 -p -m -x -408 -y 18 -w 408 -h 20 -fn 'MonteCarlo-8' -fg '#DED0B4' -bg '#1A1917' -l $lines -e "onstart=uncollapse;button1=menuprint,exit,exec:$clean_tail:panel-torrents full;button3=exit,exec:$clean_tail:panel-torrents full;button4=scrollup;button5=scrolldown" | while read FNAME; do
-	FNAME=${FNAME:4}
-	xdg-open "$DIR$FNAME" &
+    FNAME=${FNAME:4}
+    xdg-open "$DIR$FNAME" &
 done &
 
 # COLOR THE ARROW
 panel-torrents reduced
 
 # CREATE CONTENT FOR THE POPUP
-dzen-menu-content $lines $file
+dzen-menu-content $lines $file "panel-torrents reduced"
