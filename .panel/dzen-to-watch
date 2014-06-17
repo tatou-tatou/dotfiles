@@ -52,4 +52,5 @@ done &
 panel-torrents reduced
 
 # CREATE CONTENT FOR THE POPUP
-dzen-menu-content $lines $file "panel-torrents reduced"
+#dzen-menu-content $lines $file "panel-torrents reduced"
+dzen-menu-content towatch $lines

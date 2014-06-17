@@ -1,13 +1,26 @@
 #!/bin/bash
-lines="$1"
-file="$2"
-updatecmd="$3" #Command to update the panel icon
+content="$1"
+lines="$2"
+
+case $content in
+    towatch)
+        file="/home/tatou/.to_watch"
+        updatepanel="panel-torrents reduced"
+        #title="^fg(#878438)To watch^fg() list:"
+        panel-torrents reduced #Color the arrow
+        ;;
+    todo)
+        file="/home/tatou/.todo"
+        updatepanel=
+        #title="^fg(#878438)To do^fg() list:"
+        ;;
+esac
+
 lines_new=$(cat $file | wc -l)
 
 i=1
-
 (cat "$file" | while read line; do
-    echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,sed -i '${i}d' $file ; dzen-menu-content $lines $file '$updatecmd'; $updatecmd)^ca() ^fg()^bg() $line"
+    echo "^bg(#9D534A) ^bg(#201F1D)^fg(#ABA08B) ^ca(1,sed -i '${i}d' $file ; dzen-menu-content $content $lines; $updatepanel)^ca() ^fg()^bg() $line"
     i=$((i+1))
 done
 
