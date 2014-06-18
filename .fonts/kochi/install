@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#
+#  If you are not using one of the "normal" folders,
+# but a subfolder, don't forget to add it in your xorg.conf
+#  Something like this:
+#
+# Section "Files"
+#     FontPath "/home/anon/.fonts/kochi/"
+# EndSection
+#
+#  Alternatively, you can add xset +fp /path/to/folder
+# and xset fp rehash to your .xinitrc
+#
+
+
+# create the pcf file
+bdftopcf kochi.bdf > kochi.pcf
+
+# install the fonts
+mkfontdir ~/.fonts/kochi
+mkfontscale ~/.fonts/kochi
+xset +fp ~/.fonts/kochi
+xset fp rehash
+fc-cache -fv .
