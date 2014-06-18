@@ -48,7 +48,7 @@ premessage="m"
 # execute="your command"
 ## If you want two commands (the second one is executed with a right click)
 # execute="command1 : command2"
-execute="panel-monitor : panel-music_control"
+execute="panel-monitor : panel-music"
 text_execute="mpc toggle > /dev/null & : run-or-raise ncmpcpp &"
 
 #####################
@@ -70,7 +70,7 @@ while getopts ":mbBdrvVMh" flags; do
         dzenstatus=$(cat $dzen_popup_path)
         dzenstatus="${dzenstatus:0:2}"
         if [ "$dzenstatus" = "Sc" ]; then
-            dzen-submenu-content Sc &
+            dslider-content Sc &
         fi
 
         icon=""
@@ -116,7 +116,7 @@ while getopts ":mbBdrvVMh" flags; do
         dzenstatus=$(cat $dzen_popup_path)
         dzenstatus="${dzenstatus:0:2}"
         if [ "$dzenstatus" = "Vp" ]; then
-            dzen-submenu-content Vp &
+            dslider-content Vp &
         fi
 
         valeur_volume="$(amixer -q | grep -A5 PCM | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"
@@ -142,7 +142,7 @@ while getopts ":mbBdrvVMh" flags; do
         dzenstatus=$(cat $dzen_popup_path)
         dzenstatus="${dzenstatus:0:2}"
         if [ "$dzenstatus" = "Vm" ]; then
-            dzen-submenu-content Vm &
+            dslider-content Vm &
         fi
 
         valeur_volume="$(amixer -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d'%' -f1)"

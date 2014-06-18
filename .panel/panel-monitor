@@ -4,7 +4,7 @@
 . panel-settings
 
 ### Close the dzen popup if it exists ###
-dzen-submenu-window close
+dslider close
 
 ### Create the menu ###
 # If there is no argument => Create just the pink buttons
@@ -22,14 +22,14 @@ do
 
         case $B in
         Mu) #music
-            message=" %{A:mpc-script prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{AW:dzen-submenu-window Mu:}$arrow%{A} "
+            message=" %{A:mpc-script prev:}%{A} %{A:mpc toggle:}%{A} %{A:mpc next:}%{A} %{AW:dslider Mu:}$arrow%{A} "
             xpos="234"
         ;;
         Sc) # backlight
             down="sudo mbp_backlight down ; pkill not-stat ; not-stat -b &"
             up="sudo mbp_backlight up ; pkill not-stat ; not-stat -b &"
 
-            message=" %{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Sc:}$arrow%{A} "
+            message=" %{A:$down:}%{A}%{A:$up:}%{A}%{AW:dslider Sc:}$arrow%{A} "
             xpos="264"
         ;;
         Kb) # keyboard layout
@@ -56,7 +56,7 @@ do
             down="amixer set PCM 1dB- > /dev/null ; pkill not-stat ; not-stat -v &"
             up="amixer set PCM 1dB+ > /dev/null ; pkill not-stat ; not-stat -v &"
 
-            message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Vp:}$arrow%{A} "
+            message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dslider Vp:}$arrow%{A} "
             xpos="156"
         ;;
         Vm) # Master Volume
@@ -64,7 +64,7 @@ do
             down="amixer set Master 1dB- ; pkill not-stat ; not-stat -V &"
             up="amixer set Master 1dB+ ; pkill not-stat ; not-stat -V &"
 
-            message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Vm:}$arrow%{A} "
+            message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dslider Vm:}$arrow%{A} "
             xpos="186"
         ;;
         esac
@@ -75,7 +75,7 @@ do
         bg_button_final="$bg_button_selected"
         fg_button_final="$fg_button_selected"
 
-        dzen-submenu-window $B $xpos
+        dslider $B $xpos
 
     else
         ## For normal, unfocused, buttons ##
@@ -93,7 +93,7 @@ do
 done
 
 ### Add close button ###
-monitor+="%{B$bg_monitor}%{F$fg_close}%{A:echo c > /tmp/panel-fifo ; dzen-submenu-window close:}%{A} %{B-}%{F-}"
+monitor+="%{B$bg_monitor}%{F$fg_close}%{A:echo c > /tmp/panel-fifo ; dslider close:}%{A} %{B-}%{F-}"
 
 ### Send to panel ###
 echo "c" "$monitor" > /tmp/panel-fifo

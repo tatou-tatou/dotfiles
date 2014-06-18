@@ -1,2 +1,2 @@
 #!/bin/sh
-mutt ; panel-mail
+/usr/bin/mutt ; panel-mail
