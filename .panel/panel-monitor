@@ -28,6 +28,7 @@ do
         Sc) # backlight
             down="sudo mbp_backlight down ; pkill not-stat ; not-stat -b &"
             up="sudo mbp_backlight up ; pkill not-stat ; not-stat -b &"
+
             message=" %{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Sc:}$arrow%{A} "
             xpos="264"
         ;;
@@ -45,7 +46,7 @@ do
                 if [ "$layout" = "$currentLayout" ]; then
                     button="$layout"
                 else
-                    button="%{F#ff383428}%{A:$layoutCmd:}$layout%{A}%{F$fg_monitor}"
+                    button="%{F$inactive_kb}%{A:$layoutCmd:}$layout%{A}%{F$fg_monitor}"
                 fi
                 message+="$button "
             done
@@ -54,6 +55,7 @@ do
             setting="%{A:amixer set Master toggle ; pkill not-stat ; not-stat -M &:}M%{A} "
             down="amixer set PCM 1dB- > /dev/null ; pkill not-stat ; not-stat -v &"
             up="amixer set PCM 1dB+ > /dev/null ; pkill not-stat ; not-stat -v &"
+
             message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Vp:}$arrow%{A} "
             xpos="156"
         ;;
@@ -61,6 +63,7 @@ do
             setting="%{A:amixer set Master toggle ; pkill not-stat ; not-stat -M &:}M%{A} "
             down="amixer set Master 1dB- ; pkill not-stat ; not-stat -V &"
             up="amixer set Master 1dB+ ; pkill not-stat ; not-stat -V &"
+
             message=" $setting%{A:$down:}%{A}%{A:$up:}%{A}%{AW:dzen-submenu-window Vm:}$arrow%{A} "
             xpos="186"
         ;;

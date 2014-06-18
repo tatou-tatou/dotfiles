@@ -1,0 +1,15 @@
+#!/bin/sh
+
+file="/home/tatou/.todo"
+lines=$(cat $file | wc -l)
+
+if [ "$lines" -ne "0" ]
+then
+    icon=""
+    #message=" %{B#ff9B7046}%{A:dzen-to-do:} $icon $lines %{A}%{B-}"
+    message="%{B#ffA73E28}%{A:dzen-to-do:} $icon %{A}%{B-}"
+else
+    message=""
+fi
+
+echo "n$message" > /tmp/panel-fifo

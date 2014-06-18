@@ -17,7 +17,7 @@ then
         icon=""
     ;;
     esac
-    message=" %{B#ff9B7046}%{A:dzen-to-watch:run-or-raise transmission &:} $icon $lines %{A}%{B-}"
+    message=" %{B#ff9B7046}%{A:dzen-menu towatch:run-or-raise transmission &:} $icon $lines %{A}%{B-}"
 else
     message=""
 fi
