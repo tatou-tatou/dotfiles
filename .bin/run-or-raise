@@ -5,6 +5,7 @@ firefox)
 ;;
 plank) #Special case, I just want to put it on top
 	pgrep -f "plank" > /dev/null && xdo raise -n plank || plank
+    xdotool mousemove 640 800
 ;;
 thunar)
 	pgrep -f "thunar" > /dev/null && wmctrl -a "- File Manager" || thunar
