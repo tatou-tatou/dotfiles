@@ -284,22 +284,21 @@ alt + Tab
 
 ### Mute
 XF86AudioMute
- amixer set Master toggle ; pkill not-stat ; not-stat -M
+ amixer set Master toggle ; pkill not-stat ; not-stat Mt
 
 ### Volume
 XF86AudioRaiseVolume
- amixer set PCM 1dB+ ; pkill not-stat ; not-stat -v
-
+ amixer set PCM 1dB+ ; pkill not-stat ; not-stat Vp
 
 XF86AudioLowerVolume
- amixer set PCM 1dB- ; pkill not-stat ; not-stat -v
+ amixer set PCM 1dB- ; pkill not-stat ; not-stat Vp
 
 ### Master Volume
 super + XF86AudioRaiseVolume
- amixer set Master 1dB+ ; pkill not-stat ; not-stat -V
+ amixer set Master 1dB+ ; pkill not-stat ; not-stat Vm
 
 super + XF86AudioLowerVolume
- amixer set Master 1dB- ; pkill not-stat ; not-stat -V
+ amixer set Master 1dB- ; pkill not-stat ; not-stat Vm
 
 
 
@@ -317,7 +316,7 @@ super + XF86AudioPlay
 
 ### Infos musique
 super + XF86AudioNext
- pkill not-stat ; not-stat -m
+ pkill not-stat ; not-stat Mu
 
 ### Coverart-meh
 mod5 + XF86AudioPlay
@@ -352,17 +351,17 @@ XF86AudioPrev
 
 ### Écran
 XF86MonBrightnessUp
- sudo mbp_backlight up ; pkill not-stat ; not-stat -b
+ sudo mbp_backlight up ; pkill not-stat ; not-stat Sc
 
 XF86MonBrightnessDown
- sudo mbp_backlight down ; pkill not-stat ; not-stat -b
+ sudo mbp_backlight down ; pkill not-stat ; not-stat Sc
 
 ### Clavier
 XF86KbdBrightnessUp
- sudo keyboard-backlight up ; pkill not-stat ; not-stat -B
+ sudo keyboard-backlight up ; pkill not-stat ; not-stat Kl
 
 XF86KbdBrightnessDown
- sudo keyboard-backlight down ; pkill not-stat ; not-stat -B
+ sudo keyboard-backlight down ; pkill not-stat ; not-stat Kl
 
 
 
@@ -384,7 +383,7 @@ super + XF86Eject
 
 ### Batterie
 super + XF86MonBrightnessUp
- pkill not-stat ; not-stat -r
+ pkill not-stat ; not-stat Ba
 
 #
 # Misc
