@@ -1,34 +1,34 @@
 #!/bin/sh
 case $1 in
 firefox)
-	pgrep -f "firefox" > /dev/null && wmctrl -a Pentadactyl || (firefox & notify-send "Firefox" "Launching firefox..." -i "firefox")
+    pgrep -f "firefox" > /dev/null && wmctrl -a Pentadactyl || (firefox & notify-send "Firefox" "Launching firefox..." -i "firefox")
 ;;
 plank) #Special case, I just want to put it on top
-	pgrep -f "plank" > /dev/null && xdo raise -n plank || plank
+    pgrep -f "plank" > /dev/null && xdo raise -n plank || plank
     xdotool mousemove 640 800
 ;;
 thunar)
-	pgrep -f "thunar" > /dev/null && wmctrl -a "- File Manager" || thunar
+    pgrep -f "thunar" > /dev/null && wmctrl -a "- File Manager" || thunar
 ;;
 nitrogen)
-	pgrep -f "nitrogen" > /dev/null && wmctrl -a "nitrogen" || nitrogen
+    pgrep -f "nitrogen" > /dev/null && wmctrl -a "nitrogen" || nitrogen
 ;;
 transmission)
-	pid=$(pgrep -o -f "termite -e transmission-remote-cli")
-	wid=$(xdo id -p "$pid" | head -n 1)
-	pgrep -f "termite -e transmission-remote-cli" > /dev/null && wmctrl -i -a "$wid" || termite -e transmission-remote-cli
+    pid=$(pgrep -o -f "termite -e transmission-remote-cli")
+    wid=$(xdo id -p "$pid" | head -n 1)
+    pgrep -f "termite -e transmission-remote-cli" > /dev/null && wmctrl -i -a "$wid" || termite -e transmission-remote-cli
 ;;
 ncmpcpp)
-	pid=$(pgrep -o -f "termite -e ncmpcpp")
-	wid=$(xdo id -p "$pid" | head -n 1)
-	pgrep -f "termite -e ncmpcpp" > /dev/null && wmctrl -i -a "$wid" || termite -e ncmpcpp
+    pid=$(pgrep -o -f "termite -e ncmpcpp")
+    wid=$(xdo id -p "$pid" | head -n 1)
+    pgrep -f "termite -e ncmpcpp" > /dev/null && wmctrl -i -a "$wid" || termite -e ncmpcpp
 ;;
 mutt)
-	pid=$(pgrep -o -f "termite -e mutt-panel")
-	wid=$(xdo id -p "$pid" | head -n 1)
-	pgrep -f "termite -e mutt-panel" > /dev/null && wmctrl -i -a "$wid" || termite -e mutt-panel
+    pid=$(pgrep -o -f "termite -e mutt-panel")
+    wid=$(xdo id -p "$pid" | head -n 1)
+    pgrep -f "termite -e mutt-panel" > /dev/null && wmctrl -i -a "$wid" || termite -e mutt-panel
 ;;
 coverart)
-	pgrep -f "coverart" > /dev/null && wmctrl -a "meh" || coverart
+    pgrep -f "coverart" > /dev/null && wmctrl -a "meh" || coverart
 ;;
 esac
