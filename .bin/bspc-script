@@ -1,16 +1,16 @@
 #!/bin/sh
 case $1 in
 desktop-plus)
-	current=$(bspc query -D | tail -n 1)
+	current=$(bspc query -D | wc -l)
 	if [ "$current" -lt "10" ]; then
 		new=$((current + 1))
 		bspc monitor -a $new
 	fi
 ;;
 desktop-less)
-	current=$(bspc query -D | tail -n 1)
+	current=$(bspc query -D | wc -l)
 	if [ "$current" -gt "4" ]; then
-		bspc monitor -r $current
+        bspc monitor -r $(bspc query -D | sed -n ${current}p)
 	fi
 ;;
 *)
