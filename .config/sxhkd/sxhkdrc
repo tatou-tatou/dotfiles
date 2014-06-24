@@ -286,20 +286,29 @@ alt + Tab
 XF86AudioMute
  amixer set Master toggle ; pkill not-stat ; not-stat Mt
 
-### Volume
-XF86AudioRaiseVolume
- amixer set PCM 1dB+ ; pkill not-stat ; not-stat Vp
+### pavucontrol
+super + XF86AudioMute
+ pavucontrol
 
-XF86AudioLowerVolume
- amixer set PCM 1dB- ; pkill not-stat ; not-stat Vp
+### Volume
+#XF86AudioRaiseVolume
+# amixer set PCM 1%+ ; pkill not-stat ; not-stat Vp
+#
+#XF86AudioLowerVolume
+# amixer set PCM 1%- ; pkill not-stat ; not-stat Vp
 
 ### Master Volume
+XF86AudioRaiseVolume
+ amixer set Master 5%+ ; pkill not-stat ; not-stat Vm
+
 super + XF86AudioRaiseVolume
- amixer set Master 1dB+ ; pkill not-stat ; not-stat Vm
+ amixer set Master 1%+ ; pkill not-stat ; not-stat Vm
+
+XF86AudioLowerVolume
+ amixer set Master 5%- ; pkill not-stat ; not-stat Vm
 
 super + XF86AudioLowerVolume
- amixer set Master 1dB- ; pkill not-stat ; not-stat Vm
-
+ amixer set Master 1%- ; pkill not-stat ; not-stat Vm
 
 
 #
