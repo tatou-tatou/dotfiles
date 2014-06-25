@@ -25,12 +25,15 @@ super + Escape
     pkill -USR1 -x sxhkd
 
 ### Toggle visibility
-super + z
+super + alt + z
     bspc control --toggle-visibility
 
-### Blank window
+### Map or unmap windows (to replace the lack of "minimize")
+super + z
+    whid dmenu
+
 super + shift + z
-    blank_window
+    whid hide
 
 #
 # Mouse controls
@@ -299,16 +302,16 @@ super + XF86AudioMute
 
 ### Master Volume
 XF86AudioRaiseVolume
- amixer set Master 5%+ ; pkill not-stat ; not-stat Vm
+ amixer set Master 5%+ ; pkill not-stat ; not-stat Vl
 
 super + XF86AudioRaiseVolume
- amixer set Master 1%+ ; pkill not-stat ; not-stat Vm
+ amixer set Master 1%+ ; pkill not-stat ; not-stat Vl
 
 XF86AudioLowerVolume
- amixer set Master 5%- ; pkill not-stat ; not-stat Vm
+ amixer set Master 5%- ; pkill not-stat ; not-stat Vl
 
 super + XF86AudioLowerVolume
- amixer set Master 1%- ; pkill not-stat ; not-stat Vm
+ amixer set Master 1%- ; pkill not-stat ; not-stat Vl
 
 
 #
