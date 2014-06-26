@@ -59,75 +59,6 @@ Submenu = Move to...
 	icon = NULL
 
 
-Submenu = Desktop
-
-	icon = NULL
-
-	Submenu = Flip
-
-		icon = NULL
-
-		item = Vertical flip
-		cmd = bspc desktop -F horizontal
-		icon = NULL
-
-		item = Horizontal flip
-		cmd = bspc desktop -F vertical
-		icon = NULL
-
-	Submenu = Rotate
-
-		icon = NULL
-
-		item = +90°
-		cmd = bspc desktop -R 90
-		icon = NULL
-
-		item = -90°
-		cmd = bspc desktop -R -90
-		icon = NULL
-
-		item = +180°
-		cmd = bspc desktop -R 180
-		icon = NULL
-
-	separator
-
-	item = Balance windows
-	cmd = bspc desktop -B
-	icon = NULL
-
-	item = Equalize windows
-	cmd = bspc desktop -E
-	icon = NULL
-
-	separator
-
-	item = Rename current desktop
-	cmd = bspwm-zenity desktop-rename
-	icon = NULL
-
-	separator
-
-	item = Add a desktop
-	cmd = bspwm-zenity desktop-add
-	icon = NULL
-
-	item = Remove a desktop
-	cmd = bspwm-zenity desktop-remove
-	icon = NULL
-
-	separator
-
-	item = Swap with desktop
-	cmd = bspwm-zenity desktop-swap
-	icon = NULL
-
-	item = Move to another monitor
-	cmd =
-	icon = NULL
-
-
 Submenu = Manual
 
 	icon = NULL
@@ -187,10 +118,14 @@ icon = NULL
 
 separator
 
-item = Close window
-cmd = bspc window -c
+item = Hide window
+cmd = whid hide
 icon = NULL
 
-item = Close the window class
+item = Close window class
 cmd = xdo close -cd
+icon = NULL
+
+item = Close window
+cmd = bspc window -c
 icon = NULL
