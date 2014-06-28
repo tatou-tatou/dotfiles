@@ -1,6 +1,6 @@
 #! /bin/sh
 
-bspc monitor -d 1 2 3 4 # It needs to be numbers so the "click on tag to switch tag" feature works
+bspc monitor -d 1 2 3 4
 
 bspc config border_width 3
 bspc config -m focused border_width 3

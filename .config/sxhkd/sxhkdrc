@@ -3,6 +3,10 @@
 #    bspwm hotkeys    #
 #                     #
 #######################
+#
+# I use a french Apple AZERTY keyboard, the keys I use won't make
+# sense to most of you.
+#
 
 #
 # Global
@@ -24,26 +28,43 @@ super + q
 super + Escape
     pkill -USR1 -x sxhkd
 
-### Toggle visibility
-super + alt + z
-    bspc control --toggle-visibility
-
-### Map or unmap windows (to replace the lack of "minimize")
+### Map or unmap windows (functional equivalent of "minimize")
 super + z
     whid dmenu
 
 super + shift + z
     whid hide
 
+super + alt + z
+    whid last
+
+### Open next window in the next free desktop and follow it
+# If no desktop is free, create a new one
+super + f
+    bspcp empty next
+
+### Move focused window to the next free desktop
+# If no desktop is free, create a new one
+super + shift + f
+    bspcp empty move
+
+### Toggle window gaps
+super + g
+    bspc config -m focused window_gap {0,6}
+
+### Toggle visibility
+super + alt + shift + z
+    bspc control --toggle-visibility
+
 #
 # Mouse controls
 #________________
 
-### Mouse preselection and mygtkmenu
+### Launch programs with a right click menu.
 super + @button3
     MouseLaunch
 
-### bspwm controls menu
+### Bspwm controls in a middle click menu
 super + @button2
     mygtkmenu ~/.config/GTKmenu/BspwmMenu
 
@@ -51,28 +72,50 @@ super + @button2
 super + c
     MouseCenter
 
-#
-# Active window
-#_______________
+### Focus follows pointer
+~button1
+    bspc pointer -g focus
 
+### Resize
+super + alt + button1
+    bspc pointer -g resize_corner
+
+super + ctrl + button1
+    bspc pointer -g resize_side
+
+### Move
+super + button1
+    bspc pointer -g move
+
+### For the pointer events to be registered by bspwm
+super +{_,ctrl,alt +} !button{1-3}
+    bspc pointer -t %i %i
+
+super +{_,ctrl,alt +} @button{1-3}
+    bspc pointer -u
+
+
+#
+# Change the active window
+#__________________________
+### Window on the left/right/top/bottom
 super + {h,j,k,l}
     bspc window -f {left,down,up,right}
 
 super + {Left,Down,Up,Right}
     bspc window -f {left,down,up,right}
 
+### Previous/next window in the history
 super + {o,i}
     bspc control --record-history off; \
     bspc window {older,newer} -f; \
     bspc control --record-history on
 
+### Last focused window
 super + grave
     bspc window -f last
 
-~button1
-    bspc pointer -g focus
-
-### Next/prev window
+### Next/prev floating window or next/prev tiling window
 super + {_,mod5 + }{n,b}
     bspc window -f {next,prev}.{tiling,floating}
 
@@ -80,28 +123,28 @@ super + {_,mod5 + }{n,b}
 #
 # Move windows
 #______________
-
+### Move to the left/right/top/bottom
 super + shift + {h,j,k,l}
     bspc window -s {left,down,up,right}
 
 super + mod5 + {Left,Down,Up,Right}
     bspc window -s {left,down,up,right}
 
+### Switch with last window
 super + r
     bspc window -s last
 
+### Cycle the windows in the desktop
 super + {comma,semicolon}
     bspc desktop -C {backward,forward}
 
+### Move to last manual split
 super + y
     bspc window -w last.manual
 
+### Switch with biggest window in the desktop
 super + m
     bspc window -s biggest
-
-### Move to last manual split
-super + shift + m
-    bspc window -w last.manual
 
 ### Flip the tree
 super + equal
@@ -115,8 +158,8 @@ super + shift + {ugrave,dead_grave}
     bspc desktop -R {90,-90}
 
 #
-# Presel
-#________
+# Manual tiling
+#_______________
 
 # Send the presel signal
 super + ctrl + {h,j,k,l}
@@ -133,6 +176,9 @@ super + ctrl + space
 super + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla}
     bspc window -r 0.{1-9}
 
+### Move to last manual split
+super + shift + m
+    bspc window -w last.manual
 
 #
 # Window state
@@ -142,19 +188,23 @@ super + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,ex
 super + t
     bspc desktop -l next
 
+### Turn whole desktop to floating
+super + shift + t
+    bspc desktop -t floating
+
+### Force every existing floating windows to tile
+super + ctrl + t
+    bspcp tile
+
 ### Window state
-super + {shift+s,s,f,x,X,shift+p}
+super + {S,s,ctrl+f,x,X,P}
     bspc window -t {pseudo_tiled,floating,fullscreen,locked,sticky,private}
 
-#
+
 #
 # Resize windows
 #________________
-
-### Agrandir
-#mod5 + {h,j,k,l}
-#    bspc window -e {left -10,down +10,up -10,right +10}
-
+# Increase window size (or reduce it if you are next to the screen limit)
 mod5 + h
     bspc window -e left -10 || bspc window -e right -10
 
@@ -167,7 +217,7 @@ mod5 + k
 mod5 + l
     bspc window -e right +10 || bspc window -e left +10
 
-### Rétrécir
+### Reduce window size
 super + mod5 + {h,j,k,l}
     bspc window -e {right -10,up +10,down -10,left +10}
 
@@ -178,28 +228,12 @@ super + shift + e
 super + e
     bspc desktop -E
 
-### Mouse
-super + alt + button1
-    bspc pointer -g resize_corner
-
-super + ctrl + button1
-    bspc pointer -g resize_side
-
-super + button1
-    bspc pointer -g move
-
-super +{_,ctrl,alt +} !button{1-3}
-    bspc pointer -t %i %i
-
-super +{_,ctrl,alt +} @button{1-3}
-    bspc pointer -u
-
 
 #
 # Change desktop
 #________________
 
-### Change desktop, send window to desktop
+### Change desktop or send window to desktop
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
     bspc {desktop -f,window -d} ^{1-9,10}
 
@@ -216,19 +250,11 @@ super + Tab
 
 ### Add or remove desktop
 super + shift + colon
-    bspc-script desktop-less
+    bspcp dsktp rm
 
 super + shift + equal
-    bspc-script desktop-plus
+    bspcp dsktp add
 
-
-#
-# Misc
-#__________
-
-### Window gap
-super + g
-    bspc config -m focused window_gap {0,6}
 
 #
 # Touchpad "gestures"

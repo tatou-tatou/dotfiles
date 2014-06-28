@@ -37,11 +37,11 @@ Submenu = Move to...
 	icon = NULL
 
 	item = Desktop n°...
-	cmd = bspwm-zenity move-to-desktop
+	cmd = bspc-zen move-to-desktop
 	icon = NULL
 
 	item = Next empty desktop
-	cmd = bspc window -d next.free
+	cmd = bspcp empty move
 	icon = NULL
 
 	item = Last focused desktop
