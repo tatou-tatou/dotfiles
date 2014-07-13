@@ -46,7 +46,7 @@ dmenu)
     # If the list is empty
     if [ -z "$miniList" ]
     then
-        miniList=" Nothing is hidden!"
+        miniList="  Nothing is hidden!"
         linesDisplayed=1
     fi
 
